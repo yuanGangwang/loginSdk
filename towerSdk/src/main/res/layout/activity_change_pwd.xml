@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".activity.ChangePwdActivity">
+
+    <com.guuidea.towersdk.weight.NavigaView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/login_main_color"
+        app:naviTitle="@string/reset_pwd" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/step_one_int"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:background="@drawable/step_select"
+            android:gravity="center"
+            android:text="1"
+            android:textColor="#ffffffff"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/step_one_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="@string/verify_authentication"
+            android:textColor="#ff01875f"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/step_two_int"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:layout_marginLeft="32dp"
+            android:background="@drawable/step_unselect"
+            android:gravity="center"
+            android:text="2"
+            android:textColor="#ffffffff"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/step_two_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="@string/reset_pwd"
+            android:textColor="@color/gray_99"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/contentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp">
+
+        <com.guuidea.towersdk.weight.LoginCodeView
+            android:id="@+id/codeVerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:isLogin="false" />
+
+
+        <LinearLayout
+            android:id="@+id/setPwdView"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.guuidea.towersdk.weight.PwdEtView
+                android:id="@+id/pwdOne"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+            <com.guuidea.towersdk.weight.PwdEtView
+                android:id="@+id/pwdTwo"
+                android:layout_marginTop="28dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/pwd_rules"
+                android:textColor="#ff999999"
+                android:textSize="10sp" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <com.guuidea.towersdk.weight.StateButton
+        android:id="@+id/nextBtn"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="16dp"
+        app:btnTitle="@string/next" />
+
+    <TextView
+        android:id="@+id/changeAccountTypeTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:gravity="left"
+        android:text="@string/verify_via_email"
+        android:textColor="#ff333333"
+        android:textSize="10sp" />
+
+
+</LinearLayout>

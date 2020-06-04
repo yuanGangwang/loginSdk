@@ -1,0 +1,69 @@
+<resources>
+    <string name="app_name">tower</string>
+    <string name="forget">Forget?</string>
+    <string name="enterPwd">Enter password</string>
+    <string name="enter_code">Enter code</string>
+    <string name="mobile_number">Mobile number</string>
+    <string name="email">Email</string>
+    <string name="search">Search</string>
+    <string name="reset_pwd">Reset password</string>
+
+
+    <string name="Send">Send</string>
+    <string name="login">Log In</string>
+
+    <string name="tipLoginEmail">Your Email will be registered after verification</string>
+    <string name="tipLoginPhone">Your phone number will be registered after verification</string>
+
+    <string name="region">Region</string>
+
+    <string name="tab_phone_sms">Log in via SMS verification</string>
+    <string name="tab_phone_pwd">Log in via password</string>
+    <string name="tab_email_sms">Log in via E-mail verification</string>
+    <string name="log_in_via_email">Log in via Email</string>
+    <string name="log_in_via_mobile_number">Log in via mobile number</string>
+    <string name="verify_authentication">Verify Authentication</string>
+    <string name="next">Next</string>
+
+    <string name="verify_via_email">Verify via Email</string>
+    <string name="verify_via_phone">Verify via mobile number</string>
+    <string name="log_in_successful">Log in successful.</string>
+    <string name="pwd_rules">Password must be 8–16 characters and contain numbers and letters characters.</string>
+    <string name="invalid_phone">This phone number is invalid.</string>
+    <string name="invalid_email">This Email number is invalid.</string>
+    <string name="codeSendTips">Verification code has been sent</string>
+    <string name="pwdCodeVerifySuccess">Verification successful.</string>
+    <string name="reset_pwd_success">Reset successful</string>
+    <string name="pwd_not_match">Passwords do not match.</string>
+
+
+    <string-array name="email">
+
+        <item>\@gmail.com</item>
+        <item>\@yahoo.com</item>
+        <item>\@foxmail.com</item>
+        <item>\@outlook.com</item>
+        <item>\@msn.com</item>
+        <item>\@hotmail.com</item>
+        <item>\@163.com</item>
+        <item>\@126.com</item>
+        <item>\@qq.com</item>
+        <item>\@sohu.com</item>
+        <item>\@sina.cn</item>
+        <item>\@vip.163.com</item>
+        <item>\@vip.126.com</item>
+        <item>\@188.com</item>
+        <item>\@yeah.net</item>
+        <item>\@139.com</item>
+        <item>\@sina.com</item>
+        <item>\@189.cn</item>
+        <item>\@live.cn</item>
+        <item>\@tom.com</item>
+        <item>\@live.com</item>
+        <item>\@aliyun.com</item>
+        <item>\@21cn.com</item>
+        <item>\@corp.netease.com</item>
+        <item>\@letv.com</item>
+
+    </string-array>
+</resources>

@@ -1,0 +1,87 @@
+apply plugin: 'com.android.library'
+apply plugin: 'maven'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    implementation 'com.googlecode.libphonenumber:libphonenumber:8.2.0'
+    api 'com.google.code.gson:gson:2.8.6'
+}
+
+def publishedGroupId = 'com.guuidea.tower'
+def artifact_Id = 'babel'
+def artifact_version = '0.0.1-SNAPSHOT'
+
+
+uploadArchives{
+    repositories.mavenDeployer{
+//        repository(url: uri('../repository'))
+        repository(url:"file://C://repository/")
+        // 唯一标识
+        pom.groupId = "com.my.test"
+        // 项目名称
+        pom.artifactId = "myaar"
+        // 版本号
+        pom.version = "1.0.5"
+    }
+}
+
+//
+//uploadArchives {
+//    def props = new Properties()
+//    new File(rootDir, "/use.properties").withInputStream {
+//        stream -> props.load(stream)
+//    }
+//    repositories {
+//        mavenDeployer {
+//            snapshotRepository(url: "${props["maven.snaUrl"]}") {
+//                authentication(userName: "${props["maven.userName"]}", password: "${props["maven.userPass"]}")
+//            }
+//
+//            repository(url: "${props["maven.url"]}") {
+//                authentication(userName: "${props["maven.userName"]}", password: "${props["maven.userPass"]}")
+//
+//            }
+//
+//            pom.project {
+//                groupId publishedGroupId
+//                artifactId artifact_Id
+//                version artifact_version
+//                packaging 'aar'
+//                description 'auxiliary keep live'
+//            }
+//        }
+//    }
+//}

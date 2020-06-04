@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="naviga">
+        <!--标题-->
+        <attr name="naviTitle" format="string" />
+        <!--标题颜色-->
+        <attr name="naviTitleColor" format="color" />
+        <attr name="naviTitleSize" format="dimension" />
+
+        <!--导航背景颜色-->
+        <attr name="naviBackGround" format="color" />
+
+        <!--是否覆盖状态栏-->
+        <attr name="isCoverStatus" format="boolean" />
+        <!--状态栏颜色-->
+        <attr name="naviStatusColor" format="color" />
+
+        <!--返回图片-->
+        <attr name="naviBackImg" format="reference" />
+        <!--返回文字-->
+        <attr name="naviBackText" format="string" />
+        <attr name="naviBackColor" format="color" />
+
+        <attr name="searchIcon" format="reference" />
+        <attr name="menuIcon" format="reference" />
+
+        <!--是否显示分割线图片-->
+        <attr name="hasNaviDivider" format="boolean" />
+        <!--分割线颜色-->
+        <attr name="naviDividerColor" format="color" />
+
+    </declare-styleable>
+
+
+    <declare-styleable name="LoginCodeView">
+        <attr name="codeType">
+            <enum name="phone" value="0" />
+            <enum name="email" value="1" />
+        </attr>
+        <attr name="isLogin" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="LoginPwdView">
+        <attr name="pwdType">
+            <enum name="phone" value="0" />
+            <enum name="email" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="StateButton">
+        <attr name="btnTitle" format="string"></attr>
+    </declare-styleable>
+</resources>
