@@ -50,7 +50,6 @@ public class QMUIDeviceHelper {
             sFlymeVersionName = getLowerCaseName(properties, getMethod, KEY_FLYME_VERSION_NAME);
 
         } catch (Exception e) {
-            Log.e(TAG, "getProperty error");
         } finally {
             if (fileInputStream != null) {
                 try {

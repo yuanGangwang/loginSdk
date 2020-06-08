@@ -122,7 +122,6 @@ public class EmailLoginFragment extends LoginBaseFragment {
 
             @Override
             public void onResponse(JsonObject response) {
-                Log.i("TowerMsg", "onResponse: Email验证码已发送");
             }
         });
     }

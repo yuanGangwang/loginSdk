@@ -130,7 +130,6 @@ class RealRequest {
     private void setHeader(HttpURLConnection conn, Map<String, String> headerMap) {
         if (headerMap != null) {
             for (String key : headerMap.keySet()) {
-                Log.i("Request", "setHeader: " + key + " = " + headerMap.get(key));
                 conn.setRequestProperty(key, headerMap.get(key));
             }
         }

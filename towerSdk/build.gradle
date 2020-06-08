@@ -54,7 +54,7 @@ uploadArchives{
         // 项目名称
         pom.artifactId = "myaar"
         // 版本号
-        pom.version = "1.0.5"
+        pom.version = "1.0.6"
     }
 }
 

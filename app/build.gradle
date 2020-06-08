@@ -39,7 +39,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.1.0'
     api 'com.google.code.gson:gson:2.8.6'
 
-    implementation project(path: ':towerSdk')
-//    implementation 'com.my.test:myaar:1.0.5'
+//    implementation project(path: ':towerSdk')
+    implementation 'com.my.test:myaar:1.0.6'
 
 }

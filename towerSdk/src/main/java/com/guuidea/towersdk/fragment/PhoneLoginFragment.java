@@ -49,7 +49,6 @@ public class PhoneLoginFragment extends LoginBaseFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mViewModel = new LoginViewModel();
-        Log.i(TAG, "onActivityCreated: ");
     }
 
     @Override
@@ -58,7 +57,6 @@ public class PhoneLoginFragment extends LoginBaseFragment {
         tabSms = view.findViewById(R.id.tabSms);
         tabPwd = view.findViewById(R.id.tabPwd);
 
-        Log.i(TAG, "onViewCreated: ");
         smsLine = view.findViewById(R.id.tabSmsLine);
         pwdLine = view.findViewById(R.id.tabPwdLine);
 

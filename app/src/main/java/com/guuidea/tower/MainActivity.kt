@@ -2,7 +2,6 @@ package com.guuidea.tower
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
@@ -17,7 +16,9 @@ import org.json.JSONObject
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
+
     var appkey = "8089c1b7821304f8c993c8b1c8f21350"
+    val appSecret = "ODxYzhmMjEzNTA="
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +42,6 @@ class MainActivity : AppCompatActivity() {
                     override fun onError(throwable: Throwable?) {
                         addMsg(throwable?.message + "")
                     }
-
                 })
         }
 
@@ -71,11 +71,9 @@ class MainActivity : AppCompatActivity() {
                 addMsg("获取凭证成功" + response?.get("data")?.asString)
                 getToken(response?.get("data")?.asString)
             }
-        }
-        )
+        })
     }
 
-    val appSecret = "ODxYzhmMjEzNTA="
     private fun getToken(code: String?) {
         val params = HashMap<String, String>()
         params["appKey"] = appkey
@@ -125,7 +123,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun addMsg(info: String) {
-        Log.i("sa", info)
         msg.setText(msg.text.toString() + "\n" + info)
     }
 
