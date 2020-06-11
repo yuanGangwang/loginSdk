@@ -37,7 +37,7 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     implementation 'com.googlecode.libphonenumber:libphonenumber:8.2.0'
-    api 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.google.code.gson:gson:2.8.6'
 }
 
 def publishedGroupId = 'com.guuidea.tower'
@@ -54,7 +54,7 @@ uploadArchives{
         // 项目名称
         pom.artifactId = "myaar"
         // 版本号
-        pom.version = "1.0.6"
+        pom.version = "1.0.7"
     }
 }
 

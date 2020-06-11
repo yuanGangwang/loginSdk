@@ -13,22 +13,41 @@
         android:text="Login" />
 
     <Button
-        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="获取用户信息" />
+        android:text="获取用户信息"
+        android:visibility="gone" />
 
     <Button
-        android:visibility="gone"
         android:id="@+id/changePwd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="修改密码界面" />
+        android:text="修改密码界面"
+        android:visibility="gone" />
 
+
+    <EditText
+        android:id="@+id/appKeyEt"
+        android:textSize="12sp"
+        android:hint="Appkey : (8089c1b7821304f8c993c8b1c8f21350)"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <EditText
+        android:textSize="12sp"
+        android:hint="appSecret: (ODxYzhmMjEzNTA)"
+        android:id="@+id/appSecretEt"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/msg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+
+
 
 </LinearLayout>

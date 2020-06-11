@@ -337,7 +337,6 @@ public class AreaSearchActivity extends BaseActivity {
             return new ViewHolder(LayoutInflater.from(mContext).inflate(R.layout.area_item, parent, false));
         }
 
-        @SuppressLint("ResourceAsColor")
         @Override
         public void onBindViewHolder(@NonNull AreaAdapter.ViewHolder holder, int position) {
             if (data.get(position).isShowTag()) {
@@ -351,6 +350,10 @@ public class AreaSearchActivity extends BaseActivity {
                 holder.line.setVisibility(View.VISIBLE);
                 holder.code.setText("+" + data.get(position).getAreaCode());
                 holder.name.setText(data.get(position).getAreaName());
+            }
+
+            if (position+1<data.size()&&data.get(position+1).isShowTag()){
+                holder.line.setVisibility(View.GONE);
             }
         }
 
@@ -400,12 +403,12 @@ public class AreaSearchActivity extends BaseActivity {
 
         @Override
         protected int getHorizontalSnapPreference() {
-            return SNAP_TO_START;//具体见源码注释
+            return SNAP_TO_START;
         }
 
         @Override
         protected int getVerticalSnapPreference() {
-            return SNAP_TO_START;//具体见源码注释
+            return SNAP_TO_START;
         }
     }
 }

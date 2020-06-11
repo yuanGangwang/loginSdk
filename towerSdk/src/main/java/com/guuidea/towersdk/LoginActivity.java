@@ -2,6 +2,7 @@ package com.guuidea.towersdk;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
@@ -13,6 +14,7 @@ import com.google.gson.JsonObject;
 import com.guuidea.towersdk.activity.BaseActivity;
 import com.guuidea.towersdk.fragment.EmailLoginFragment;
 import com.guuidea.towersdk.fragment.PhoneLoginFragment;
+import com.guuidea.towersdk.utils.CheckUtils;
 import com.guuidea.towersdk.utils.ToastUtil;
 import com.guuidea.towersdk.weight.AccountType;
 import com.guuidea.towersdk.weight.StateButton;
@@ -56,11 +58,13 @@ public class LoginActivity extends BaseActivity {
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (localType == AccountType.Phone) {
-                    phoneEmail.login();
-                }
-                if (localType == AccountType.Email) {
-                    emailFragment.login();
+                if (!CheckUtils.checkFastClick()) {
+                    if (localType == AccountType.Phone) {
+                        phoneEmail.login();
+                    }
+                    if (localType == AccountType.Email) {
+                        emailFragment.login();
+                    }
                 }
             }
         });

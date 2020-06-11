@@ -41,7 +41,7 @@
             android:saveEnabled="false"
             android:layout_height="match_parent"
             android:drawableLeft="@mipmap/ic_mail"
-            android:drawablePadding="18dp"
+            android:drawablePadding="11dp"
             android:inputType="number"
             android:layout_marginTop="2dp"
             android:layout_marginRight="16dp"

@@ -18,7 +18,6 @@ import java.net.URL;
 import java.util.Map;
 
 /**
- * Created by fighting on 2017/4/24.
  */
 
 class RealRequest {
@@ -130,6 +129,7 @@ class RealRequest {
     private void setHeader(HttpURLConnection conn, Map<String, String> headerMap) {
         if (headerMap != null) {
             for (String key : headerMap.keySet()) {
+                Log.i(TAG, "setHeader: "+key+" : "+headerMap.get(key));
                 conn.setRequestProperty(key, headerMap.get(key));
             }
         }

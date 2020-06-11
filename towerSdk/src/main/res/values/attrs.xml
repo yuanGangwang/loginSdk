@@ -48,7 +48,11 @@
         </attr>
     </declare-styleable>
 
+    <declare-styleable name="PwdEtView">
+        <attr name="pwdHint" format="string"/>
+    </declare-styleable>
+
     <declare-styleable name="StateButton">
-        <attr name="btnTitle" format="string"></attr>
+        <attr name="btnTitle" format="string" />
     </declare-styleable>
 </resources>

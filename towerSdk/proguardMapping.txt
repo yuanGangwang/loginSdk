@@ -1,6 +1,6 @@
 # compiler: R8
 # compiler_version: 1.6.82
-# pg_map_id: 86269d5
+# pg_map_id: d3722fa
 # common_typos_disable
 com.guuidea.towersdk.LoginActivity -> com.guuidea.towersdk.LoginActivity:
     com.guuidea.towersdk.weight.AccountType localType -> a
@@ -322,12 +322,12 @@ com.guuidea.towersdk.fragment.EmailLoginFragment -> com.guuidea.towersdk.b.a:
     3:3:void login():25:25 -> a
     1:1:com.guuidea.towersdk.weight.LoginCodeView access$200(com.guuidea.towersdk.fragment.EmailLoginFragment):25:25 -> b
     2:2:void requestEmailCode(java.lang.String):117:117 -> b
-    3:4:void loginWithCode():151:152 -> b
-    5:5:void loginWithCode():151:151 -> b
+    3:4:void loginWithCode():150:151 -> b
+    5:5:void loginWithCode():150:150 -> b
     1:1:com.guuidea.towersdk.weight.LoginPwdView access$300(com.guuidea.towersdk.fragment.EmailLoginFragment):25:25 -> c
-    2:4:void loginWithPwd():133:135 -> c
-    5:5:void loginWithPwd():133:133 -> c
-    1:33:void changeTabChoose():168:200 -> e
+    2:4:void loginWithPwd():132:134 -> c
+    5:5:void loginWithPwd():132:132 -> c
+    1:33:void changeTabChoose():167:199 -> e
     1:1:com.guuidea.towersdk.fragment.EmailLoginFragment newInstance():38:38 -> f
     1:2:void onActivityCreated(android.os.Bundle):51:52 -> onActivityCreated
     1:1:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle):45:45 -> onCreateView
@@ -338,8 +338,8 @@ com.guuidea.towersdk.fragment.EmailLoginFragment$1 -> com.guuidea.towersdk.b.a$b
     1:2:void onClick(android.view.View):68:69 -> onClick
 com.guuidea.towersdk.fragment.EmailLoginFragment$10 -> com.guuidea.towersdk.b.a$a:
     com.guuidea.towersdk.fragment.EmailLoginFragment this$0 -> a
-    1:1:void <init>(com.guuidea.towersdk.fragment.EmailLoginFragment):187:187 -> <init>
-    1:1:void run():190:190 -> run
+    1:1:void <init>(com.guuidea.towersdk.fragment.EmailLoginFragment):186:186 -> <init>
+    1:1:void run():189:189 -> run
 com.guuidea.towersdk.fragment.EmailLoginFragment$2 -> com.guuidea.towersdk.b.a$c:
     com.guuidea.towersdk.fragment.EmailLoginFragment this$0 -> a
     1:1:void <init>(com.guuidea.towersdk.fragment.EmailLoginFragment):73:73 -> <init>
@@ -361,21 +361,20 @@ com.guuidea.towersdk.fragment.EmailLoginFragment$6 -> com.guuidea.towersdk.b.a$g
     com.guuidea.towersdk.fragment.EmailLoginFragment this$0 -> a
     1:1:void <init>(com.guuidea.towersdk.fragment.EmailLoginFragment):117:117 -> <init>
     1:1:void onFailure(java.lang.Throwable):120:120 -> onFailure
-    1:1:void onResponse(com.google.gson.JsonObject):125:125 -> onResponse
 com.guuidea.towersdk.fragment.EmailLoginFragment$7 -> com.guuidea.towersdk.b.a$h:
     com.guuidea.towersdk.fragment.EmailLoginFragment this$0 -> a
-    1:1:void <init>(com.guuidea.towersdk.fragment.EmailLoginFragment):135:135 -> <init>
-    1:1:void onFailure(java.lang.Throwable):138:138 -> onFailure
-    1:1:void onResponse(com.google.gson.JsonObject):143:143 -> onResponse
+    1:1:void <init>(com.guuidea.towersdk.fragment.EmailLoginFragment):134:134 -> <init>
+    1:1:void onFailure(java.lang.Throwable):137:137 -> onFailure
+    1:1:void onResponse(com.google.gson.JsonObject):142:142 -> onResponse
 com.guuidea.towersdk.fragment.EmailLoginFragment$8 -> com.guuidea.towersdk.b.a$i:
     com.guuidea.towersdk.fragment.EmailLoginFragment this$0 -> a
-    1:1:void <init>(com.guuidea.towersdk.fragment.EmailLoginFragment):152:152 -> <init>
-    1:1:void onFailure(java.lang.Throwable):155:155 -> onFailure
-    1:1:void onResponse(com.google.gson.JsonObject):160:160 -> onResponse
+    1:1:void <init>(com.guuidea.towersdk.fragment.EmailLoginFragment):151:151 -> <init>
+    1:1:void onFailure(java.lang.Throwable):154:154 -> onFailure
+    1:1:void onResponse(com.google.gson.JsonObject):159:159 -> onResponse
 com.guuidea.towersdk.fragment.EmailLoginFragment$9 -> com.guuidea.towersdk.b.a$j:
     com.guuidea.towersdk.fragment.EmailLoginFragment this$0 -> a
-    1:1:void <init>(com.guuidea.towersdk.fragment.EmailLoginFragment):177:177 -> <init>
-    1:1:void run():180:180 -> run
+    1:1:void <init>(com.guuidea.towersdk.fragment.EmailLoginFragment):176:176 -> <init>
+    1:1:void run():179:179 -> run
 com.guuidea.towersdk.fragment.LoginBaseFragment -> com.guuidea.towersdk.b.b:
     int selectPosition -> a
     1:3:void <init>():11:13 -> <init>
@@ -415,60 +414,60 @@ com.guuidea.towersdk.fragment.PhoneLoginFragment -> com.guuidea.towersdk.b.d:
     1:1:void access$000(com.guuidea.towersdk.fragment.PhoneLoginFragment):25:25 -> a
     2:2:void access$100(com.guuidea.towersdk.fragment.PhoneLoginFragment,java.lang.String,java.lang.String):25:25 -> a
     3:3:void login():25:25 -> a
-    1:1:void requestPhoneCode(java.lang.String,java.lang.String):116:116 -> b
-    2:4:void loginWithCode():189:191 -> b
-    5:5:void loginWithCode():190:190 -> b
-    1:3:void loginWithPwd():171:173 -> c
-    4:4:void loginWithPwd():172:172 -> c
-    1:33:void changeTabChoose():132:164 -> e
+    1:1:void requestPhoneCode(java.lang.String,java.lang.String):114:114 -> b
+    2:4:void loginWithCode():187:189 -> b
+    5:5:void loginWithCode():188:188 -> b
+    1:3:void loginWithPwd():169:171 -> c
+    4:4:void loginWithPwd():170:170 -> c
+    1:33:void changeTabChoose():130:162 -> e
     1:1:com.guuidea.towersdk.fragment.PhoneLoginFragment newInstance():39:39 -> f
-    1:3:void onActivityCreated(android.os.Bundle):50:52 -> onActivityCreated
+    1:2:void onActivityCreated(android.os.Bundle):50:51 -> onActivityCreated
     1:1:android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle):45:45 -> onCreateView
-    1:56:void onViewCreated(android.view.View,android.os.Bundle):57:112 -> onViewCreated
+    1:55:void onViewCreated(android.view.View,android.os.Bundle):56:110 -> onViewCreated
 com.guuidea.towersdk.fragment.PhoneLoginFragment$1 -> com.guuidea.towersdk.b.d$b:
     com.guuidea.towersdk.fragment.PhoneLoginFragment this$0 -> a
-    1:1:void <init>(com.guuidea.towersdk.fragment.PhoneLoginFragment):66:66 -> <init>
-    1:2:void onClick(android.view.View):69:70 -> onClick
+    1:1:void <init>(com.guuidea.towersdk.fragment.PhoneLoginFragment):64:64 -> <init>
+    1:2:void onClick(android.view.View):67:68 -> onClick
 com.guuidea.towersdk.fragment.PhoneLoginFragment$10 -> com.guuidea.towersdk.b.d$a:
     com.guuidea.towersdk.fragment.PhoneLoginFragment this$0 -> a
-    1:1:void <init>(com.guuidea.towersdk.fragment.PhoneLoginFragment):191:191 -> <init>
-    1:1:void onFailure(java.lang.Throwable):194:194 -> onFailure
-    1:1:void onResponse(com.google.gson.JsonObject):199:199 -> onResponse
+    1:1:void <init>(com.guuidea.towersdk.fragment.PhoneLoginFragment):189:189 -> <init>
+    1:1:void onFailure(java.lang.Throwable):192:192 -> onFailure
+    1:1:void onResponse(com.google.gson.JsonObject):197:197 -> onResponse
 com.guuidea.towersdk.fragment.PhoneLoginFragment$2 -> com.guuidea.towersdk.b.d$c:
     com.guuidea.towersdk.fragment.PhoneLoginFragment this$0 -> a
-    1:1:void <init>(com.guuidea.towersdk.fragment.PhoneLoginFragment):74:74 -> <init>
-    1:2:void onClick(android.view.View):77:78 -> onClick
+    1:1:void <init>(com.guuidea.towersdk.fragment.PhoneLoginFragment):72:72 -> <init>
+    1:2:void onClick(android.view.View):75:76 -> onClick
 com.guuidea.towersdk.fragment.PhoneLoginFragment$3 -> com.guuidea.towersdk.b.d$d:
     com.guuidea.towersdk.fragment.PhoneLoginFragment this$0 -> a
-    1:1:void <init>(com.guuidea.towersdk.fragment.PhoneLoginFragment):84:84 -> <init>
-    1:1:void onTextWatcher(java.lang.String,java.lang.String):87:87 -> a
+    1:1:void <init>(com.guuidea.towersdk.fragment.PhoneLoginFragment):82:82 -> <init>
+    1:1:void onTextWatcher(java.lang.String,java.lang.String):85:85 -> a
 com.guuidea.towersdk.fragment.PhoneLoginFragment$4 -> com.guuidea.towersdk.b.d$e:
     com.guuidea.towersdk.fragment.PhoneLoginFragment this$0 -> a
-    1:1:void <init>(com.guuidea.towersdk.fragment.PhoneLoginFragment):90:90 -> <init>
-    1:1:void onTextWatcher(java.lang.String,java.lang.String):93:93 -> a
+    1:1:void <init>(com.guuidea.towersdk.fragment.PhoneLoginFragment):88:88 -> <init>
+    1:1:void onTextWatcher(java.lang.String,java.lang.String):91:91 -> a
 com.guuidea.towersdk.fragment.PhoneLoginFragment$5 -> com.guuidea.towersdk.b.d$f:
     com.guuidea.towersdk.fragment.PhoneLoginFragment this$0 -> a
-    1:1:void <init>(com.guuidea.towersdk.fragment.PhoneLoginFragment):97:97 -> <init>
+    1:1:void <init>(com.guuidea.towersdk.fragment.PhoneLoginFragment):95:95 -> <init>
     void getEmailCode(java.lang.String) -> a
-    1:1:void getPhoneCode(java.lang.String,java.lang.String):100:100 -> a
+    1:1:void getPhoneCode(java.lang.String,java.lang.String):98:98 -> a
 com.guuidea.towersdk.fragment.PhoneLoginFragment$6 -> com.guuidea.towersdk.b.d$g:
     com.guuidea.towersdk.fragment.PhoneLoginFragment this$0 -> a
-    1:1:void <init>(com.guuidea.towersdk.fragment.PhoneLoginFragment):116:116 -> <init>
-    1:1:void onFailure(java.lang.Throwable):119:119 -> onFailure
-    1:1:void onResponse(com.google.gson.JsonObject):124:124 -> onResponse
+    1:1:void <init>(com.guuidea.towersdk.fragment.PhoneLoginFragment):114:114 -> <init>
+    1:1:void onFailure(java.lang.Throwable):117:117 -> onFailure
+    1:1:void onResponse(com.google.gson.JsonObject):122:122 -> onResponse
 com.guuidea.towersdk.fragment.PhoneLoginFragment$7 -> com.guuidea.towersdk.b.d$h:
     com.guuidea.towersdk.fragment.PhoneLoginFragment this$0 -> a
-    1:1:void <init>(com.guuidea.towersdk.fragment.PhoneLoginFragment):141:141 -> <init>
-    1:1:void run():144:144 -> run
+    1:1:void <init>(com.guuidea.towersdk.fragment.PhoneLoginFragment):139:139 -> <init>
+    1:1:void run():142:142 -> run
 com.guuidea.towersdk.fragment.PhoneLoginFragment$8 -> com.guuidea.towersdk.b.d$i:
     com.guuidea.towersdk.fragment.PhoneLoginFragment this$0 -> a
-    1:1:void <init>(com.guuidea.towersdk.fragment.PhoneLoginFragment):151:151 -> <init>
-    1:1:void run():154:154 -> run
+    1:1:void <init>(com.guuidea.towersdk.fragment.PhoneLoginFragment):149:149 -> <init>
+    1:1:void run():152:152 -> run
 com.guuidea.towersdk.fragment.PhoneLoginFragment$9 -> com.guuidea.towersdk.b.d$j:
     com.guuidea.towersdk.fragment.PhoneLoginFragment this$0 -> a
-    1:1:void <init>(com.guuidea.towersdk.fragment.PhoneLoginFragment):173:173 -> <init>
-    1:1:void onFailure(java.lang.Throwable):176:176 -> onFailure
-    1:1:void onResponse(com.google.gson.JsonObject):181:181 -> onResponse
+    1:1:void <init>(com.guuidea.towersdk.fragment.PhoneLoginFragment):171:171 -> <init>
+    1:1:void onFailure(java.lang.Throwable):174:174 -> onFailure
+    1:1:void onResponse(com.google.gson.JsonObject):179:179 -> onResponse
 com.guuidea.towersdk.net.CallBackUtil -> com.guuidea.towersdk.net.CallBackUtil:
     1:1:void <clinit>():12:12 -> <clinit>
     1:1:void <init>():11:11 -> <init>
@@ -493,7 +492,7 @@ com.guuidea.towersdk.net.RealRequest -> com.guuidea.towersdk.net.RealRequest:
     1:22:java.lang.String getString(java.io.InputStream):87:108 -> getString
     23:25:java.lang.String getString(java.io.InputStream):94:96 -> getString
     1:24:com.guuidea.towersdk.net.RealResponse postData(java.lang.String,java.lang.String,java.lang.String,java.util.Map):59:82 -> postData
-    1:3:void setHeader(java.net.HttpURLConnection,java.util.Map):132:134 -> setHeader
+    1:2:void setHeader(java.net.HttpURLConnection,java.util.Map):132:133 -> setHeader
 com.guuidea.towersdk.net.RealResponse -> com.guuidea.towersdk.net.RealResponse:
     1:3:void <init>(int,com.google.gson.JsonObject):19:21 -> <init>
     4:6:void <init>(int,java.lang.Throwable):32:34 -> <init>
@@ -561,15 +560,14 @@ com.guuidea.towersdk.utils.QMUIDeviceHelper -> com.guuidea.towersdk.c.c:
     java.lang.String sFlymeVersionName -> b
     boolean sIsTabletChecked -> c
     boolean sIsTabletValue -> d
-    1:25:void <clinit>():33:57 -> <clinit>
-    26:32:void <clinit>():53:59 -> <clinit>
-    33:38:void <clinit>():57:62 -> <clinit>
-    1:1:boolean _isTablet(android.content.Context):66:66 -> a
-    2:2:boolean isFlyme():86:86 -> a
-    3:8:boolean isPhone(java.lang.String[]):182:187 -> a
-    9:16:java.lang.String getLowerCaseName(java.util.Properties,java.lang.reflect.Method,java.lang.String):230:237 -> a
-    1:5:boolean isTablet(android.content.Context):74:78 -> b
-    6:6:boolean isMeizu():156:156 -> b
+    1:29:void <clinit>():33:61 -> <clinit>
+    30:32:void <clinit>():56:58 -> <clinit>
+    1:1:boolean _isTablet(android.content.Context):65:65 -> a
+    2:2:boolean isFlyme():85:85 -> a
+    3:8:boolean isPhone(java.lang.String[]):181:186 -> a
+    9:16:java.lang.String getLowerCaseName(java.util.Properties,java.lang.reflect.Method,java.lang.String):229:236 -> a
+    1:5:boolean isTablet(android.content.Context):73:77 -> b
+    6:6:boolean isMeizu():155:155 -> b
 com.guuidea.towersdk.utils.QMUIDisplayHelper -> com.guuidea.towersdk.c.d:
     1:2:void <clinit>():32:33 -> <clinit>
     1:1:float getDensity(android.content.Context):74:74 -> a

@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -30,10 +31,12 @@ public class PhoneLoginFragment extends LoginBaseFragment {
     private LoginViewModel mViewModel;
     private LoginCodeView codeLayout;
     private LoginPwdView pwdLayout;
-    private RadioButton tabSms;
-    private RadioButton tabPwd;
+    private TextView tabSms;
+    private TextView tabPwd;
     private View pwdLine;
     private View smsLine;
+    private View tabPwdLayout;
+    private View tabSmsLayout;
 
     public static PhoneLoginFragment newInstance() {
         return new PhoneLoginFragment();
@@ -59,9 +62,11 @@ public class PhoneLoginFragment extends LoginBaseFragment {
 
         smsLine = view.findViewById(R.id.tabSmsLine);
         pwdLine = view.findViewById(R.id.tabPwdLine);
+        tabSmsLayout = view.findViewById(R.id.tabSmsLayout);
+        tabPwdLayout = view.findViewById(R.id.tabPwdLayout);
 
 
-        tabSms.setOnClickListener(new View.OnClickListener() {
+        tabSmsLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 selectPosition = 1;
@@ -69,7 +74,7 @@ public class PhoneLoginFragment extends LoginBaseFragment {
             }
         });
 
-        tabPwd.setOnClickListener(new View.OnClickListener() {
+        tabPwdLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 selectPosition = 2;
@@ -119,16 +124,16 @@ public class PhoneLoginFragment extends LoginBaseFragment {
 
             @Override
             public void onResponse(JsonObject response) {
+                codeLayout.startCountDown();
                 showCommonToast(getString(R.string.codeSendTips));
             }
         });
     }
 
 
-    @SuppressLint("ResourceAsColor")
     private void changeTabChoose() {
-        tabSms.setChecked(selectPosition == 1);
-        tabPwd.setChecked(selectPosition == 2);
+        tabSms.setSelected(selectPosition == 1);
+        tabPwd.setSelected(selectPosition == 2);
 
 
         codeLayout.setVisibility(selectPosition == 1 ? View.VISIBLE : View.INVISIBLE);

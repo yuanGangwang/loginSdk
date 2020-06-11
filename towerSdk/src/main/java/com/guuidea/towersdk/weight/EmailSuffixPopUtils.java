@@ -1,6 +1,7 @@
 package com.guuidea.towersdk.weight;
 
 import android.content.Context;
+import android.graphics.drawable.BitmapDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,40 +16,35 @@ import com.guuidea.towersdk.R;
 import com.guuidea.towersdk.utils.HideKeyBroadUtils;
 
 public class EmailSuffixPopUtils {
-
+    private static final String TAG = "EmailSuffixPopUtils";
     private static EmailSuffixPopUtils popUtils;
     private final View view;
     private final RecyclerView list;
     private final SuffixAdapter adapter;
-    PopupWindow emailSuffixChoiceWindow;
+    PopupWindow popWindow;
 
     private EmailSuffixPopUtils(final Context context) {
-        emailSuffixChoiceWindow = new PopupWindow();
+        popWindow = new PopupWindow();
         view = LayoutInflater.from(context).inflate(R.layout.eamil_pop_view, null);
         list = ((RecyclerView) view.findViewById(R.id.emailSuffixList));
         list.setLayoutManager(new LinearLayoutManager(context));
         adapter = new SuffixAdapter(context);
+        list.setAdapter(adapter);
+
         list.addOnScrollListener(new RecyclerView.OnScrollListener() {
-
-            @Override
-            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
-                HideKeyBroadUtils.HideSoftInput(context, view.getWindowToken());
-            }
-
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-                HideKeyBroadUtils.HideSoftInput(context, view.getWindowToken());
+                HideKeyBroadUtils.HideSoftInput(context,view.getWindowToken());
             }
         });
-        list.setAdapter(adapter);
-        emailSuffixChoiceWindow.setContentView(view);
-        emailSuffixChoiceWindow.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
-        emailSuffixChoiceWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
-        emailSuffixChoiceWindow.setInputMethodMode(PopupWindow.INPUT_METHOD_NEEDED); //解决不压键盘
-//        emailSuffixChoiceWindow.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);  //解决不压键盘
-        emailSuffixChoiceWindow.setOutsideTouchable(true);
+
+        popWindow.setContentView(view);
+        popWindow.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
+        popWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
+        popWindow.setInputMethodMode(PopupWindow.INPUT_METHOD_NEEDED); //解决不压键盘
+        popWindow.setBackgroundDrawable(new BitmapDrawable());
+        popWindow.setOutsideTouchable(true);
+
     }
 
     public static EmailSuffixPopUtils getInstance(Context context) {
@@ -60,13 +56,13 @@ public class EmailSuffixPopUtils {
     }
 
     public void showPopWindow(View anchor) {
-        if (!emailSuffixChoiceWindow.isShowing()) {
-            emailSuffixChoiceWindow.showAsDropDown(anchor);
+        if (!popWindow.isShowing()) {
+            popWindow.showAsDropDown(anchor);
         }
     }
 
     public boolean isWindowShowing() {
-        return emailSuffixChoiceWindow.isShowing();
+        return popWindow.isShowing();
     }
 
     public void updateEmail(String email) {
@@ -81,7 +77,7 @@ public class EmailSuffixPopUtils {
     }
 
     public void dismiss() {
-        emailSuffixChoiceWindow.dismiss();
+        popWindow.dismiss();
         popUtils = null;
     }
 

@@ -8,6 +8,8 @@ import com.google.i18n.phonenumbers.Phonenumber;
 
 public class CheckUtils {
 
+    static long clickTime = 0;
+
     /**
      * @param phone  帶区号的手机(  +86 17342068539)
      * @param region 国家字段( CH )
@@ -52,4 +54,12 @@ public class CheckUtils {
         return pwdM1 && pwdM2 && pwd1.equals(pwd2);
     }
 
+    public static boolean checkFastClick() {
+        if (System.currentTimeMillis() - clickTime > 2000) {
+            clickTime = System.currentTimeMillis();
+            return false;
+        } else {
+            return true;
+        }
+    }
 }

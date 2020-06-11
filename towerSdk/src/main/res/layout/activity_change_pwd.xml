@@ -77,29 +77,31 @@
 
         <LinearLayout
             android:id="@+id/setPwdView"
-            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="gone">
 
             <com.guuidea.towersdk.weight.PwdEtView
                 android:id="@+id/pwdOne"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                app:pwdHint="@string/enterNewPwd" />
 
 
             <com.guuidea.towersdk.weight.PwdEtView
                 android:id="@+id/pwdTwo"
-                android:layout_marginTop="28dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                app:pwdHint="@string/enterNewPwdAgain" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginRight="16dp"
                 android:text="@string/pwd_rules"
                 android:textColor="#ff999999"
                 android:textSize="10sp" />
@@ -117,14 +119,14 @@
 
     <TextView
         android:id="@+id/changeAccountTypeTv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="8dp"
         android:gravity="left"
         android:text="@string/verify_via_email"
         android:textColor="#ff333333"
-        android:textSize="10sp" />
+        android:textSize="11sp" />
 
 
 </LinearLayout>

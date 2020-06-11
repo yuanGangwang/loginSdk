@@ -68,6 +68,16 @@ public class StateButton extends FrameLayout {
         btnRoot.setOnClickListener(l);
     }
 
+    public void setText(final String text){
+        title.post(new Runnable() {
+            @Override
+            public void run() {
+                title.setText(text);
+            }
+        });
+    }
+
+
     @Override
     public void setEnabled(boolean enabled) {
         btnRoot.setEnabled(enabled);

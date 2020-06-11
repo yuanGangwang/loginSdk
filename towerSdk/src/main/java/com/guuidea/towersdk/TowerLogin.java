@@ -4,6 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 
+import com.guuidea.towersdk.bean.PhoneArea;
+import com.guuidea.towersdk.bus.AreaListener;
+import com.guuidea.towersdk.utils.LanguageUtils;
+
 public class TowerLogin {
 
     private static volatile TowerLogin towerLogin = null;
@@ -48,6 +52,10 @@ public class TowerLogin {
         this.loginResult = loginResult;
         this.appKey = appkey;
         this.mContext = context;
+
+//        LanguageUtils.getInstance().setContext(context);
+        AreaListener.getInstance().updateData(new PhoneArea("United States of Americ", "US", "1"));
+
         mContext.startActivity(new Intent(mContext, LoginActivity.class));
     }
 

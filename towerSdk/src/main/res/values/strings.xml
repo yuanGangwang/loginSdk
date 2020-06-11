@@ -28,13 +28,16 @@
     <string name="verify_via_email">Verify via Email</string>
     <string name="verify_via_phone">Verify via mobile number</string>
     <string name="log_in_successful">Log in successful.</string>
-    <string name="pwd_rules">Password must be 8–16 characters and contain numbers and letters characters.</string>
+    <string name="pwd_rules">Password must be 8–16 characters and contain numbers and letters.</string>
     <string name="invalid_phone">This phone number is invalid.</string>
     <string name="invalid_email">This Email number is invalid.</string>
     <string name="codeSendTips">Verification code has been sent</string>
     <string name="pwdCodeVerifySuccess">Verification successful.</string>
     <string name="reset_pwd_success">Reset successful</string>
     <string name="pwd_not_match">Passwords do not match.</string>
+    <string name="confirm">Confirm</string>
+    <string name="enterNewPwd">Enter new password</string>
+    <string name="enterNewPwdAgain">Enter new password again</string>
 
 
     <string-array name="email">

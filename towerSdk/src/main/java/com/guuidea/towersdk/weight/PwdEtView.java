@@ -1,8 +1,9 @@
 package com.guuidea.towersdk.weight;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.text.Editable;
-import android.text.TextWatcher;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,14 +16,13 @@ import androidx.core.content.ContextCompat;
 
 import com.guuidea.towersdk.R;
 
-import org.w3c.dom.Text;
-
 public class PwdEtView extends FrameLayout {
+    TextWatcher watcher;
     private Context mContext;
     private View view;
-
     private EditText pwdEt;
     private View pwdEtLine;
+    private String hint;
 
     public PwdEtView(@NonNull Context context) {
         this(context, null);
@@ -36,7 +36,7 @@ public class PwdEtView extends FrameLayout {
         super(context, attrs, defStyleAttr);
         this.mContext = context;
         addView();
-        iniView();
+        iniView(attrs, defStyleAttr);
     }
 
     private void addView() {
@@ -46,7 +46,17 @@ public class PwdEtView extends FrameLayout {
         addView(view);
     }
 
-    private void iniView() {
+    private void iniView(AttributeSet attrs, int defStyleAttr) {
+
+        if (attrs != null) {
+            TypedArray a = mContext.obtainStyledAttributes(attrs, R.styleable.PwdEtView, defStyleAttr, 0);
+            hint = a.getString(R.styleable.PwdEtView_pwdHint);
+            a.recycle();
+        }
+
+        if (!TextUtils.isEmpty(hint)) {
+            pwdEt.setHint(hint);
+        }
 
         pwdEt.addTextChangedListener(new android.text.TextWatcher() {
             @Override
@@ -61,9 +71,9 @@ public class PwdEtView extends FrameLayout {
 
             @Override
             public void afterTextChanged(Editable s) {
-                    if (watcher!=null){
-                        watcher.watcher(s.toString());
-                    }
+                if (watcher != null) {
+                    watcher.watcher(s.toString());
+                }
             }
         });
 
@@ -79,7 +89,6 @@ public class PwdEtView extends FrameLayout {
 
     }
 
-
     public String getPwd() {
         if (pwdEt != null) {
             return (pwdEt.getText()).toString();
@@ -87,17 +96,15 @@ public class PwdEtView extends FrameLayout {
         return "";
     }
 
-    TextWatcher watcher;
-
     public void setWatcher(TextWatcher watcher) {
         this.watcher = watcher;
     }
 
-    public interface TextWatcher{
-        void watcher(String con);
-    }
-
     public void clearText() {
         pwdEt.setText("");
+    }
+
+    public interface TextWatcher {
+        void watcher(String con);
     }
 }

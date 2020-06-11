@@ -1,6 +1,5 @@
 package com.guuidea.towersdk.activity;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
@@ -34,6 +33,8 @@ public class ChangePwdActivity extends BaseActivity {
     private static final String TAG = "ChangePwdActivity";
     //重置密码凭证
     String token = "";
+    String accountPhone = "";
+    String accountEmail = "";
     private View step_one_int;
     private TextView step_one_txt;
     private View step_two_int;
@@ -67,7 +68,12 @@ public class ChangePwdActivity extends BaseActivity {
 
     private void initView() {
 
-        ((NavigaView) findViewById(R.id.title)).setOnBackClickListener(this);
+        ((NavigaView) findViewById(R.id.title)).setOnBackClickListener(new NavigaView.OnApplyNaviListener() {
+            @Override
+            public void onBackImgClick() {
+               destroy();
+            }
+        });
 
         step_one_int = findViewById(R.id.step_one_int);
         step_one_txt = findViewById(R.id.step_one_txt);
@@ -78,6 +84,12 @@ public class ChangePwdActivity extends BaseActivity {
         codeVerView.setOnTextWatcher(new LoginCodeView.OnTextWatcher() {
             @Override
             public void onTextWatcher(String account, String code) {
+                if (accountType.equals(AccountType.Email)) {
+                    accountEmail = account;
+                }
+                if (accountType.equals(AccountType.Phone)) {
+                    accountPhone = account;
+                }
                 if (TextUtils.isEmpty(account) || TextUtils.isEmpty(code)) {
                     nextBtn.setEnabled(false);
                 } else {
@@ -118,7 +130,9 @@ public class ChangePwdActivity extends BaseActivity {
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dealStep();
+                if (!CheckUtils.checkFastClick()) {
+                    dealStep();
+                }
             }
         });
 
@@ -148,10 +162,14 @@ public class ChangePwdActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 if (accountType.equals(AccountType.Phone)) {
+                    accountPhone = codeVerView.getAccountView().getAccount();
+                    codeVerView.setDefaultAccount(accountEmail);
                     codeVerView.setCodeType(AccountType.Email);
                     changeTv.setText(R.string.verify_via_phone);
                     accountType = AccountType.Email;
                 } else {
+                    accountEmail = codeVerView.getAccountView().getAccount();
+                    codeVerView.setDefaultAccount(accountPhone);
                     codeVerView.setCodeType(AccountType.Phone);
                     changeTv.setText(R.string.verify_via_email);
                     accountType = AccountType.Phone;
@@ -159,7 +177,19 @@ public class ChangePwdActivity extends BaseActivity {
                 setStep(1);
             }
         });
+    }
 
+    private void destroy() {
+        if (step == 1) {
+            finish();
+        } else {
+            setStep(1);
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        destroy();
     }
 
     private void dealStep() {
@@ -186,8 +216,6 @@ public class ChangePwdActivity extends BaseActivity {
                         ToastUtil.getInstance(this).showCommon(getString(R.string.invalid_email));
                     }
                 }
-
-
                 break;
             case 2:
 
@@ -216,6 +244,7 @@ public class ChangePwdActivity extends BaseActivity {
 
                     @Override
                     public void onResponse(JsonObject response) {
+                        codeVerView.startCountDown();
                         showCommonToast(getString(R.string.codeSendTips));
                     }
                 });
@@ -235,6 +264,7 @@ public class ChangePwdActivity extends BaseActivity {
 
                     @Override
                     public void onResponse(JsonObject response) {
+                        codeVerView.startCountDown();
                         showCommonToast(getString(R.string.codeSendTips));
                     }
                 });
@@ -276,7 +306,7 @@ public class ChangePwdActivity extends BaseActivity {
 
                     @Override
                     public void onResponse(JsonObject response) {
-                       verifySuccess(response);
+                        verifySuccess(response);
                     }
                 });
     }
@@ -325,16 +355,20 @@ public class ChangePwdActivity extends BaseActivity {
         codeVerView.setVisibility(step == 1 ? View.VISIBLE : View.GONE);
         setPwdView.setVisibility(step == 1 ? View.GONE : View.VISIBLE);
 
-        codeVerView.clearText();
+        changeTv.setVisibility(step == 1 ? View.VISIBLE : View.GONE);
+
+        codeVerView.clearText(accountType.equals(AccountType.Email) ? accountEmail : accountPhone);
         pwdOne.clearText();
         pwdTwo.clearText();
+
 
         step_one_int.setBackgroundResource(step == 1 ? R.drawable.step_select : R.drawable.step_unselect);
         step_two_int.setBackgroundResource(step == 2 ? R.drawable.step_select : R.drawable.step_unselect);
 
-        step_one_txt.setTextColor(step == 1 ? ContextCompat.getColor(this,R.color.login_main_color) : ContextCompat.getColor(this,R.color.gray_99));
-        step_two_txt.setTextColor(step == 2 ? ContextCompat.getColor(this,R.color.login_main_color) : ContextCompat.getColor(this,R.color.gray_99));
+        step_one_txt.setTextColor(step == 1 ? ContextCompat.getColor(this, R.color.login_main_color) : ContextCompat.getColor(this, R.color.gray_99));
+        step_two_txt.setTextColor(step == 2 ? ContextCompat.getColor(this, R.color.login_main_color) : ContextCompat.getColor(this, R.color.gray_99));
 
+        nextBtn.setText(step == 1 ? getString(R.string.next) : getString(R.string.confirm));
     }
 
 }

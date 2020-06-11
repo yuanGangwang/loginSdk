@@ -1,6 +1,7 @@
 package com.guuidea.towersdk.net;
 
 import android.text.TextUtils;
+import android.util.Log;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -38,6 +39,7 @@ class RequestUtil {
         mThread = new Thread(new Runnable() {
             @Override
             public void run() {
+                Log.i(TAG, "Request: url = "+url);
                 RealResponse response = new RealRequest().getData(getUrl(url, paramsMap), headerMap);
                 if (response.getCode() == 200) {
                     callBack.onSuccess(response.getResponse());
@@ -53,6 +55,7 @@ class RequestUtil {
         });
     }
 
+    private static final String TAG = "RequestUtil";
     /**
      * post请求
      */
@@ -60,6 +63,7 @@ class RequestUtil {
         mThread = new Thread(new Runnable() {
             @Override
             public void run() {
+                Log.i(TAG, "Request: url = "+url);
                 RealResponse response = new RealRequest().postData(url,getPostBodyType(paramsMap, jsonStr), getPostBody(paramsMap, jsonStr)
                         , headerMap);
                 if (response.getCode() == 200) {

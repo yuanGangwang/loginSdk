@@ -16,12 +16,14 @@
         android:paddingRight="8dp">
 
         <LinearLayout
+            android:id="@+id/tabSmsLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
+            android:gravity="center_vertical"
             android:layout_weight="1"
             android:orientation="vertical">
 
-            <RadioButton
+            <TextView
                 android:id="@+id/tabSms"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -45,12 +47,14 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/tabPwdLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
+            android:gravity="center_vertical"
             android:layout_weight="1"
             android:orientation="vertical">
 
-            <RadioButton
+            <TextView
                 android:id="@+id/tabPwd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -77,7 +81,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="156dp"
-        android:layout_marginTop="35dp">
+        android:layout_marginTop="25dp">
 
         <com.guuidea.towersdk.weight.LoginCodeView
             android:id="@+id/codeLayout"

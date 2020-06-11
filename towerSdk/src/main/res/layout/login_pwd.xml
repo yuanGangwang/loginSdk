@@ -34,6 +34,7 @@
             android:id="@+id/forgetTv"
             android:layout_width="wrap_content"
             android:layout_height="24dp"
+            android:gravity="center_vertical"
             android:text="@string/forget"
             android:textColor="@color/login_main_color"
             android:textSize="12sp" />

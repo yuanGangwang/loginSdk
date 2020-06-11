@@ -3,6 +3,7 @@ package com.guuidea.towersdk.activity;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -55,6 +56,7 @@ public class BaseActivity extends AppCompatActivity implements NavigaView.OnAppl
         return super.dispatchTouchEvent(ev);
     }
 
+    private static final String TAG = "BaseActivity";
     /**
      * 返回
      */

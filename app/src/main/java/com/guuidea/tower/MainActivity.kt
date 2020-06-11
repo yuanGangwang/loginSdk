@@ -17,26 +17,43 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    var appkey = "8089c1b7821304f8c993c8b1c8f21350"
-    val appSecret = "ODxYzhmMjEzNTA="
+    var appkey = ""
+    var appSecret = ""
+
+    val defaultKey = "8089c1b7821304f8c993c8b1c8f21350"
+    val defaultSecret = "ODxYzhmMjEzNTA="
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         login.setOnClickListener {
+
+            appkey = if (!appKeyEt.text.isNullOrEmpty()) {
+                appKeyEt.text.toString()
+            } else {
+                defaultKey
+            }
+
+
+            appSecret = if (!appSecretEt.text.isNullOrEmpty()) {
+                appSecretEt.text.toString()
+            } else {
+                defaultSecret
+            }
+
             TowerLogin.getInstance().startLoginAuth(
                 MainActivity@ this,
                 appkey,
                 object : LoginResult {
                     override fun onSuccess(authToken: String) {
-                        addMsg("login  success   token = $authToken")
+                        addMsg("login  success   token  =  $authToken")
                         requestUserScerte(authToken)
                     }
 
                     override fun onCancel() {
                         show()
                         addMsg("login cancel")
-
                     }
 
                     override fun onError(throwable: Throwable?) {

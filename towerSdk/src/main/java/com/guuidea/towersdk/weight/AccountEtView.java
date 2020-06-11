@@ -23,6 +23,7 @@ import com.guuidea.towersdk.R;
 import com.guuidea.towersdk.activity.AreaSearchActivity;
 import com.guuidea.towersdk.bean.PhoneArea;
 import com.guuidea.towersdk.bus.AreaListener;
+import com.guuidea.towersdk.utils.HideKeyBroadUtils;
 
 public class AccountEtView extends FrameLayout {
     boolean auto = false;
@@ -98,6 +99,7 @@ public class AccountEtView extends FrameLayout {
                                 public void onClick(String emailAll) {
                                     accountEt.setText(emailAll);
                                     popWindows.dismiss();
+                                    HideKeyBroadUtils.HideSoftInput(mContext,view.getWindowToken());
                                 }
                             });
                         }

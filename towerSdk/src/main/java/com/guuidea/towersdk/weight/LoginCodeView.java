@@ -31,6 +31,7 @@ public class LoginCodeView extends FrameLayout {
     private View codeEtLine;
     private OnTextWatcher watcher;
     private OnCodeGetListener codeGetListener;
+    private String defaultAccount="";
 
     public LoginCodeView(@NonNull Context context) {
         this(context, null);
@@ -78,6 +79,7 @@ public class LoginCodeView extends FrameLayout {
     private void iniView() {
         view = LayoutInflater.from(mContext).inflate(R.layout.et_code, null);
         accountView = ((AccountEtView) view.findViewById(R.id.accountView));
+        accountView.setAccount(defaultAccount);
 
         codeEt = view.findViewById(R.id.codeEt);
         codeEtLine = view.findViewById(R.id.codeEtLine);
@@ -101,7 +103,6 @@ public class LoginCodeView extends FrameLayout {
                 }
                 if (codeType == 1) {
                     if (CheckUtils.checkEmail(accountView.getAccount())) {
-                        requestEmailCode();
                         if (codeGetListener != null) {
                             codeGetListener.getEmailCode(accountView.getAccount());
                         }
@@ -175,18 +176,18 @@ public class LoginCodeView extends FrameLayout {
     }
 
     private void requestEmailCode() {
-        startCountDown();
 
     }
 
-    private void startCountDown() {
+    public void startCountDown() {
         CountDownTimerUtils downTimerUtils = new CountDownTimerUtils(getCodeBtn, 60000, 1000);
         downTimerUtils.start();
     }
 
-    public void clearText() {
+    public void clearText(String defaultAccount) {
         codeEt.setText("");
-        accountView.clearText();
+//        accountView.clearText();
+        accountView.setAccount(defaultAccount);
     }
 
     public void setOnTextWatcher(OnTextWatcher watcher) {
@@ -195,6 +196,10 @@ public class LoginCodeView extends FrameLayout {
 
     public void setOnCodeGetListener(OnCodeGetListener onCodeGetListener) {
         this.codeGetListener = onCodeGetListener;
+    }
+
+    public void setDefaultAccount(String defaultAccount) {
+        this.defaultAccount = defaultAccount;
     }
 
     public interface OnCodeGetListener {
