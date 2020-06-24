@@ -3,7 +3,6 @@ package com.guuidea.towersdk.net;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.google.gson.Gson;
 import com.google.gson.JsonParser;
 
 import java.io.BufferedWriter;
@@ -13,11 +12,11 @@ import java.io.InputStream;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
-import java.net.ProtocolException;
 import java.net.URL;
 import java.util.Map;
 
 /**
+ *
  */
 
 class RealRequest {
@@ -40,6 +39,7 @@ class RealRequest {
             conn.connect();
             if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
                 String response = getString(conn.getInputStream());
+                Log.i(TAG, "response: " + response);
                 return new RealResponse(200, JsonParser.parseString(response).getAsJsonObject());
             } else {
                 return new RealResponse(conn.getResponseCode(), new Throwable(conn.getResponseMessage()));
@@ -52,7 +52,7 @@ class RealRequest {
     /**
      * post请求
      */
-    RealResponse postData(String requestURL, String bodyType,String body, Map<String, String> headerMap) {
+    RealResponse postData(String requestURL, String bodyType, String body, Map<String, String> headerMap) {
         HttpURLConnection conn = null;
         try {
             conn = getHttpURLConnection(requestURL, "POST");
@@ -62,7 +62,7 @@ class RealRequest {
             if (headerMap != null) {
                 setHeader(conn, headerMap);
             }
-            if(!TextUtils.isEmpty(bodyType)) {
+            if (!TextUtils.isEmpty(bodyType)) {
                 conn.setRequestProperty("Content-Type", bodyType);
             }
             conn.connect();// 连接，以上所有的请求配置必须在这个API调用之前
@@ -73,6 +73,7 @@ class RealRequest {
             }
             if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
                 String response = getString(conn.getInputStream());
+                Log.i(TAG, "response: " + response);
                 return new RealResponse(200, JsonParser.parseString(response).getAsJsonObject());
             } else {
                 return new RealResponse(conn.getResponseCode(), new Throwable(getString(conn.getErrorStream())));
@@ -129,7 +130,7 @@ class RealRequest {
     private void setHeader(HttpURLConnection conn, Map<String, String> headerMap) {
         if (headerMap != null) {
             for (String key : headerMap.keySet()) {
-                Log.i(TAG, "setHeader: "+key+" : "+headerMap.get(key));
+                Log.i(TAG, "setHeader: " + key + " : " + headerMap.get(key));
                 conn.setRequestProperty(key, headerMap.get(key));
             }
         }

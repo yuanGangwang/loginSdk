@@ -2,7 +2,6 @@ package com.guuidea.towersdk;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
@@ -114,7 +113,9 @@ public class LoginActivity extends BaseActivity {
     protected void onDestroy() {
         super.onDestroy();
         if (!isLoginSuccess)
-            TowerLogin.getInstance().getLoginResult().onCancel();
+            if (TowerLogin.getInstance().getLoginResult() != null) {
+                TowerLogin.getInstance().getLoginResult().onCancel();
+            }
     }
 
     public void loginFinish(JsonObject response) {

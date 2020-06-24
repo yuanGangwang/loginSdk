@@ -31,7 +31,7 @@ public class LoginCodeView extends FrameLayout {
     private View codeEtLine;
     private OnTextWatcher watcher;
     private OnCodeGetListener codeGetListener;
-    private String defaultAccount="";
+    private String defaultAccount = "";
 
     public LoginCodeView(@NonNull Context context) {
         this(context, null);
@@ -93,7 +93,6 @@ public class LoginCodeView extends FrameLayout {
             public void onClick(View v) {
                 if (codeType == 0) {
                     if (CheckUtils.checkPhone(accountView.getAreaCode() + accountView.getAccount(), accountView.getAreaName())) {
-                        requestPhoneCode();
                         if (codeGetListener != null) {
                             codeGetListener.getPhoneCode(accountView.getAreaCode(), accountView.getAccount());
                         }
@@ -171,13 +170,6 @@ public class LoginCodeView extends FrameLayout {
         return codeEt.getText().toString();
     }
 
-    private void requestPhoneCode() {
-        startCountDown();
-    }
-
-    private void requestEmailCode() {
-
-    }
 
     public void startCountDown() {
         CountDownTimerUtils downTimerUtils = new CountDownTimerUtils(getCodeBtn, 60000, 1000);
@@ -186,7 +178,6 @@ public class LoginCodeView extends FrameLayout {
 
     public void clearText(String defaultAccount) {
         codeEt.setText("");
-//        accountView.clearText();
         accountView.setAccount(defaultAccount);
     }
 

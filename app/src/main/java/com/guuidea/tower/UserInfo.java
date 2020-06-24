@@ -36,10 +36,19 @@ public class UserInfo {
 
 
         private String email;
+        private String areaCode;
         private String partnerUserId;
         private String phone;
         private String authTime;
         private String partnerAppUserId;
+
+        public String getAreaCode() {
+            return areaCode;
+        }
+
+        public void setAreaCode(String areaCode) {
+            this.areaCode = areaCode;
+        }
 
         public String getEmail() {
             return email;
@@ -85,6 +94,7 @@ public class UserInfo {
         public String toString() {
             return "DataBean{" +
                     "email='" + email + '\'' +
+                    ", areaCode='" + areaCode + '\'' +
                     ", partnerUserId='" + partnerUserId + '\'' +
                     ", phone='" + phone + '\'' +
                     ", authTime='" + authTime + '\'' +

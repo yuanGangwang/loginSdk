@@ -8,7 +8,7 @@
     <EditText
         android:id="@+id/pwdEt"
         android:layout_width="match_parent"
-        android:layout_height="21dp"
+        android:layout_height="30dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="2dp"
         android:layout_marginRight="16dp"
@@ -27,8 +27,8 @@
         android:id="@+id/pwdEtLine"
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
+        android:layout_marginTop="3dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="11dp"
         android:layout_marginRight="16dp"
         android:background="@color/gray_cd" />
 

@@ -28,7 +28,7 @@ public class QMUIStatusBarHelper {
     private final static int STATUSBAR_TYPE_FLYME = 2;
     private final static int STATUSBAR_TYPE_ANDROID6 = 3; // Android 6.0
     private final static int STATUS_BAR_DEFAULT_HEIGHT_DP = 25; // 大部分状态栏都是25dp
-    // 在某些机子上存在不同的density值，所以增加两个虚拟值
+    // 在某些机子上存在不同的density值，所以增加两个拟值
     public static float sVirtualDensity = -1;
     public static float sVirtualDensityDpi = -1;
     private static int sStatusbarHeight = -1;

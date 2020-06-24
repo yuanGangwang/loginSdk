@@ -93,7 +93,7 @@ public class AreaSearchActivity extends BaseActivity {
             @Override
             public void afterTextChanged(Editable s) {
                 if (areaResponse != null) {
-                    matchSearch(s.toString());
+                    matchSearch(s.toString().toLowerCase());
                 }
             }
         });
@@ -102,7 +102,7 @@ public class AreaSearchActivity extends BaseActivity {
     private void matchSearch(String key) {
         ArrayList<PhoneArea> searchAreas = new ArrayList<>();
         for (PhoneArea phoneArea : areaResponse.getData()) {
-            if (phoneArea.getAreaCode().contains(key) || phoneArea.getAreaName().contains(key)) {
+            if (phoneArea.getAreaCode().toLowerCase().contains(key) || phoneArea.getAreaName().toLowerCase().contains(key)) {
                 searchAreas.add(phoneArea);
             }
         }
@@ -144,7 +144,7 @@ public class AreaSearchActivity extends BaseActivity {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
 
-                if (phoneAreas.size() > 0) {
+                if (phoneAreas!=null&&phoneAreas.size() > 0) {
                     if (newState == RecyclerView.SCROLL_STATE_IDLE || newState == RecyclerView.SCROLL_STATE_DRAGGING) {
                         int firstItemPosition = areaList.getChildLayoutPosition(areaList.getChildAt(0));
                         String tag = phoneAreas.get(firstItemPosition).getTag();

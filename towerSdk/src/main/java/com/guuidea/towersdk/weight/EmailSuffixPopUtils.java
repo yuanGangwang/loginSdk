@@ -2,6 +2,7 @@ package com.guuidea.towersdk.weight;
 
 import android.content.Context;
 import android.graphics.drawable.BitmapDrawable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.guuidea.towersdk.R;
 import com.guuidea.towersdk.utils.HideKeyBroadUtils;
 
+import java.util.ArrayList;
+
 public class EmailSuffixPopUtils {
     private static final String TAG = "EmailSuffixPopUtils";
     private static EmailSuffixPopUtils popUtils;
@@ -22,19 +25,23 @@ public class EmailSuffixPopUtils {
     private final RecyclerView list;
     private final SuffixAdapter adapter;
     PopupWindow popWindow;
+    private String[] data;
 
     private EmailSuffixPopUtils(final Context context) {
+
+        data = context.getResources().getStringArray(R.array.email);
+
         popWindow = new PopupWindow();
         view = LayoutInflater.from(context).inflate(R.layout.eamil_pop_view, null);
         list = ((RecyclerView) view.findViewById(R.id.emailSuffixList));
         list.setLayoutManager(new LinearLayoutManager(context));
-        adapter = new SuffixAdapter(context);
+        adapter = new SuffixAdapter(context, data);
         list.setAdapter(adapter);
 
         list.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
-                HideKeyBroadUtils.HideSoftInput(context,view.getWindowToken());
+                HideKeyBroadUtils.HideSoftInput(context, view.getWindowToken());
             }
         });
 
@@ -66,10 +73,29 @@ public class EmailSuffixPopUtils {
     }
 
     public void updateEmail(String email) {
-        if (email.contains("@"))
+        if (email.contains("@")) {
             adapter.setEmail(email.substring(0, email.indexOf("@")));
-        else
+
+            ArrayList<String> emails = new ArrayList<>();
+            for (String s : data) {
+                String substring = email.substring(email.indexOf("@")+1);
+                if (s.contains(substring)) {
+                    emails.add(s);
+                }
+            }
+            if (emails.size() == 0) {
+                dismiss();
+            } else {
+                String[] data = new String[emails.size()];
+                for (int i = 0; i < emails.size(); i++) {
+                    data[i] = emails.get(i);
+                }
+                adapter.setData(data);
+            }
+        } else {
             adapter.setEmail(email);
+            adapter.setData(data);
+        }
     }
 
     public void setOnSuffixClick(SuffixAdapter.OnSuffixClick onSuffixClick) {
@@ -83,14 +109,15 @@ public class EmailSuffixPopUtils {
 
     static class SuffixAdapter extends RecyclerView.Adapter<SuffixAdapter.ViewHolder> {
 
-        private final String[] data;
+
         OnSuffixClick onSuffixClick;
         Context context;
         String email = "";
+        private String[] data;
 
-        public SuffixAdapter(Context context) {
+        public SuffixAdapter(Context context, String[] data) {
             this.context = context;
-            data = context.getResources().getStringArray(R.array.email);
+            this.data = data;
         }
 
         public void setOnSuffixClick(OnSuffixClick onSuffixClick) {
@@ -99,6 +126,11 @@ public class EmailSuffixPopUtils {
 
         public void setEmail(String email) {
             this.email = email;
+            notifyDataSetChanged();
+        }
+
+        public void setData(String[] data) {
+            this.data = data;
             notifyDataSetChanged();
         }
 

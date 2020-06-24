@@ -9,6 +9,7 @@ import java.util.Map;
 
 
 class RequestUtil {
+    private static final String TAG = "RealRequest";
     private Thread mThread;
 
     /**
@@ -39,13 +40,12 @@ class RequestUtil {
         mThread = new Thread(new Runnable() {
             @Override
             public void run() {
-                Log.i(TAG, "Request: url = "+url);
                 RealResponse response = new RealRequest().getData(getUrl(url, paramsMap), headerMap);
                 if (response.getCode() == 200) {
                     callBack.onSuccess(response.getResponse());
                 }
                 if (response.getCode() == -1) {
-                    callBack.onError(new Throwable("Server Error"));
+                    callBack.onError(response.getThrowable());
                 }
                 if (response.getCode() == 400) {
                     callBack.onError(response.getThrowable());
@@ -55,7 +55,6 @@ class RequestUtil {
         });
     }
 
-    private static final String TAG = "RequestUtil";
     /**
      * post请求
      */
@@ -63,8 +62,8 @@ class RequestUtil {
         mThread = new Thread(new Runnable() {
             @Override
             public void run() {
-                Log.i(TAG, "Request: url = "+url);
-                RealResponse response = new RealRequest().postData(url,getPostBodyType(paramsMap, jsonStr), getPostBody(paramsMap, jsonStr)
+                Log.i(TAG, "Request: url = " + url);
+                RealResponse response = new RealRequest().postData(url, getPostBodyType(paramsMap, jsonStr), getPostBody(paramsMap, jsonStr)
                         , headerMap);
                 if (response.getCode() == 200) {
                     if (response.getResponse().get("code").getAsInt() == 200) {
@@ -74,7 +73,7 @@ class RequestUtil {
                     }
                 }
                 if (response.getCode() == -1) {
-                    callBack.onError(new Throwable("Server Error"));
+                    callBack.onError(response.getThrowable());
                 }
                 if (response.getCode() == 400) {
                     callBack.onError(response.getThrowable());
@@ -83,16 +82,15 @@ class RequestUtil {
             }
 
         });
-
     }
 
     /**
      * 得到bodyType
      */
     private String getPostBodyType(Map<String, String> paramsMap, String jsonStr) {
-        if(paramsMap != null){
+        if (paramsMap != null) {
             return "application/x-www-form-urlencoded";
-        }else if(!TextUtils.isEmpty(jsonStr)){
+        } else if (!TextUtils.isEmpty(jsonStr)) {
             return "application/json;charset=utf-8";
         }
         return null;
@@ -109,6 +107,7 @@ class RequestUtil {
             }
             path = path.substring(0, path.length() - 1);
         }
+        Log.i(TAG, "Request: url = " + path);
         return path;
     }
 
@@ -133,6 +132,7 @@ class RequestUtil {
         boolean first = true;
         try {
             for (Map.Entry<String, String> entry : params.entrySet()) {
+                Log.i(TAG, "params: " + entry.getKey() + ":" + entry.getValue());
                 if (first)
                     first = false;
                 else

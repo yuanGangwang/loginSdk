@@ -1,5 +1,6 @@
 package com.guuidea.towersdk.activity;
 
+import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -20,6 +21,7 @@ public class BaseActivity extends AppCompatActivity implements NavigaView.OnAppl
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); // 禁用横屏
         super.onCreate(savedInstanceState);
         setTranslucentBar(getWindow());
     }

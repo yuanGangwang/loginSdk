@@ -22,7 +22,7 @@
         <EditText
             android:id="@+id/codeEt"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:layout_weight="1"
             android:background="@null"
             android:inputType="number"
@@ -54,7 +54,7 @@
         android:layout_height="0.5dp"
         android:layout_below="@+id/codeLayout"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="3dp"
         android:layout_marginRight="82dp"
         android:background="@color/gray_cd" />
 

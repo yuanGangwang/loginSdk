@@ -9,6 +9,8 @@ import android.text.InputType;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
@@ -59,19 +61,6 @@ public class AccountEtView extends FrameLayout {
         accountEt = view.findViewById(R.id.accountEt);
         accountDivider = view.findViewById(R.id.accountDivider);
         accountEtLine = view.findViewById(R.id.accountEtLine);
-        addView(view);
-    }
-
-    private void iniView() {
-
-        areaTv.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(mContext, AreaSearchActivity.class);
-                mContext.startActivity(intent);
-            }
-        });
-
         watcher = new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -94,25 +83,56 @@ public class AccountEtView extends FrameLayout {
                             popWindows.updateEmail(s.toString());
                         } else {
                             popWindows.showPopWindow(accountEt);
+                            popWindows.updateEmail(s.toString());
                             popWindows.setOnSuffixClick(new EmailSuffixPopUtils.SuffixAdapter.OnSuffixClick() {
                                 @Override
                                 public void onClick(String emailAll) {
                                     accountEt.setText(emailAll);
+                                    accountEt.setSelection(emailAll.length());
                                     popWindows.dismiss();
                                     HideKeyBroadUtils.HideSoftInput(mContext,view.getWindowToken());
                                 }
                             });
                         }
                     }
-
                 }
             }
         };
         accountEt.addTextChangedListener(watcher);
+        addView(view);
+    }
+
+    private void iniView() {
+
+        areaTv.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, AreaSearchActivity.class);
+                mContext.startActivity(intent);
+            }
+        });
+
+
+        accountEt.setOnKeyListener(new OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                int action = event.getAction();
+                Log.i("onKey", "onKey: "+keyCode);
+                if (popWindows!=null&&keyCode==67) {
+//                    popWindows.dismiss();
+//                    HideKeyBroadUtils.HideSoftInput(mContext,view.getWindowToken());
+                }
+                return false;
+            }
+        });
 
         accountEt.setOnFocusChangeListener(new OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus&&popWindows!=null) {
+                    popWindows.dismiss();
+                    HideKeyBroadUtils.HideSoftInput(mContext,view.getWindowToken());
+                }
                 accountEtLine.setBackground(hasFocus ?
                         ContextCompat.getDrawable(mContext, R.color.login_main_color) :
                         ContextCompat.getDrawable(mContext, R.color.gray_cd)

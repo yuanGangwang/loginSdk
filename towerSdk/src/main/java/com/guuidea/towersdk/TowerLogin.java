@@ -54,7 +54,6 @@ public class TowerLogin {
         this.mContext = context;
 
 //        LanguageUtils.getInstance().setContext(context);
-        AreaListener.getInstance().updateData(new PhoneArea("United States of Americ", "US", "1"));
 
         mContext.startActivity(new Intent(mContext, LoginActivity.class));
     }
