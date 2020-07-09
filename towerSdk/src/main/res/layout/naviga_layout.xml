@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/statusBar"
-        android:background="#01875F"
+        android:background="@color/login_main_color"
         android:minHeight="54dp">
 
         <FrameLayout

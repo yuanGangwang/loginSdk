@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:text="@string/verify_authentication"
-            android:textColor="#ff01875f"
+            android:textColor="@color/login_main_color"
             android:textSize="12sp" />
 
         <TextView

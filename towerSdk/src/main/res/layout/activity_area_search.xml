@@ -46,7 +46,7 @@
             android:layout_marginRight="16dp"
             android:gravity="center"
             android:text="Cancel"
-            android:textColor="#ff01875f"
+            android:textColor="@color/login_main_color"
             android:textSize="14sp" />
     </LinearLayout>
 
