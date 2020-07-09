@@ -2,6 +2,8 @@ package com.guuidea.towersdk.weight;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.ColorFilter;
+import android.graphics.drawable.Drawable;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
@@ -14,6 +16,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
 
 import com.guuidea.towersdk.R;
 import com.guuidea.towersdk.utils.CheckUtils;
@@ -87,6 +90,14 @@ public class LoginCodeView extends FrameLayout {
         tipsWithCodeLogin = ((TextView) view.findViewById(R.id.tipsWithCodeLogin));
 
         getCodeBtn = ((TextView) view.findViewById(R.id.getCodeBtn));
+
+        Drawable drawable = ContextCompat.getDrawable(mContext, R.mipmap.ic_et_code);
+        if (drawable!=null){
+            Drawable wrappedDrawable = DrawableCompat.wrap(drawable);
+            DrawableCompat.setTint(wrappedDrawable, ContextCompat.getColor(mContext,R.color.login_main_color));
+            wrappedDrawable.setBounds(0, 0, wrappedDrawable.getIntrinsicWidth(), wrappedDrawable.getIntrinsicHeight());
+            codeEt.setCompoundDrawables(wrappedDrawable , null, null, null);
+        }
 
         getCodeBtn.setOnClickListener(new OnClickListener() {
             @Override

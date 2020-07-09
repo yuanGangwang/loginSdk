@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/page_bg"
     android:orientation="vertical"
     tools:context=".fragment.PhoneLoginFragment">
 
@@ -85,6 +86,7 @@
 
         <com.guuidea.towersdk.weight.LoginCodeView
             android:id="@+id/codeLayout"
+            android:background="@drawable/page_bg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:codeType="email" />

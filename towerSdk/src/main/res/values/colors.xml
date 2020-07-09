@@ -12,4 +12,9 @@
     <color name="whiteTran">#00ffffff</color>
     <color name="gray_f3">#fff3f4f4</color>
     <color name="line">#D8D8D8</color>
+
+    <!-- 页面背景颜色-->
+    <color name="pageBackGroundColor">#FFFFFFFF</color>
+
+
 </resources>

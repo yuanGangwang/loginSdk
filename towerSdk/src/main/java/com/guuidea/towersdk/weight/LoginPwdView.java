@@ -3,6 +3,7 @@ package com.guuidea.towersdk.weight;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
 
 import com.guuidea.towersdk.R;
 import com.guuidea.towersdk.activity.ChangePwdActivity;
@@ -65,6 +67,15 @@ public class LoginPwdView extends FrameLayout {
         pwdEt = view.findViewById(R.id.pwdEt);
         forgetTv = view.findViewById(R.id.forgetTv);
         pwdLine = view.findViewById(R.id.pwdLine);
+
+
+        Drawable pwd = ContextCompat.getDrawable(mContext, R.mipmap.ic_pwd);
+        if (pwd!=null){
+            Drawable pwdDrawable = DrawableCompat.wrap(pwd);
+            DrawableCompat.setTint(pwdDrawable, ContextCompat.getColor(mContext,R.color.login_main_color));
+            pwdDrawable.setBounds(0, 0, pwdDrawable.getIntrinsicWidth(), pwdDrawable.getIntrinsicHeight());
+            pwdEt.setCompoundDrawables(pwdDrawable , null, null, null);
+        }
 
         pwdEt.setOnFocusChangeListener(new OnFocusChangeListener() {
             @Override

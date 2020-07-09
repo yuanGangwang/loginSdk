@@ -39,7 +39,6 @@ class RealRequest {
             conn.connect();
             if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
                 String response = getString(conn.getInputStream());
-                Log.i(TAG, "response: " + response);
                 return new RealResponse(200, JsonParser.parseString(response).getAsJsonObject());
             } else {
                 return new RealResponse(conn.getResponseCode(), new Throwable(conn.getResponseMessage()));
@@ -73,7 +72,6 @@ class RealRequest {
             }
             if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
                 String response = getString(conn.getInputStream());
-                Log.i(TAG, "response: " + response);
                 return new RealResponse(200, JsonParser.parseString(response).getAsJsonObject());
             } else {
                 return new RealResponse(conn.getResponseCode(), new Throwable(getString(conn.getErrorStream())));
@@ -130,7 +128,6 @@ class RealRequest {
     private void setHeader(HttpURLConnection conn, Map<String, String> headerMap) {
         if (headerMap != null) {
             for (String key : headerMap.keySet()) {
-                Log.i(TAG, "setHeader: " + key + " : " + headerMap.get(key));
                 conn.setRequestProperty(key, headerMap.get(key));
             }
         }

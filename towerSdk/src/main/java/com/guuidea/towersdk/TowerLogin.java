@@ -45,7 +45,7 @@ public class TowerLogin {
         }
 
         if (TextUtils.isEmpty(appkey)) {
-            errorReturn("appkey is null");
+            errorReturn("AppKey is null");
             return;
         }
 
@@ -63,5 +63,6 @@ public class TowerLogin {
         loginResult.onError(exception);
         exception.printStackTrace();
     }
+
 
 }

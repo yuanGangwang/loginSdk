@@ -20,6 +20,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
 
 import com.guuidea.towersdk.R;
 import com.guuidea.towersdk.activity.AreaSearchActivity;
@@ -117,7 +118,6 @@ public class AccountEtView extends FrameLayout {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 int action = event.getAction();
-                Log.i("onKey", "onKey: "+keyCode);
                 if (popWindows!=null&&keyCode==67) {
 //                    popWindows.dismiss();
 //                    HideKeyBroadUtils.HideSoftInput(mContext,view.getWindowToken());
@@ -144,12 +144,26 @@ public class AccountEtView extends FrameLayout {
         accountDivider.setVisibility(accountType.equals(AccountType.Email) ? GONE : VISIBLE);
         accountEt.setInputType(accountType.equals(AccountType.Email) ? InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS : InputType.TYPE_CLASS_PHONE);
         accountEt.setHint(accountType.equals(AccountType.Email) ? R.string.email : R.string.mobile_number);
+
         Drawable drawable = ContextCompat.getDrawable(mContext, R.mipmap.ic_mail);
         if (drawable != null) {
-            drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+            Drawable wrappedDrawable = DrawableCompat.wrap(drawable);
+            DrawableCompat.setTint(wrappedDrawable, ContextCompat.getColor(mContext,R.color.login_main_color));
+            wrappedDrawable.setBounds(0, 0, wrappedDrawable.getIntrinsicWidth(), wrappedDrawable.getIntrinsicHeight());
             accountEt.setCompoundDrawables(accountType.equals(AccountType.Email) ?
-                    drawable : null, null, null, null);
+                    wrappedDrawable : null, null, null, null);
         }
+
+
+
+        Drawable phone = ContextCompat.getDrawable(mContext, R.mipmap.ic_et_phone);
+        if (phone!=null){
+            Drawable phoneDrawable = DrawableCompat.wrap(phone);
+            DrawableCompat.setTint(phoneDrawable, ContextCompat.getColor(mContext,R.color.login_main_color));
+            phoneDrawable.setBounds(0, 0, phoneDrawable.getIntrinsicWidth(), phoneDrawable.getIntrinsicHeight());
+            areaTv.setCompoundDrawables(phoneDrawable , null, null, null);
+        }
+
 
         AreaListener.getInstance().addChooseListener(new AreaListener.AreaChooseListener() {
             @Override

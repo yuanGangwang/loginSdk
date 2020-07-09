@@ -62,7 +62,6 @@ class RequestUtil {
         mThread = new Thread(new Runnable() {
             @Override
             public void run() {
-                Log.i(TAG, "Request: url = " + url);
                 RealResponse response = new RealRequest().postData(url, getPostBodyType(paramsMap, jsonStr), getPostBody(paramsMap, jsonStr)
                         , headerMap);
                 if (response.getCode() == 200) {
@@ -107,7 +106,6 @@ class RequestUtil {
             }
             path = path.substring(0, path.length() - 1);
         }
-        Log.i(TAG, "Request: url = " + path);
         return path;
     }
 
@@ -132,7 +130,6 @@ class RequestUtil {
         boolean first = true;
         try {
             for (Map.Entry<String, String> entry : params.entrySet()) {
-                Log.i(TAG, "params: " + entry.getKey() + ":" + entry.getValue());
                 if (first)
                     first = false;
                 else
