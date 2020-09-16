@@ -1,13 +1,16 @@
 package com.guuidea.tower
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
 import com.guuidea.towersdk.LoginResult
 import com.guuidea.towersdk.TowerLogin
 import com.guuidea.towersdk.activity.ChangePwdActivity
+import com.guuidea.towersdk.bean.AccountType
 import com.guuidea.towersdk.net.CallBackUtil
 import com.guuidea.towersdk.net.HeaderManager
 import com.guuidea.towersdk.net.UrlHttpUtil
@@ -17,10 +20,10 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    var appkey = ""
+    var appkey = "app-walk"
     var appSecret = ""
 
-    val defaultKey = "8089c1b7821304f8c993c8b1c8f21350"
+    val defaultKey = "app-walk"
     val defaultSecret = "ODxYzhmMjEzNTA="
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,6 +48,7 @@ class MainActivity : AppCompatActivity() {
             TowerLogin.getInstance().startLoginAuth(
                 MainActivity@ this,
                 appkey,
+                AccountType.ALL,
                 object : LoginResult {
                     override fun onSuccess(authToken: String) {
                         addMsg("login  success   token  =  $authToken")
@@ -143,6 +147,28 @@ class MainActivity : AppCompatActivity() {
         msg.setText(msg.text.toString() + "\n" + info)
     }
 
+
+    fun getBuildConfigValue(context: Context): Boolean {
+        try {
+            val clazz =
+                Class.forName(context.packageName + ".BuildConfig")
+            val field = clazz.getField("DEBUG")
+            return field[null] as Boolean
+        } catch (e: ClassNotFoundException) {
+            e.printStackTrace()
+        } catch (e: NoSuchFieldException) {
+            e.printStackTrace()
+        } catch (e: IllegalAccessException) {
+            e.printStackTrace()
+        }
+        return false
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.i(TAG, "onResume: "+getBuildConfigValue(this))
+    }
+    private  val TAG = "MainActivity"
     //用户临时授权凭证
     val url = "http://190.1.1.241:5002/api/oauth/code"
 

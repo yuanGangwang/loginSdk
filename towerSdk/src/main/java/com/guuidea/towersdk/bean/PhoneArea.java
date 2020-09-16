@@ -4,18 +4,18 @@ public class PhoneArea {
 
 
     boolean showTag;
-    private String areaName;
+    private String name;
     private String areaFlag;
-    private String areaCode;
+    private String code;
     private String tag;
 
     public PhoneArea() {
     }
 
-    public PhoneArea(String areaName, String areaFlag, String areaCode) {
-        this.areaName = areaName;
+    public PhoneArea(String name, String areaFlag, String code) {
+        this.name = name;
         this.areaFlag = areaFlag;
-        this.areaCode = areaCode;
+        this.code = code;
     }
 
     public boolean isShowTag() {
@@ -34,12 +34,12 @@ public class PhoneArea {
         this.tag = tag;
     }
 
-    public String getAreaName() {
-        return areaName;
+    public String getName() {
+        return name;
     }
 
-    public void setAreaName(String areaName) {
-        this.areaName = areaName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getAreaFlag() {
@@ -50,11 +50,11 @@ public class PhoneArea {
         this.areaFlag = areaFlag;
     }
 
-    public String getAreaCode() {
-        return areaCode;
+    public String getCode() {
+        return code;
     }
 
-    public void setAreaCode(String areaCode) {
-        this.areaCode = areaCode;
+    public void setCode(String code) {
+        this.code = code;
     }
 }

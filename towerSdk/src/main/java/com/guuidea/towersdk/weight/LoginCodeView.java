@@ -2,7 +2,6 @@ package com.guuidea.towersdk.weight;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.ColorFilter;
 import android.graphics.drawable.Drawable;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -19,6 +18,7 @@ import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
 
 import com.guuidea.towersdk.R;
+import com.guuidea.towersdk.bean.AccountType;
 import com.guuidea.towersdk.utils.CheckUtils;
 import com.guuidea.towersdk.utils.ToastUtil;
 

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/page_bg"
+    android:orientation="vertical"
+    tools:context=".activity.SetPwdActivity">
+
+    <com.guuidea.towersdk.weight.NavigaView
+        android:id="@+id/title"
+        app:isShowSkip="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/login_main_color"
+        app:naviTitle="@string/set_pwd" />
+
+    <LinearLayout
+        android:id="@+id/setPwdView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:orientation="vertical">
+
+        <com.guuidea.towersdk.weight.PwdEtView
+            android:id="@+id/pwdOne"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:pwdHint="@string/enterNewPwd" />
+
+
+        <com.guuidea.towersdk.weight.PwdEtView
+            android:id="@+id/pwdTwo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            app:pwdHint="@string/enterNewPwdAgain" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="16dp"
+            android:text="@string/pwd_rules"
+            android:textColor="#ff999999"
+            android:textSize="10sp" />
+    </LinearLayout>
+
+    <com.guuidea.towersdk.weight.StateButton
+        android:id="@+id/nextBtn"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="16dp"
+        app:btnTitle="@string/next" />
+
+</LinearLayout>

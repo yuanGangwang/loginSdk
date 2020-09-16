@@ -20,6 +20,7 @@ import androidx.core.graphics.drawable.DrawableCompat;
 
 import com.guuidea.towersdk.R;
 import com.guuidea.towersdk.activity.ChangePwdActivity;
+import com.guuidea.towersdk.bean.AccountType;
 
 public class LoginPwdView extends FrameLayout {
     private Context mContext;

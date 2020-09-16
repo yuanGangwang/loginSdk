@@ -30,6 +30,7 @@
         <!--分割线颜色-->
         <attr name="naviDividerColor" format="color" />
 
+        <attr name="isShowSkip" format="boolean"/>
     </declare-styleable>
 
 

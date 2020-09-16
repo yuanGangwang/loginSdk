@@ -1,50 +1,54 @@
 # compiler: R8
 # compiler_version: 1.6.82
-# pg_map_id: 5033b38
+# pg_map_id: 00b24a5
 # common_typos_disable
 com.guuidea.towersdk.LoginActivity -> com.guuidea.towersdk.LoginActivity:
-    com.guuidea.towersdk.weight.AccountType localType -> a
     android.widget.TextView switchLoginTv -> e
+    com.guuidea.towersdk.bean.AccountType localType -> a
     com.guuidea.towersdk.fragment.EmailLoginFragment emailFragment -> c
     com.guuidea.towersdk.fragment.PhoneLoginFragment phoneEmail -> b
     com.guuidea.towersdk.weight.StateButton loginBtn -> f
     boolean isLoginSuccess -> d
-    1:7:void <init>():21:27 -> <init>
-    1:1:void access$000(com.guuidea.towersdk.LoginActivity):21:21 -> a
-    2:4:void changeBtnState(boolean):99:101 -> a
-    5:10:void loginFinish(com.google.gson.JsonObject):122:127 -> a
-    1:1:android.widget.TextView access$100(com.guuidea.towersdk.LoginActivity):21:21 -> b
-    2:2:void finishLoading():109:109 -> b
-    1:1:void access$200(com.guuidea.towersdk.LoginActivity):21:21 -> c
-    2:2:void startLoading():105:105 -> c
-    1:6:void addEmailLoginFragment():90:95 -> d
-    1:5:void addPhoneLoginFragment():82:86 -> e
-    1:37:void initView():42:78 -> f
-    1:5:void onCreate(android.os.Bundle):34:38 -> onCreate
-    1:4:void onDestroy():114:117 -> onDestroy
+    1:7:void <init>():23:29 -> <init>
+    1:1:void access$000(com.guuidea.towersdk.LoginActivity):23:23 -> a
+    2:4:void changeBtnState(boolean):118:120 -> a
+    5:23:void loginFinish(com.google.gson.JsonObject,com.guuidea.towersdk.fragment.LoginBaseFragment$LoginType):141:159 -> a
+    1:1:android.widget.TextView access$100(com.guuidea.towersdk.LoginActivity):23:23 -> b
+    2:2:void finishLoading():128:128 -> b
+    1:1:void access$200(com.guuidea.towersdk.LoginActivity):23:23 -> c
+    2:2:void startLoading():124:124 -> c
+    1:6:void addEmailLoginFragment():109:114 -> d
+    1:5:void addPhoneLoginFragment():101:105 -> e
+    1:13:void chooseAccountViewShow():43:55 -> f
+    1:36:void initView():60:95 -> g
+    1:5:void onCreate(android.os.Bundle):35:39 -> onCreate
+    1:4:void onDestroy():133:136 -> onDestroy
 com.guuidea.towersdk.LoginActivity$1 -> com.guuidea.towersdk.LoginActivity$a:
     com.guuidea.towersdk.LoginActivity this$0 -> a
-    1:1:void <init>(com.guuidea.towersdk.LoginActivity):45:45 -> <init>
-    1:6:void onClick(android.view.View):48:53 -> onClick
+    1:1:void <init>(com.guuidea.towersdk.LoginActivity):62:62 -> <init>
+    1:6:void onClick(android.view.View):65:70 -> onClick
 com.guuidea.towersdk.LoginActivity$2 -> com.guuidea.towersdk.LoginActivity$b:
     com.guuidea.towersdk.LoginActivity this$0 -> a
-    1:1:void <init>(com.guuidea.towersdk.LoginActivity):57:57 -> <init>
-    1:6:void onClick(android.view.View):60:65 -> onClick
+    1:1:void <init>(com.guuidea.towersdk.LoginActivity):74:74 -> <init>
+    1:6:void onClick(android.view.View):77:82 -> onClick
 com.guuidea.towersdk.LoginActivity$3 -> com.guuidea.towersdk.LoginActivity$c:
-    com.guuidea.towersdk.LoginActivity this$0 -> a
-    1:1:void <init>(com.guuidea.towersdk.LoginActivity):127:127 -> <init>
-    1:1:void run():130:130 -> run
+    com.guuidea.towersdk.LoginActivity this$0 -> b
+    java.lang.String val$authToken -> a
+    1:1:void <init>(com.guuidea.towersdk.LoginActivity,java.lang.String):148:148 -> <init>
+    1:2:void run():151:152 -> run
 com.guuidea.towersdk.TowerLogin -> com.guuidea.towersdk.TowerLogin:
     android.content.Context mContext -> a
+    com.guuidea.towersdk.bean.AccountType loginType -> d
+    com.guuidea.towersdk.TowerLogin towerLogin -> e
     com.guuidea.towersdk.LoginResult loginResult -> c
     java.lang.String appKey -> b
-    com.guuidea.towersdk.TowerLogin towerLogin -> d
-    1:1:void <init>():11:11 -> <init>
-    1:3:void errorReturn(java.lang.String):62:64 -> a
-    1:1:java.lang.String getAppKey():30:30 -> getAppKey
-    1:8:com.guuidea.towersdk.TowerLogin getInstance():19:26 -> getInstance
-    1:1:com.guuidea.towersdk.LoginResult getLoginResult():34:34 -> getLoginResult
-    1:20:void startLoginAuth(android.content.Context,java.lang.String,com.guuidea.towersdk.LoginResult):39:58 -> startLoginAuth
+    1:1:void <init>():9:9 -> <init>
+    1:3:void errorReturn(java.lang.String):70:72 -> a
+    1:1:java.lang.String getAppKey():29:29 -> getAppKey
+    1:8:com.guuidea.towersdk.TowerLogin getInstance():18:25 -> getInstance
+    1:1:com.guuidea.towersdk.LoginResult getLoginResult():33:33 -> getLoginResult
+    1:1:com.guuidea.towersdk.bean.AccountType getLoginType():37:37 -> getLoginType
+    1:25:void startLoginAuth(android.content.Context,java.lang.String,com.guuidea.towersdk.bean.AccountType,com.guuidea.towersdk.LoginResult):42:66 -> startLoginAuth
 com.guuidea.towersdk.activity.AreaSearchActivity -> com.guuidea.towersdk.activity.AreaSearchActivity:
     java.util.LinkedHashMap chooseData -> a
     com.guuidea.towersdk.activity.AreaSearchActivity$AreaAdapter adapter -> f
@@ -56,59 +60,59 @@ com.guuidea.towersdk.activity.AreaSearchActivity -> com.guuidea.towersdk.activit
     androidx.recyclerview.widget.RecyclerView areaList -> d
     com.guuidea.towersdk.bean.AreaResponse areaResponse -> c
     java.util.ArrayList phoneAreas -> b
-    1:4:void <init>():37:40 -> <init>
-    1:1:android.widget.EditText access$000(com.guuidea.towersdk.activity.AreaSearchActivity):37:37 -> a
-    2:2:void access$100(com.guuidea.towersdk.activity.AreaSearchActivity,java.util.List):37:37 -> a
-    3:3:void access$200(com.guuidea.towersdk.activity.AreaSearchActivity,java.lang.String):37:37 -> a
-    4:31:void generateTag(java.util.List):211:238 -> a
-    32:36:void addTagData(java.lang.String,java.util.List):242:246 -> a
-    1:1:androidx.recyclerview.widget.LinearLayoutManager access$300(com.guuidea.towersdk.activity.AreaSearchActivity):37:37 -> b
-    2:8:void matchSearch(java.lang.String):103:109 -> b
-    9:9:void getData():193:193 -> b
-    1:1:androidx.recyclerview.widget.RecyclerView access$400(com.guuidea.towersdk.activity.AreaSearchActivity):37:37 -> c
-    2:31:void initList():114:143 -> c
-    1:1:com.guuidea.towersdk.activity.AreaSearchActivity$TagSelectAdapter access$500(com.guuidea.towersdk.activity.AreaSearchActivity):37:37 -> d
-    2:11:void initSearch():73:82 -> d
-    1:13:void onCreate(android.os.Bundle):56:68 -> onCreate
+    1:4:void <init>():36:39 -> <init>
+    1:1:android.widget.EditText access$000(com.guuidea.towersdk.activity.AreaSearchActivity):36:36 -> a
+    2:2:void access$100(com.guuidea.towersdk.activity.AreaSearchActivity,java.util.List):36:36 -> a
+    3:3:void access$200(com.guuidea.towersdk.activity.AreaSearchActivity,java.lang.String):36:36 -> a
+    4:31:void generateTag(java.util.List):215:242 -> a
+    32:36:void addTagData(java.lang.String,java.util.List):246:250 -> a
+    1:1:androidx.recyclerview.widget.LinearLayoutManager access$300(com.guuidea.towersdk.activity.AreaSearchActivity):36:36 -> b
+    2:8:void matchSearch(java.lang.String):102:108 -> b
+    9:9:void getData():192:192 -> b
+    1:1:androidx.recyclerview.widget.RecyclerView access$400(com.guuidea.towersdk.activity.AreaSearchActivity):36:36 -> c
+    2:31:void initList():113:142 -> c
+    1:1:com.guuidea.towersdk.activity.AreaSearchActivity$TagSelectAdapter access$500(com.guuidea.towersdk.activity.AreaSearchActivity):36:36 -> d
+    2:11:void initSearch():72:81 -> d
+    1:13:void onCreate(android.os.Bundle):55:67 -> onCreate
 com.guuidea.towersdk.activity.AreaSearchActivity$1 -> com.guuidea.towersdk.activity.AreaSearchActivity$a:
     com.guuidea.towersdk.activity.AreaSearchActivity this$0 -> a
-    1:1:void <init>(com.guuidea.towersdk.activity.AreaSearchActivity):73:73 -> <init>
-    1:4:void onClick(android.view.View):76:79 -> onClick
+    1:1:void <init>(com.guuidea.towersdk.activity.AreaSearchActivity):72:72 -> <init>
+    1:4:void onClick(android.view.View):75:78 -> onClick
 com.guuidea.towersdk.activity.AreaSearchActivity$2 -> com.guuidea.towersdk.activity.AreaSearchActivity$b:
     com.guuidea.towersdk.activity.AreaSearchActivity this$0 -> a
-    1:1:void <init>(com.guuidea.towersdk.activity.AreaSearchActivity):82:82 -> <init>
-    1:2:void afterTextChanged(android.text.Editable):95:96 -> afterTextChanged
+    1:1:void <init>(com.guuidea.towersdk.activity.AreaSearchActivity):81:81 -> <init>
+    1:2:void afterTextChanged(android.text.Editable):94:95 -> afterTextChanged
 com.guuidea.towersdk.activity.AreaSearchActivity$3 -> com.guuidea.towersdk.activity.AreaSearchActivity$c:
     com.guuidea.towersdk.activity.AreaSearchActivity this$0 -> a
-    1:1:void <init>(com.guuidea.towersdk.activity.AreaSearchActivity):122:122 -> <init>
-    1:2:void onClick(com.guuidea.towersdk.bean.PhoneArea):125:126 -> a
+    1:1:void <init>(com.guuidea.towersdk.activity.AreaSearchActivity):121:121 -> <init>
+    1:2:void onClick(com.guuidea.towersdk.bean.PhoneArea):124:125 -> a
 com.guuidea.towersdk.activity.AreaSearchActivity$4 -> com.guuidea.towersdk.activity.AreaSearchActivity$d:
     com.guuidea.towersdk.activity.AreaSearchActivity this$0 -> a
-    1:1:void <init>(com.guuidea.towersdk.activity.AreaSearchActivity):130:130 -> <init>
-    1:6:void onClick(int):133:138 -> a
+    1:1:void <init>(com.guuidea.towersdk.activity.AreaSearchActivity):129:129 -> <init>
+    1:6:void onClick(int):132:137 -> a
 com.guuidea.towersdk.activity.AreaSearchActivity$5 -> com.guuidea.towersdk.activity.AreaSearchActivity$e:
     com.guuidea.towersdk.activity.AreaSearchActivity this$0 -> a
-    1:1:void <init>(com.guuidea.towersdk.activity.AreaSearchActivity):143:143 -> <init>
-    1:15:void onScrollStateChanged(androidx.recyclerview.widget.RecyclerView,int):147:161 -> onScrollStateChanged
+    1:1:void <init>(com.guuidea.towersdk.activity.AreaSearchActivity):142:142 -> <init>
+    1:15:void onScrollStateChanged(androidx.recyclerview.widget.RecyclerView,int):146:160 -> onScrollStateChanged
 com.guuidea.towersdk.activity.AreaSearchActivity$6 -> com.guuidea.towersdk.activity.AreaSearchActivity$f:
     com.guuidea.towersdk.activity.AreaSearchActivity this$0 -> a
-    1:1:void <init>(com.guuidea.towersdk.activity.AreaSearchActivity):194:194 -> <init>
-    1:1:void onFailure(java.lang.Throwable):197:197 -> onFailure
-    1:2:void onResponse(com.google.gson.JsonObject):202:203 -> onResponse
+    1:1:void <init>(com.guuidea.towersdk.activity.AreaSearchActivity):193:193 -> <init>
+    1:1:void onFailure(java.lang.Throwable):196:196 -> onFailure
+    1:2:void onResponse(com.google.gson.JsonObject):201:202 -> onResponse
 com.guuidea.towersdk.activity.AreaSearchActivity$AreaAdapter -> com.guuidea.towersdk.activity.AreaSearchActivity$g:
     java.util.List data -> b
     com.guuidea.towersdk.activity.AreaSearchActivity$AreaAdapter$OnItemClick onItemClick -> a
     android.content.Context mContext -> c
-    1:1:void <init>(android.content.Context):325:325 -> <init>
-    2:6:void <init>(android.content.Context):322:326 -> <init>
-    1:1:java.util.List access$1100(com.guuidea.towersdk.activity.AreaSearchActivity$AreaAdapter):319:319 -> a
-    2:3:void setData(java.util.List):330:331 -> a
-    4:18:void onBindViewHolder(com.guuidea.towersdk.activity.AreaSearchActivity$AreaAdapter$ViewHolder,int):342:356 -> a
-    19:19:void setOnItemClick(com.guuidea.towersdk.activity.AreaSearchActivity$AreaAdapter$OnItemClick):366:366 -> a
-    1:1:int getItemCount():362:362 -> getItemCount
-    1:1:void onBindViewHolder(androidx.recyclerview.widget.RecyclerView$ViewHolder,int):319:319 -> onBindViewHolder
-    1:1:androidx.recyclerview.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int):319:319 -> onCreateViewHolder
-    2:2:com.guuidea.towersdk.activity.AreaSearchActivity$AreaAdapter$ViewHolder onCreateViewHolder(android.view.ViewGroup,int):337:337 -> onCreateViewHolder
+    1:1:void <init>(android.content.Context):329:329 -> <init>
+    2:6:void <init>(android.content.Context):326:330 -> <init>
+    1:1:java.util.List access$1100(com.guuidea.towersdk.activity.AreaSearchActivity$AreaAdapter):323:323 -> a
+    2:3:void setData(java.util.List):334:335 -> a
+    4:18:void onBindViewHolder(com.guuidea.towersdk.activity.AreaSearchActivity$AreaAdapter$ViewHolder,int):346:360 -> a
+    19:19:void setOnItemClick(com.guuidea.towersdk.activity.AreaSearchActivity$AreaAdapter$OnItemClick):370:370 -> a
+    1:1:int getItemCount():366:366 -> getItemCount
+    1:1:void onBindViewHolder(androidx.recyclerview.widget.RecyclerView$ViewHolder,int):323:323 -> onBindViewHolder
+    1:1:androidx.recyclerview.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int):323:323 -> onCreateViewHolder
+    2:2:com.guuidea.towersdk.activity.AreaSearchActivity$AreaAdapter$ViewHolder onCreateViewHolder(android.view.ViewGroup,int):341:341 -> onCreateViewHolder
 com.guuidea.towersdk.activity.AreaSearchActivity$AreaAdapter$OnItemClick -> com.guuidea.towersdk.activity.AreaSearchActivity$g$a:
     void onClick(com.guuidea.towersdk.bean.PhoneArea) -> a
 com.guuidea.towersdk.activity.AreaSearchActivity$AreaAdapter$ViewHolder -> com.guuidea.towersdk.activity.AreaSearchActivity$g$b:
@@ -117,43 +121,43 @@ com.guuidea.towersdk.activity.AreaSearchActivity$AreaAdapter$ViewHolder -> com.g
     android.widget.TextView name -> b
     android.view.View root -> c
     android.view.View line -> d
-    1:7:void <init>(com.guuidea.towersdk.activity.AreaSearchActivity$AreaAdapter,android.view.View):380:386 -> <init>
-    1:1:android.view.View access$1000(com.guuidea.towersdk.activity.AreaSearchActivity$AreaAdapter$ViewHolder):373:373 -> a
-    1:1:android.view.View access$700(com.guuidea.towersdk.activity.AreaSearchActivity$AreaAdapter$ViewHolder):373:373 -> b
-    1:1:android.widget.TextView access$800(com.guuidea.towersdk.activity.AreaSearchActivity$AreaAdapter$ViewHolder):373:373 -> c
-    1:1:android.widget.TextView access$900(com.guuidea.towersdk.activity.AreaSearchActivity$AreaAdapter$ViewHolder):373:373 -> d
+    1:7:void <init>(com.guuidea.towersdk.activity.AreaSearchActivity$AreaAdapter,android.view.View):384:390 -> <init>
+    1:1:android.view.View access$1000(com.guuidea.towersdk.activity.AreaSearchActivity$AreaAdapter$ViewHolder):377:377 -> a
+    1:1:android.view.View access$700(com.guuidea.towersdk.activity.AreaSearchActivity$AreaAdapter$ViewHolder):377:377 -> b
+    1:1:android.widget.TextView access$800(com.guuidea.towersdk.activity.AreaSearchActivity$AreaAdapter$ViewHolder):377:377 -> c
+    1:1:android.widget.TextView access$900(com.guuidea.towersdk.activity.AreaSearchActivity$AreaAdapter$ViewHolder):377:377 -> d
 com.guuidea.towersdk.activity.AreaSearchActivity$AreaAdapter$ViewHolder$1 -> com.guuidea.towersdk.activity.AreaSearchActivity$g$b$a:
     com.guuidea.towersdk.activity.AreaSearchActivity$AreaAdapter$ViewHolder this$1 -> a
-    1:1:void <init>(com.guuidea.towersdk.activity.AreaSearchActivity$AreaAdapter$ViewHolder,com.guuidea.towersdk.activity.AreaSearchActivity$AreaAdapter):386:386 -> <init>
-    1:3:void onClick(android.view.View):389:391 -> onClick
+    1:1:void <init>(com.guuidea.towersdk.activity.AreaSearchActivity$AreaAdapter$ViewHolder,com.guuidea.towersdk.activity.AreaSearchActivity$AreaAdapter):390:390 -> <init>
+    1:3:void onClick(android.view.View):393:395 -> onClick
 com.guuidea.towersdk.activity.AreaSearchActivity$TagSelectAdapter -> com.guuidea.towersdk.activity.AreaSearchActivity$h:
     android.content.Context mContext -> c
     com.guuidea.towersdk.activity.AreaSearchActivity$TagSelectAdapter$Onclick onclick -> a
     java.util.LinkedHashMap data -> b
     int selectPosition -> d
-    1:1:void <init>(android.content.Context):256:256 -> <init>
-    2:7:void <init>(android.content.Context):252:257 -> <init>
-    1:2:void setSelectPosition(int):261:262 -> a
-    3:4:void setData(java.util.LinkedHashMap):266:267 -> a
-    5:11:void onBindViewHolder(com.guuidea.towersdk.activity.AreaSearchActivity$TagSelectAdapter$ViewHolder,int):278:284 -> a
-    12:12:void setOnclick(com.guuidea.towersdk.activity.AreaSearchActivity$TagSelectAdapter$Onclick):294:294 -> a
-    1:1:int getItemCount():290:290 -> getItemCount
-    1:1:void onBindViewHolder(androidx.recyclerview.widget.RecyclerView$ViewHolder,int):249:249 -> onBindViewHolder
-    1:1:androidx.recyclerview.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int):249:249 -> onCreateViewHolder
-    2:2:com.guuidea.towersdk.activity.AreaSearchActivity$TagSelectAdapter$ViewHolder onCreateViewHolder(android.view.ViewGroup,int):273:273 -> onCreateViewHolder
+    1:1:void <init>(android.content.Context):260:260 -> <init>
+    2:7:void <init>(android.content.Context):256:261 -> <init>
+    1:2:void setSelectPosition(int):265:266 -> a
+    3:4:void setData(java.util.LinkedHashMap):270:271 -> a
+    5:11:void onBindViewHolder(com.guuidea.towersdk.activity.AreaSearchActivity$TagSelectAdapter$ViewHolder,int):282:288 -> a
+    12:12:void setOnclick(com.guuidea.towersdk.activity.AreaSearchActivity$TagSelectAdapter$Onclick):298:298 -> a
+    1:1:int getItemCount():294:294 -> getItemCount
+    1:1:void onBindViewHolder(androidx.recyclerview.widget.RecyclerView$ViewHolder,int):253:253 -> onBindViewHolder
+    1:1:androidx.recyclerview.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int):253:253 -> onCreateViewHolder
+    2:2:com.guuidea.towersdk.activity.AreaSearchActivity$TagSelectAdapter$ViewHolder onCreateViewHolder(android.view.ViewGroup,int):277:277 -> onCreateViewHolder
 com.guuidea.towersdk.activity.AreaSearchActivity$TagSelectAdapter$Onclick -> com.guuidea.towersdk.activity.AreaSearchActivity$h$a:
     void onClick(int) -> a
 com.guuidea.towersdk.activity.AreaSearchActivity$TagSelectAdapter$ViewHolder -> com.guuidea.towersdk.activity.AreaSearchActivity$h$b:
     android.widget.TextView tagArea -> a
     com.guuidea.towersdk.activity.AreaSearchActivity$TagSelectAdapter this$0 -> b
-    1:4:void <init>(com.guuidea.towersdk.activity.AreaSearchActivity$TagSelectAdapter,android.view.View):305:308 -> <init>
-    1:1:android.widget.TextView access$600(com.guuidea.towersdk.activity.AreaSearchActivity$TagSelectAdapter$ViewHolder):301:301 -> a
+    1:4:void <init>(com.guuidea.towersdk.activity.AreaSearchActivity$TagSelectAdapter,android.view.View):309:312 -> <init>
+    1:1:android.widget.TextView access$600(com.guuidea.towersdk.activity.AreaSearchActivity$TagSelectAdapter$ViewHolder):305:305 -> a
 com.guuidea.towersdk.activity.AreaSearchActivity$TagSelectAdapter$ViewHolder$1 -> com.guuidea.towersdk.activity.AreaSearchActivity$h$b$a:
     com.guuidea.towersdk.activity.AreaSearchActivity$TagSelectAdapter$ViewHolder this$1 -> a
-    1:1:void <init>(com.guuidea.towersdk.activity.AreaSearchActivity$TagSelectAdapter$ViewHolder,com.guuidea.towersdk.activity.AreaSearchActivity$TagSelectAdapter):308:308 -> <init>
-    1:2:void onClick(android.view.View):311:312 -> onClick
+    1:1:void <init>(com.guuidea.towersdk.activity.AreaSearchActivity$TagSelectAdapter$ViewHolder,com.guuidea.towersdk.activity.AreaSearchActivity$TagSelectAdapter):312:312 -> <init>
+    1:2:void onClick(android.view.View):315:316 -> onClick
 com.guuidea.towersdk.activity.AreaSearchActivity$TopSmoothScroller -> com.guuidea.towersdk.activity.AreaSearchActivity$i:
-    1:1:void <init>(com.guuidea.towersdk.activity.AreaSearchActivity,android.content.Context):401:401 -> <init>
+    1:1:void <init>(com.guuidea.towersdk.activity.AreaSearchActivity,android.content.Context):405:405 -> <init>
 com.guuidea.towersdk.activity.BaseActivity -> com.guuidea.towersdk.activity.BaseActivity:
     1:1:void <init>():20:20 -> <init>
     1:8:void setTranslucentBar(android.view.Window):35:42 -> a
@@ -168,12 +172,12 @@ com.guuidea.towersdk.activity.ChangePwdActivity -> com.guuidea.towersdk.activity
     com.guuidea.towersdk.weight.PwdEtView pwdOne -> n
     com.guuidea.towersdk.weight.LoginCodeView codeVerView -> h
     com.guuidea.towersdk.weight.PwdEtView pwdTwo -> o
-    com.guuidea.towersdk.weight.AccountType accountType -> j
     android.view.View setPwdView -> m
     android.widget.TextView step_one_txt -> e
     android.widget.TextView step_two_txt -> g
     java.lang.String token -> a
     java.lang.String accountEmail -> c
+    com.guuidea.towersdk.bean.AccountType accountType -> j
     android.widget.TextView changeTv -> k
     java.lang.String accountPhone -> b
     android.view.View step_one_int -> d
@@ -181,36 +185,36 @@ com.guuidea.towersdk.activity.ChangePwdActivity -> com.guuidea.towersdk.activity
     1:22:void <init>():29:50 -> <init>
     1:1:void access$000(com.guuidea.towersdk.activity.ChangePwdActivity):29:29 -> a
     2:2:void access$1000(com.guuidea.towersdk.activity.ChangePwdActivity,int):29:29 -> a
-    3:3:com.guuidea.towersdk.weight.AccountType access$102(com.guuidea.towersdk.activity.ChangePwdActivity,com.guuidea.towersdk.weight.AccountType):29:29 -> a
+    3:3:com.guuidea.towersdk.bean.AccountType access$102(com.guuidea.towersdk.activity.ChangePwdActivity,com.guuidea.towersdk.bean.AccountType):29:29 -> a
     4:4:void access$1100(com.guuidea.towersdk.activity.ChangePwdActivity,com.google.gson.JsonObject):29:29 -> a
     5:5:void access$800(com.guuidea.towersdk.activity.ChangePwdActivity,java.lang.String,java.lang.String):29:29 -> a
-    6:12:void checkPhoneCode(java.lang.String,java.lang.String,java.lang.String):274:280 -> a
-    13:13:void checkPhoneCode(java.lang.String,java.lang.String,java.lang.String):279:279 -> a
-    14:19:void checkEmailCode(java.lang.String,java.lang.String):295:300 -> a
-    20:20:void checkEmailCode(java.lang.String,java.lang.String):299:299 -> a
-    21:25:void verifySuccess(com.google.gson.JsonObject):315:319 -> a
-    26:43:void setStep(int):354:371 -> a
-    1:1:com.guuidea.towersdk.weight.AccountType access$100(com.guuidea.towersdk.activity.ChangePwdActivity):29:29 -> b
-    2:35:void dealStep():196:229 -> b
-    36:54:void dealStep():198:216 -> b
-    55:58:void getEmailChangePwdCode(java.lang.String):236:239 -> b
-    59:59:void getEmailChangePwdCode(java.lang.String):238:238 -> b
-    60:64:void getPhoneChangePwdCode(java.lang.String,java.lang.String):255:259 -> b
-    65:65:void getPhoneChangePwdCode(java.lang.String,java.lang.String):258:258 -> b
+    6:12:void checkPhoneCode(java.lang.String,java.lang.String,java.lang.String):280:286 -> a
+    13:13:void checkPhoneCode(java.lang.String,java.lang.String,java.lang.String):285:285 -> a
+    14:19:void checkEmailCode(java.lang.String,java.lang.String):301:306 -> a
+    20:20:void checkEmailCode(java.lang.String,java.lang.String):305:305 -> a
+    21:25:void verifySuccess(com.google.gson.JsonObject):321:325 -> a
+    26:43:void setStep(int):361:378 -> a
+    1:1:com.guuidea.towersdk.bean.AccountType access$100(com.guuidea.towersdk.activity.ChangePwdActivity):29:29 -> b
+    2:35:void dealStep():202:235 -> b
+    36:54:void dealStep():204:222 -> b
+    55:58:void getEmailChangePwdCode(java.lang.String):242:245 -> b
+    59:59:void getEmailChangePwdCode(java.lang.String):244:244 -> b
+    60:64:void getPhoneChangePwdCode(java.lang.String,java.lang.String):261:265 -> b
+    65:65:void getPhoneChangePwdCode(java.lang.String,java.lang.String):264:264 -> b
     1:1:void access$1200(com.guuidea.towersdk.activity.ChangePwdActivity):29:29 -> c
-    2:5:void destroy():183:186 -> c
-    6:11:void resetPwd(java.lang.String):323:328 -> c
-    12:12:void resetPwd(java.lang.String):327:327 -> c
+    2:5:void destroy():189:192 -> c
+    6:12:void resetPwd(java.lang.String):329:335 -> c
+    13:13:void resetPwd(java.lang.String):334:334 -> c
     1:1:com.guuidea.towersdk.weight.StateButton access$200(com.guuidea.towersdk.activity.ChangePwdActivity):29:29 -> d
-    2:2:void finishDelay():345:345 -> d
+    2:2:void finishDelay():352:352 -> d
     1:1:com.guuidea.towersdk.weight.PwdEtView access$300(com.guuidea.towersdk.activity.ChangePwdActivity):29:29 -> e
-    2:92:void initView():71:161 -> e
+    2:115:void initView():71:184 -> e
     1:1:com.guuidea.towersdk.weight.PwdEtView access$400(com.guuidea.towersdk.activity.ChangePwdActivity):29:29 -> f
     1:1:void access$500(com.guuidea.towersdk.activity.ChangePwdActivity):29:29 -> g
     1:1:java.lang.String access$600(com.guuidea.towersdk.activity.ChangePwdActivity):29:29 -> h
     1:1:com.guuidea.towersdk.weight.LoginCodeView access$700(com.guuidea.towersdk.activity.ChangePwdActivity):29:29 -> i
     1:1:android.widget.TextView access$900(com.guuidea.towersdk.activity.ChangePwdActivity):29:29 -> j
-    1:1:void onBackPressed():192:192 -> onBackPressed
+    1:1:void onBackPressed():198:198 -> onBackPressed
     1:12:void onCreate(android.os.Bundle):54:65 -> onCreate
 com.guuidea.towersdk.activity.ChangePwdActivity$1 -> com.guuidea.towersdk.activity.ChangePwdActivity$f:
     com.guuidea.towersdk.activity.ChangePwdActivity this$0 -> a
@@ -218,28 +222,28 @@ com.guuidea.towersdk.activity.ChangePwdActivity$1 -> com.guuidea.towersdk.activi
     1:1:void onBackImgClick():74:74 -> a
 com.guuidea.towersdk.activity.ChangePwdActivity$10 -> com.guuidea.towersdk.activity.ChangePwdActivity$a:
     com.guuidea.towersdk.activity.ChangePwdActivity this$0 -> a
-    1:1:void <init>(com.guuidea.towersdk.activity.ChangePwdActivity):259:259 -> <init>
-    1:1:void onFailure(java.lang.Throwable):262:262 -> onFailure
-    1:2:void onResponse(com.google.gson.JsonObject):267:268 -> onResponse
+    1:1:void <init>(com.guuidea.towersdk.activity.ChangePwdActivity):265:265 -> <init>
+    1:1:void onFailure(java.lang.Throwable):268:268 -> onFailure
+    1:2:void onResponse(com.google.gson.JsonObject):273:274 -> onResponse
 com.guuidea.towersdk.activity.ChangePwdActivity$11 -> com.guuidea.towersdk.activity.ChangePwdActivity$b:
     com.guuidea.towersdk.activity.ChangePwdActivity this$0 -> a
-    1:1:void <init>(com.guuidea.towersdk.activity.ChangePwdActivity):280:280 -> <init>
-    1:2:void onFailure(java.lang.Throwable):283:284 -> onFailure
-    1:1:void onResponse(com.google.gson.JsonObject):289:289 -> onResponse
+    1:1:void <init>(com.guuidea.towersdk.activity.ChangePwdActivity):286:286 -> <init>
+    1:2:void onFailure(java.lang.Throwable):289:290 -> onFailure
+    1:1:void onResponse(com.google.gson.JsonObject):295:295 -> onResponse
 com.guuidea.towersdk.activity.ChangePwdActivity$12 -> com.guuidea.towersdk.activity.ChangePwdActivity$c:
     com.guuidea.towersdk.activity.ChangePwdActivity this$0 -> a
-    1:1:void <init>(com.guuidea.towersdk.activity.ChangePwdActivity):300:300 -> <init>
-    1:2:void onFailure(java.lang.Throwable):303:304 -> onFailure
-    1:1:void onResponse(com.google.gson.JsonObject):309:309 -> onResponse
+    1:1:void <init>(com.guuidea.towersdk.activity.ChangePwdActivity):306:306 -> <init>
+    1:2:void onFailure(java.lang.Throwable):309:310 -> onFailure
+    1:1:void onResponse(com.google.gson.JsonObject):315:315 -> onResponse
 com.guuidea.towersdk.activity.ChangePwdActivity$13 -> com.guuidea.towersdk.activity.ChangePwdActivity$d:
     com.guuidea.towersdk.activity.ChangePwdActivity this$0 -> a
-    1:1:void <init>(com.guuidea.towersdk.activity.ChangePwdActivity):328:328 -> <init>
-    1:2:void onFailure(java.lang.Throwable):331:332 -> onFailure
-    1:3:void onResponse(com.google.gson.JsonObject):337:339 -> onResponse
+    1:1:void <init>(com.guuidea.towersdk.activity.ChangePwdActivity):335:335 -> <init>
+    1:2:void onFailure(java.lang.Throwable):338:339 -> onFailure
+    1:3:void onResponse(com.google.gson.JsonObject):344:346 -> onResponse
 com.guuidea.towersdk.activity.ChangePwdActivity$14 -> com.guuidea.towersdk.activity.ChangePwdActivity$e:
     com.guuidea.towersdk.activity.ChangePwdActivity this$0 -> a
-    1:1:void <init>(com.guuidea.towersdk.activity.ChangePwdActivity):345:345 -> <init>
-    1:1:void run():348:348 -> run
+    1:1:void <init>(com.guuidea.towersdk.activity.ChangePwdActivity):352:352 -> <init>
+    1:1:void run():355:355 -> run
 com.guuidea.towersdk.activity.ChangePwdActivity$2 -> com.guuidea.towersdk.activity.ChangePwdActivity$g:
     com.guuidea.towersdk.activity.ChangePwdActivity this$0 -> a
     1:1:void <init>(com.guuidea.towersdk.activity.ChangePwdActivity):84:84 -> <init>
@@ -272,9 +276,35 @@ com.guuidea.towersdk.activity.ChangePwdActivity$8 -> com.guuidea.towersdk.activi
     1:14:void onClick(android.view.View):164:177 -> onClick
 com.guuidea.towersdk.activity.ChangePwdActivity$9 -> com.guuidea.towersdk.activity.ChangePwdActivity$n:
     com.guuidea.towersdk.activity.ChangePwdActivity this$0 -> a
-    1:1:void <init>(com.guuidea.towersdk.activity.ChangePwdActivity):239:239 -> <init>
-    1:1:void onFailure(java.lang.Throwable):242:242 -> onFailure
-    1:2:void onResponse(com.google.gson.JsonObject):247:248 -> onResponse
+    1:1:void <init>(com.guuidea.towersdk.activity.ChangePwdActivity):245:245 -> <init>
+    1:1:void onFailure(java.lang.Throwable):248:248 -> onFailure
+    1:2:void onResponse(com.google.gson.JsonObject):253:254 -> onResponse
+com.guuidea.towersdk.activity.SetPwdActivity -> com.guuidea.towersdk.activity.SetPwdActivity:
+    java.lang.String authToken -> a
+    com.guuidea.towersdk.weight.PwdEtView pwdOne -> b
+    com.guuidea.towersdk.weight.PwdEtView pwdTwo -> c
+    1:1:void <init>():22:22 -> <init>
+    1:1:com.guuidea.towersdk.weight.PwdEtView access$000(com.guuidea.towersdk.activity.SetPwdActivity):22:22 -> a
+    2:2:void access$200(com.guuidea.towersdk.activity.SetPwdActivity,java.lang.String):22:22 -> a
+    1:1:com.guuidea.towersdk.weight.PwdEtView access$100(com.guuidea.towersdk.activity.SetPwdActivity):22:22 -> b
+    2:6:void resetPwd(java.lang.String):56:60 -> b
+    1:22:void onCreate(android.os.Bundle):30:51 -> onCreate
+    1:2:void onDestroy():77:78 -> onDestroy
+com.guuidea.towersdk.activity.SetPwdActivity$1 -> com.guuidea.towersdk.activity.SetPwdActivity$a:
+    com.guuidea.towersdk.activity.SetPwdActivity this$0 -> a
+    1:1:void <init>(com.guuidea.towersdk.activity.SetPwdActivity):36:36 -> <init>
+    1:8:void onClick(android.view.View):39:46 -> onClick
+com.guuidea.towersdk.activity.SetPwdActivity$2 -> com.guuidea.towersdk.activity.SetPwdActivity$b:
+    com.guuidea.towersdk.activity.SetPwdActivity this$0 -> a
+    1:1:void <init>(com.guuidea.towersdk.activity.SetPwdActivity):61:61 -> <init>
+    1:1:void onFailure(java.lang.Throwable):64:64 -> onFailure
+    1:2:void onResponse(com.google.gson.JsonObject):69:70 -> onResponse
+com.guuidea.towersdk.bean.AccountType -> com.guuidea.towersdk.bean.AccountType:
+    1:1:void <clinit>():4:4 -> <clinit>
+    2:2:void <clinit>():3:3 -> <clinit>
+    1:1:void <init>(java.lang.String,int):3:3 -> <init>
+    1:1:com.guuidea.towersdk.bean.AccountType valueOf(java.lang.String):3:3 -> valueOf
+    1:1:com.guuidea.towersdk.bean.AccountType[] values():3:3 -> values
 com.guuidea.towersdk.bean.AreaResponse -> com.guuidea.towersdk.bean.AreaResponse:
     1:1:void <init>():5:5 -> <init>
     1:1:int getCode():18:18 -> getCode
@@ -290,14 +320,14 @@ com.guuidea.towersdk.bean.CodeSend -> com.guuidea.towersdk.bean.CodeSend:
 com.guuidea.towersdk.bean.PhoneArea -> com.guuidea.towersdk.bean.PhoneArea:
     1:1:void <init>():12:12 -> <init>
     2:5:void <init>(java.lang.String,java.lang.String,java.lang.String):15:18 -> <init>
-    1:1:java.lang.String getAreaCode():54:54 -> getAreaCode
     1:1:java.lang.String getAreaFlag():46:46 -> getAreaFlag
-    1:1:java.lang.String getAreaName():38:38 -> getAreaName
+    1:1:java.lang.String getCode():54:54 -> getCode
+    1:1:java.lang.String getName():38:38 -> getName
     1:1:java.lang.String getTag():30:30 -> getTag
     1:1:boolean isShowTag():22:22 -> isShowTag
-    1:1:void setAreaCode(java.lang.String):58:58 -> setAreaCode
     1:1:void setAreaFlag(java.lang.String):50:50 -> setAreaFlag
-    1:1:void setAreaName(java.lang.String):42:42 -> setAreaName
+    1:1:void setCode(java.lang.String):58:58 -> setCode
+    1:1:void setName(java.lang.String):42:42 -> setName
     1:1:void setShowTag(boolean):26:26 -> setShowTag
     1:1:void setTag(java.lang.String):34:34 -> setTag
 com.guuidea.towersdk.bean.TokenBean -> com.guuidea.towersdk.bean.TokenBean:
@@ -330,7 +360,6 @@ com.guuidea.towersdk.fragment.EmailLoginFragment -> com.guuidea.towersdk.b.a:
     1:1:void <init>():24:24 -> <init>
     1:1:void access$000(com.guuidea.towersdk.fragment.EmailLoginFragment):24:24 -> a
     2:2:void access$100(com.guuidea.towersdk.fragment.EmailLoginFragment,java.lang.String):24:24 -> a
-    3:3:void login():24:24 -> a
     1:1:com.guuidea.towersdk.weight.LoginCodeView access$200(com.guuidea.towersdk.fragment.EmailLoginFragment):24:24 -> b
     2:2:void requestEmailCode(java.lang.String):119:119 -> b
     3:4:void loginWithCode():154:155 -> b
@@ -390,28 +419,37 @@ com.guuidea.towersdk.fragment.EmailLoginFragment$9 -> com.guuidea.towersdk.b.a$j
 com.guuidea.towersdk.fragment.LoginBaseFragment -> com.guuidea.towersdk.b.b:
     int selectPosition -> a
     1:3:void <init>():11:13 -> <init>
-    1:2:void loginSuccess(com.google.gson.JsonObject):22:23 -> a
-    3:5:void loginError(java.lang.Throwable):28:30 -> a
-    6:6:void showCommonToast(java.lang.String):34:34 -> a
-    7:10:void changeLoginBtnState(java.lang.String,java.lang.String):38:41 -> a
-    11:15:void login():46:50 -> a
+    1:2:void loginSuccess(com.google.gson.JsonObject,com.guuidea.towersdk.fragment.LoginBaseFragment$LoginType):26:27 -> a
+    3:5:void loginError(java.lang.Throwable):32:34 -> a
+    6:6:void showCommonToast(java.lang.String):38:38 -> a
+    7:10:void changeLoginBtnState(java.lang.String,java.lang.String):42:45 -> a
+    11:15:void login():50:54 -> a
     void loginWithCode() -> b
     void loginWithPwd() -> c
-    1:2:void startLogin():16:17 -> d
+    1:2:void startLogin():20:21 -> d
+com.guuidea.towersdk.fragment.LoginBaseFragment$LoginType -> com.guuidea.towersdk.b.b$a:
+    com.guuidea.towersdk.fragment.LoginBaseFragment$LoginType code -> a
+    com.guuidea.towersdk.fragment.LoginBaseFragment$LoginType pwd -> b
+    com.guuidea.towersdk.fragment.LoginBaseFragment$LoginType[] $VALUES -> c
+    1:1:void <clinit>():16:16 -> <clinit>
+    2:2:void <clinit>():15:15 -> <clinit>
+    1:1:void <init>(java.lang.String,int):15:15 -> <init>
+    1:1:com.guuidea.towersdk.fragment.LoginBaseFragment$LoginType valueOf(java.lang.String):15:15 -> valueOf
+    1:1:com.guuidea.towersdk.fragment.LoginBaseFragment$LoginType[] values():15:15 -> values
 com.guuidea.towersdk.fragment.LoginViewModel -> com.guuidea.towersdk.b.c:
-    1:1:void <init>():12:12 -> <init>
-    1:4:void getEmailCode(java.lang.String,com.guuidea.towersdk.net.CallBackUtil):18:21 -> a
-    5:5:void getEmailCode(java.lang.String,com.guuidea.towersdk.net.CallBackUtil):20:20 -> a
-    6:10:void getPhoneCode(java.lang.String,java.lang.String,com.guuidea.towersdk.net.CallBackUtil):26:30 -> a
-    11:11:void getPhoneCode(java.lang.String,java.lang.String,com.guuidea.towersdk.net.CallBackUtil):29:29 -> a
-    12:17:void loginWithPhoneCode(java.lang.String,java.lang.String,java.lang.String,com.guuidea.towersdk.net.CallBackUtil):42:47 -> a
-    18:18:void loginWithPhoneCode(java.lang.String,java.lang.String,java.lang.String,com.guuidea.towersdk.net.CallBackUtil):46:46 -> a
-    1:5:void loginWithEmailCode(java.lang.String,java.lang.String,com.guuidea.towersdk.net.CallBackUtil):34:38 -> b
-    6:6:void loginWithEmailCode(java.lang.String,java.lang.String,com.guuidea.towersdk.net.CallBackUtil):37:37 -> b
-    7:12:void loginWithPhonePwd(java.lang.String,java.lang.String,java.lang.String,com.guuidea.towersdk.net.CallBackUtil):59:64 -> b
-    13:13:void loginWithPhonePwd(java.lang.String,java.lang.String,java.lang.String,com.guuidea.towersdk.net.CallBackUtil):63:63 -> b
-    1:5:void loginWithEmailPwd(java.lang.String,java.lang.String,com.guuidea.towersdk.net.CallBackUtil):51:55 -> c
-    6:6:void loginWithEmailPwd(java.lang.String,java.lang.String,com.guuidea.towersdk.net.CallBackUtil):54:54 -> c
+    1:1:void <init>():9:9 -> <init>
+    1:4:void getEmailCode(java.lang.String,com.guuidea.towersdk.net.CallBackUtil):15:18 -> a
+    5:5:void getEmailCode(java.lang.String,com.guuidea.towersdk.net.CallBackUtil):17:17 -> a
+    6:10:void getPhoneCode(java.lang.String,java.lang.String,com.guuidea.towersdk.net.CallBackUtil):23:27 -> a
+    11:11:void getPhoneCode(java.lang.String,java.lang.String,com.guuidea.towersdk.net.CallBackUtil):26:26 -> a
+    12:18:void loginWithPhoneCode(java.lang.String,java.lang.String,java.lang.String,com.guuidea.towersdk.net.CallBackUtil):39:45 -> a
+    19:19:void loginWithPhoneCode(java.lang.String,java.lang.String,java.lang.String,com.guuidea.towersdk.net.CallBackUtil):44:44 -> a
+    1:5:void loginWithEmailCode(java.lang.String,java.lang.String,com.guuidea.towersdk.net.CallBackUtil):31:35 -> b
+    6:6:void loginWithEmailCode(java.lang.String,java.lang.String,com.guuidea.towersdk.net.CallBackUtil):34:34 -> b
+    7:13:void loginWithPhonePwd(java.lang.String,java.lang.String,java.lang.String,com.guuidea.towersdk.net.CallBackUtil):60:66 -> b
+    14:14:void loginWithPhonePwd(java.lang.String,java.lang.String,java.lang.String,com.guuidea.towersdk.net.CallBackUtil):65:65 -> b
+    1:7:void loginWithEmailPwd(java.lang.String,java.lang.String,com.guuidea.towersdk.net.CallBackUtil):50:56 -> c
+    8:8:void loginWithEmailPwd(java.lang.String,java.lang.String,com.guuidea.towersdk.net.CallBackUtil):55:55 -> c
 com.guuidea.towersdk.fragment.PhoneLoginFragment -> com.guuidea.towersdk.b.d:
     android.view.View pwdLine -> i
     com.guuidea.towersdk.weight.LoginCodeView codeLayout -> e
@@ -427,7 +465,6 @@ com.guuidea.towersdk.fragment.PhoneLoginFragment -> com.guuidea.towersdk.b.d:
     1:1:void <init>():26:26 -> <init>
     1:1:void access$000(com.guuidea.towersdk.fragment.PhoneLoginFragment):26:26 -> a
     2:2:void access$100(com.guuidea.towersdk.fragment.PhoneLoginFragment,java.lang.String,java.lang.String):26:26 -> a
-    3:3:void login():26:26 -> a
     1:1:com.guuidea.towersdk.weight.LoginCodeView access$200(com.guuidea.towersdk.fragment.PhoneLoginFragment):26:26 -> b
     2:2:void requestPhoneCode(java.lang.String,java.lang.String):119:119 -> b
     3:5:void loginWithCode():192:194 -> b
@@ -484,59 +521,59 @@ com.guuidea.towersdk.fragment.PhoneLoginFragment$9 -> com.guuidea.towersdk.b.d$j
     1:1:void onFailure(java.lang.Throwable):179:179 -> onFailure
     1:1:void onResponse(com.google.gson.JsonObject):184:184 -> onResponse
 com.guuidea.towersdk.net.CallBackUtil -> com.guuidea.towersdk.net.CallBackUtil:
-    1:1:void <clinit>():12:12 -> <clinit>
-    1:1:void <init>():11:11 -> <init>
-    1:1:void onError(java.lang.Throwable):16:16 -> onError
-    1:1:void onSuccess(com.google.gson.JsonObject):26:26 -> onSuccess
+    1:1:void <clinit>():11:11 -> <clinit>
+    1:1:void <init>():10:10 -> <init>
+    1:1:void onError(java.lang.Throwable):15:15 -> onError
+    1:1:void onSuccess(com.google.gson.JsonObject):27:27 -> onSuccess
 com.guuidea.towersdk.net.CallBackUtil$1 -> com.guuidea.towersdk.net.CallBackUtil$1:
-    1:1:void <init>(com.guuidea.towersdk.net.CallBackUtil,java.lang.Throwable):16:16 -> <init>
-    1:2:void run():19:20 -> run
+    1:1:void <init>(com.guuidea.towersdk.net.CallBackUtil,java.lang.Throwable):15:15 -> <init>
+    1:4:void run():18:21 -> run
 com.guuidea.towersdk.net.CallBackUtil$2 -> com.guuidea.towersdk.net.CallBackUtil$2:
-    1:1:void <init>(com.guuidea.towersdk.net.CallBackUtil,com.google.gson.JsonObject):26:26 -> <init>
-    1:1:void run():29:29 -> run
+    1:1:void <init>(com.guuidea.towersdk.net.CallBackUtil,com.google.gson.JsonObject):27:27 -> <init>
+    1:1:void run():30:30 -> run
 com.guuidea.towersdk.net.Constants -> com.guuidea.towersdk.net.Constants:
     1:1:void <init>():3:3 -> <init>
 com.guuidea.towersdk.net.HeaderManager -> com.guuidea.towersdk.net.HeaderManager:
     1:1:void <init>():8:8 -> <init>
     1:4:java.util.Map makeHeader():10:13 -> makeHeader
 com.guuidea.towersdk.net.RealRequest -> com.guuidea.towersdk.net.RealRequest:
-    1:1:void <clinit>():24:24 -> <clinit>
-    1:1:void <init>():22:22 -> <init>
-    1:15:com.guuidea.towersdk.net.RealResponse getData(java.lang.String,java.util.Map):34:48 -> getData
-    1:5:java.net.HttpURLConnection getHttpURLConnection(java.lang.String,java.lang.String):119:123 -> getHttpURLConnection
-    1:22:java.lang.String getString(java.io.InputStream):87:108 -> getString
-    23:25:java.lang.String getString(java.io.InputStream):94:96 -> getString
-    1:25:com.guuidea.towersdk.net.RealResponse postData(java.lang.String,java.lang.String,java.lang.String,java.util.Map):58:82 -> postData
-    1:3:void setHeader(java.net.HttpURLConnection,java.util.Map):132:134 -> setHeader
+    1:1:void <clinit>():25:25 -> <clinit>
+    1:1:void <init>():23:23 -> <init>
+    1:16:com.guuidea.towersdk.net.RealResponse getData(java.lang.String,java.util.Map):35:50 -> getData
+    1:5:java.net.HttpURLConnection getHttpURLConnection(java.lang.String,java.lang.String):124:128 -> getHttpURLConnection
+    1:22:java.lang.String getString(java.io.InputStream):92:113 -> getString
+    23:25:java.lang.String getString(java.io.InputStream):99:101 -> getString
+    1:28:com.guuidea.towersdk.net.RealResponse postData(java.lang.String,java.lang.String,java.lang.String,java.util.Map):60:87 -> postData
+    1:2:void setHeader(java.net.HttpURLConnection,java.util.Map):137:138 -> setHeader
 com.guuidea.towersdk.net.RealResponse -> com.guuidea.towersdk.net.RealResponse:
-    1:3:void <init>(int,com.google.gson.JsonObject):19:21 -> <init>
-    4:6:void <init>(int,java.lang.Throwable):32:34 -> <init>
-    1:1:int getCode():38:38 -> getCode
-    1:1:com.google.gson.JsonObject getResponse():46:46 -> getResponse
-    1:1:java.lang.Throwable getThrowable():25:25 -> getThrowable
-    1:1:void setCode(int):42:42 -> setCode
-    1:1:void setResponse(com.google.gson.JsonObject):50:50 -> setResponse
-    1:1:void setThrowable(java.lang.Throwable):29:29 -> setThrowable
+    1:3:void <init>(int,com.google.gson.JsonObject):21:23 -> <init>
+    4:6:void <init>(int,java.lang.Throwable):34:36 -> <init>
+    1:1:int getCode():40:40 -> getCode
+    1:1:com.google.gson.JsonObject getResponse():48:48 -> getResponse
+    1:1:java.lang.Throwable getThrowable():27:27 -> getThrowable
+    1:1:void setCode(int):44:44 -> setCode
+    1:1:void setResponse(com.google.gson.JsonObject):52:52 -> setResponse
+    1:1:void setThrowable(java.lang.Throwable):31:31 -> setThrowable
 com.guuidea.towersdk.net.RequestUtil -> com.guuidea.towersdk.net.RequestUtil:
-    1:7:void <init>(java.lang.String,java.lang.String,java.util.Map,java.util.Map,com.guuidea.towersdk.net.CallBackUtil):18:24 -> <init>
-    8:8:void <init>(java.lang.String,java.lang.String,java.util.Map,java.util.Map,com.guuidea.towersdk.net.CallBackUtil):21:21 -> <init>
-    9:10:void <init>(java.lang.String,java.lang.String,java.util.Map,com.guuidea.towersdk.net.CallBackUtil):32:33 -> <init>
-    1:1:java.lang.String access$000(com.guuidea.towersdk.net.RequestUtil,java.lang.String,java.util.Map):11:11 -> access$000
-    1:1:java.lang.String access$100(com.guuidea.towersdk.net.RequestUtil,java.util.Map,java.lang.String):11:11 -> access$100
-    1:1:java.lang.String access$200(com.guuidea.towersdk.net.RequestUtil,java.util.Map,java.lang.String):11:11 -> access$200
-    1:2:void execute():156:157 -> execute
-    1:2:java.lang.String getPostBody(java.util.Map,java.lang.String):119:120 -> getPostBody
-    1:14:java.lang.String getPostBodyFormParameMap(java.util.Map):131:144 -> getPostBodyFormParameMap
-    1:1:java.lang.String getPostBodyType(java.util.Map,java.lang.String):93:93 -> getPostBodyType
-    1:7:java.lang.String getUrl(java.lang.String,java.util.Map):104:110 -> getUrl
-    1:1:void urlHttpGet(java.lang.String,java.util.Map,java.util.Map,com.guuidea.towersdk.net.CallBackUtil):40:40 -> urlHttpGet
-    1:1:void urlHttpPost(java.lang.String,java.util.Map,java.lang.String,java.util.Map,com.guuidea.towersdk.net.CallBackUtil):62:62 -> urlHttpPost
+    1:7:void <init>(java.lang.String,java.lang.String,java.util.Map,java.util.Map,com.guuidea.towersdk.net.CallBackUtil):17:23 -> <init>
+    8:8:void <init>(java.lang.String,java.lang.String,java.util.Map,java.util.Map,com.guuidea.towersdk.net.CallBackUtil):20:20 -> <init>
+    9:10:void <init>(java.lang.String,java.lang.String,java.util.Map,com.guuidea.towersdk.net.CallBackUtil):31:32 -> <init>
+    1:1:java.lang.String access$000(com.guuidea.towersdk.net.RequestUtil,java.lang.String,java.util.Map):10:10 -> access$000
+    1:1:java.lang.String access$100(com.guuidea.towersdk.net.RequestUtil,java.util.Map,java.lang.String):10:10 -> access$100
+    1:1:java.lang.String access$200(com.guuidea.towersdk.net.RequestUtil,java.util.Map,java.lang.String):10:10 -> access$200
+    1:2:void execute():153:154 -> execute
+    1:2:java.lang.String getPostBody(java.util.Map,java.lang.String):117:118 -> getPostBody
+    1:13:java.lang.String getPostBodyFormParameMap(java.util.Map):129:141 -> getPostBodyFormParameMap
+    1:1:java.lang.String getPostBodyType(java.util.Map,java.lang.String):92:92 -> getPostBodyType
+    1:5:java.lang.String getUrl(java.lang.String,java.util.Map):103:107 -> getUrl
+    1:1:void urlHttpGet(java.lang.String,java.util.Map,java.util.Map,com.guuidea.towersdk.net.CallBackUtil):39:39 -> urlHttpGet
+    1:1:void urlHttpPost(java.lang.String,java.util.Map,java.lang.String,java.util.Map,com.guuidea.towersdk.net.CallBackUtil):61:61 -> urlHttpPost
 com.guuidea.towersdk.net.RequestUtil$1 -> com.guuidea.towersdk.net.RequestUtil$1:
-    1:1:void <init>(com.guuidea.towersdk.net.RequestUtil,java.lang.String,java.util.Map,java.util.Map,com.guuidea.towersdk.net.CallBackUtil):40:40 -> <init>
-    1:9:void run():43:51 -> run
+    1:1:void <init>(com.guuidea.towersdk.net.RequestUtil,java.lang.String,java.util.Map,java.util.Map,com.guuidea.towersdk.net.CallBackUtil):39:39 -> <init>
+    1:9:void run():42:50 -> run
 com.guuidea.towersdk.net.RequestUtil$2 -> com.guuidea.towersdk.net.RequestUtil$2:
-    1:1:void <init>(com.guuidea.towersdk.net.RequestUtil,java.lang.String,java.util.Map,java.lang.String,java.util.Map,com.guuidea.towersdk.net.CallBackUtil):62:62 -> <init>
-    1:15:void run():65:79 -> run
+    1:1:void <init>(com.guuidea.towersdk.net.RequestUtil,java.lang.String,java.util.Map,java.lang.String,java.util.Map,com.guuidea.towersdk.net.CallBackUtil):61:61 -> <init>
+    1:14:void run():64:77 -> run
 com.guuidea.towersdk.net.ResponseBean -> com.guuidea.towersdk.net.ResponseBean:
     1:1:void <init>():15:15 -> <init>
     2:5:void <init>(int,java.lang.String,java.lang.Object):19:22 -> <init>
@@ -562,6 +599,41 @@ com.guuidea.towersdk.net.UrlHttpUtil -> com.guuidea.towersdk.net.UrlHttpUtil:
     3:3:void post(java.lang.String,java.util.Map,java.util.Map,com.guuidea.towersdk.net.CallBackUtil):77:77 -> post
     1:1:void postJson(java.lang.String,java.lang.String,com.guuidea.towersdk.net.CallBackUtil):88:88 -> postJson
     2:2:void postJson(java.lang.String,java.lang.String,java.util.Map,com.guuidea.towersdk.net.CallBackUtil):100:100 -> postJson
+com.guuidea.towersdk.thirdapi.CoinUserUtils -> com.guuidea.towersdk.thirdapi.CoinUserUtils:
+    1:1:void <clinit>():16:16 -> <clinit>
+    1:1:void <init>():13:13 -> <init>
+    1:2:com.guuidea.towersdk.thirdapi.CoinUserUtils addHeader(java.lang.String,java.lang.String):116:117 -> addHeader
+    1:5:com.guuidea.towersdk.thirdapi.CoinUserUtils getInstance():19:23 -> getInstance
+    1:1:void getUserCoin(com.guuidea.towersdk.thirdapi.CoinUserUtils$CoinUserCoinCallBack):75:75 -> getUserCoin
+    1:1:void getUserInfo(com.guuidea.towersdk.thirdapi.CoinUserUtils$CoinUserInfoCallBack):27:27 -> getUserInfo
+    1:3:void inputInviteCOde(java.lang.String,com.guuidea.towersdk.thirdapi.CoinUserUtils$CoinUserInviteCallBack):95:97 -> inputInviteCOde
+    1:1:void updateUserInfo(com.google.gson.JsonObject,com.guuidea.towersdk.thirdapi.CoinUserUtils$CoinUserInfoCallBack):54:54 -> updateUserInfo
+com.guuidea.towersdk.thirdapi.CoinUserUtils$1 -> com.guuidea.towersdk.thirdapi.CoinUserUtils$1:
+    1:1:void <init>(com.guuidea.towersdk.thirdapi.CoinUserUtils$CoinUserInfoCallBack):28:28 -> <init>
+    1:1:void onFailure(java.lang.Throwable):31:31 -> onFailure
+    1:5:void onResponse(com.google.gson.JsonObject):36:40 -> onResponse
+com.guuidea.towersdk.thirdapi.CoinUserUtils$2 -> com.guuidea.towersdk.thirdapi.CoinUserUtils$2:
+    1:1:void <init>(com.guuidea.towersdk.thirdapi.CoinUserUtils$CoinUserInfoCallBack):55:55 -> <init>
+    1:1:void onFailure(java.lang.Throwable):58:58 -> onFailure
+    1:5:void onResponse(com.google.gson.JsonObject):63:67 -> onResponse
+com.guuidea.towersdk.thirdapi.CoinUserUtils$3 -> com.guuidea.towersdk.thirdapi.CoinUserUtils$3:
+    1:1:void <init>(com.guuidea.towersdk.thirdapi.CoinUserUtils$CoinUserCoinCallBack):76:76 -> <init>
+    1:1:void onFailure(java.lang.Throwable):79:79 -> onFailure
+    1:5:void onResponse(com.google.gson.JsonObject):84:88 -> onResponse
+com.guuidea.towersdk.thirdapi.CoinUserUtils$4 -> com.guuidea.towersdk.thirdapi.CoinUserUtils$4:
+    1:1:void <init>(com.guuidea.towersdk.thirdapi.CoinUserUtils$CoinUserInviteCallBack):98:98 -> <init>
+    1:1:void onFailure(java.lang.Throwable):101:101 -> onFailure
+    1:4:void onResponse(com.google.gson.JsonObject):106:109 -> onResponse
+com.guuidea.towersdk.thirdapi.ThirdApiConstant -> com.guuidea.towersdk.thirdapi.ThirdApiConstant:
+    1:1:void <init>(java.lang.String):12:12 -> <init>
+    2:9:void <init>(java.lang.String):10:17 -> <init>
+    1:4:com.guuidea.towersdk.thirdapi.ThirdApiConstant getInstance(java.lang.String):21:24 -> getInstance
+com.guuidea.towersdk.thirdapi.bean.UserCoinsInfo -> com.guuidea.towersdk.thirdapi.bean.UserCoinsInfo:
+    1:1:void <init>():6:6 -> <init>
+com.guuidea.towersdk.thirdapi.bean.UserCoinsInfo$CoinHistory -> com.guuidea.towersdk.thirdapi.bean.UserCoinsInfo$CoinHistory:
+    1:1:void <init>(com.guuidea.towersdk.thirdapi.bean.UserCoinsInfo):18:18 -> <init>
+com.guuidea.towersdk.thirdapi.bean.UserInfoBean -> com.guuidea.towersdk.thirdapi.bean.UserInfoBean:
+    1:1:void <init>():3:3 -> <init>
 com.guuidea.towersdk.utils.CheckUtils -> com.guuidea.towersdk.c.a:
     long clickTime -> a
     1:10:boolean checkPhone(java.lang.String,java.lang.String):20:29 -> a
@@ -594,11 +666,7 @@ com.guuidea.towersdk.utils.QMUIStatusBarHelper -> com.guuidea.towersdk.c.e:
     int sStatusbarHeight -> b
     1:4:int getStatusbarHeight(android.content.Context):356:359 -> a
     1:35:void initStatusBarHeight(android.content.Context):367:401 -> b
-com.guuidea.towersdk.utils.Sha -> com.guuidea.towersdk.c.f:
-    1:7:java.lang.String getSHA256(java.lang.String):13:19 -> a
-    8:8:java.lang.String getSHA256(java.lang.String):17:17 -> a
-    9:18:java.lang.String byte2Hex(byte[]):31:40 -> a
-com.guuidea.towersdk.utils.ToastUtil -> com.guuidea.towersdk.c.g:
+com.guuidea.towersdk.utils.ToastUtil -> com.guuidea.towersdk.c.f:
     android.content.Context context -> a
     android.widget.Toast mToast -> c
     com.guuidea.towersdk.utils.ToastUtil mToastUtils -> b
@@ -609,6 +677,7 @@ com.guuidea.towersdk.utils.ToastUtil -> com.guuidea.towersdk.c.g:
 com.guuidea.towersdk.weight.AccountEtView -> com.guuidea.towersdk.weight.AccountEtView:
     android.widget.EditText accountEt -> f
     android.text.TextWatcher watcher -> k
+    com.guuidea.towersdk.bean.AccountType accountType -> g
     android.view.View accountEtLine -> h
     android.content.Context mContext -> b
     android.widget.TextView areaTv -> e
@@ -616,29 +685,28 @@ com.guuidea.towersdk.weight.AccountEtView -> com.guuidea.towersdk.weight.Account
     android.view.View view -> c
     boolean auto -> a
     android.view.View accountDivider -> d
-    com.guuidea.towersdk.weight.AccountType accountType -> g
     com.guuidea.towersdk.weight.EmailSuffixPopUtils popWindows -> j
     1:1:void <init>(android.content.Context):45:45 -> <init>
     2:2:void <init>(android.content.Context,android.util.AttributeSet):49:49 -> <init>
     3:3:void <init>(android.content.Context,android.util.AttributeSet,int):53:53 -> <init>
     4:28:void <init>(android.content.Context,android.util.AttributeSet,int):32:56 -> <init>
-    1:1:com.guuidea.towersdk.weight.AccountType access$000(com.guuidea.towersdk.weight.AccountEtView):31:31 -> a
+    1:1:com.guuidea.towersdk.bean.AccountType access$000(com.guuidea.towersdk.weight.AccountEtView):31:31 -> a
     2:2:com.guuidea.towersdk.weight.EmailSuffixPopUtils access$102(com.guuidea.towersdk.weight.AccountEtView,com.guuidea.towersdk.weight.EmailSuffixPopUtils):31:31 -> a
     3:3:com.guuidea.towersdk.bean.PhoneArea access$602(com.guuidea.towersdk.weight.AccountEtView,com.guuidea.towersdk.bean.PhoneArea):31:31 -> a
     4:47:void addView():60:103 -> a
     1:1:com.guuidea.towersdk.weight.EmailSuffixPopUtils access$100(com.guuidea.towersdk.weight.AccountEtView):31:31 -> b
-    2:63:void iniView():108:169 -> b
+    2:62:void iniView():108:168 -> b
     1:1:android.content.Context access$200(com.guuidea.towersdk.weight.AccountEtView):31:31 -> c
     1:1:android.widget.EditText access$300(com.guuidea.towersdk.weight.AccountEtView):31:31 -> d
     1:1:android.view.View access$400(com.guuidea.towersdk.weight.AccountEtView):31:31 -> e
     1:1:android.view.View access$500(com.guuidea.towersdk.weight.AccountEtView):31:31 -> f
     1:1:android.widget.TextView access$700(com.guuidea.towersdk.weight.AccountEtView):31:31 -> g
-    1:2:java.lang.String getAccount():189:190 -> getAccount
-    1:1:android.widget.EditText getAccountEt():185:185 -> getAccountEt
-    1:2:java.lang.String getAreaCode():205:206 -> getAreaCode
-    1:2:java.lang.String getAreaName():212:213 -> getAreaName
-    1:4:void setAccount(java.lang.String):196:199 -> setAccount
-    1:2:void setAccountType(com.guuidea.towersdk.weight.AccountType):180:181 -> setAccountType
+    1:2:java.lang.String getAccount():188:189 -> getAccount
+    1:1:android.widget.EditText getAccountEt():184:184 -> getAccountEt
+    1:2:java.lang.String getAreaCode():204:205 -> getAreaCode
+    1:2:java.lang.String getAreaName():211:212 -> getAreaName
+    1:4:void setAccount(java.lang.String):195:198 -> setAccount
+    1:2:void setAccountType(com.guuidea.towersdk.bean.AccountType):179:180 -> setAccountType
 com.guuidea.towersdk.weight.AccountEtView$1 -> com.guuidea.towersdk.weight.AccountEtView$a:
     com.guuidea.towersdk.weight.AccountEtView this$0 -> a
     1:1:void <init>(com.guuidea.towersdk.weight.AccountEtView):65:65 -> <init>
@@ -654,31 +722,22 @@ com.guuidea.towersdk.weight.AccountEtView$2 -> com.guuidea.towersdk.weight.Accou
 com.guuidea.towersdk.weight.AccountEtView$3 -> com.guuidea.towersdk.weight.AccountEtView$c:
     com.guuidea.towersdk.weight.AccountEtView this$0 -> a
     1:1:void <init>(com.guuidea.towersdk.weight.AccountEtView):117:117 -> <init>
-    1:3:boolean onKey(android.view.View,int,android.view.KeyEvent):120:122 -> onKey
+    1:2:boolean onKey(android.view.View,int,android.view.KeyEvent):120:121 -> onKey
 com.guuidea.towersdk.weight.AccountEtView$4 -> com.guuidea.towersdk.weight.AccountEtView$d:
     com.guuidea.towersdk.weight.AccountEtView this$0 -> a
-    1:1:void <init>(com.guuidea.towersdk.weight.AccountEtView):130:130 -> <init>
-    1:7:void onFocusChange(android.view.View,boolean):133:139 -> onFocusChange
-    8:8:void onFocusChange(android.view.View,boolean):137:137 -> onFocusChange
+    1:1:void <init>(com.guuidea.towersdk.weight.AccountEtView):129:129 -> <init>
+    1:7:void onFocusChange(android.view.View,boolean):132:138 -> onFocusChange
+    8:8:void onFocusChange(android.view.View,boolean):136:136 -> onFocusChange
 com.guuidea.towersdk.weight.AccountEtView$5 -> com.guuidea.towersdk.weight.AccountEtView$e:
     com.guuidea.towersdk.weight.AccountEtView this$0 -> a
-    1:1:void <init>(com.guuidea.towersdk.weight.AccountEtView):169:169 -> <init>
-    1:2:void onChoose(com.guuidea.towersdk.bean.PhoneArea):172:173 -> a
-com.guuidea.towersdk.weight.AccountType -> com.guuidea.towersdk.weight.a:
-    com.guuidea.towersdk.weight.AccountType Phone -> a
-    com.guuidea.towersdk.weight.AccountType Email -> b
-    com.guuidea.towersdk.weight.AccountType[] $VALUES -> c
-    1:1:void <clinit>():4:4 -> <clinit>
-    2:2:void <clinit>():3:3 -> <clinit>
-    1:1:void <init>(java.lang.String,int):3:3 -> <init>
-    1:1:com.guuidea.towersdk.weight.AccountType valueOf(java.lang.String):3:3 -> valueOf
-    1:1:com.guuidea.towersdk.weight.AccountType[] values():3:3 -> values
-com.guuidea.towersdk.weight.CountDownTimerUtils -> com.guuidea.towersdk.weight.b:
+    1:1:void <init>(com.guuidea.towersdk.weight.AccountEtView):168:168 -> <init>
+    1:2:void onChoose(com.guuidea.towersdk.bean.PhoneArea):171:172 -> a
+com.guuidea.towersdk.weight.CountDownTimerUtils -> com.guuidea.towersdk.weight.a:
     android.widget.TextView mTextView -> a
     1:2:void <init>(android.widget.TextView,long,long):14:15 -> <init>
     1:4:void onFinish():30:33 -> onFinish
     1:4:void onTick(long):21:24 -> onTick
-com.guuidea.towersdk.weight.EmailSuffixPopUtils -> com.guuidea.towersdk.weight.c:
+com.guuidea.towersdk.weight.EmailSuffixPopUtils -> com.guuidea.towersdk.weight.b:
     com.guuidea.towersdk.weight.EmailSuffixPopUtils popUtils -> f
     androidx.recyclerview.widget.RecyclerView list -> b
     com.guuidea.towersdk.weight.EmailSuffixPopUtils$SuffixAdapter adapter -> c
@@ -693,12 +752,12 @@ com.guuidea.towersdk.weight.EmailSuffixPopUtils -> com.guuidea.towersdk.weight.c
     30:30:void setOnSuffixClick(com.guuidea.towersdk.weight.EmailSuffixPopUtils$SuffixAdapter$OnSuffixClick):102:102 -> a
     31:32:void dismiss():106:107 -> a
     1:1:boolean isWindowShowing():72:72 -> b
-com.guuidea.towersdk.weight.EmailSuffixPopUtils$1 -> com.guuidea.towersdk.weight.c$a:
+com.guuidea.towersdk.weight.EmailSuffixPopUtils$1 -> com.guuidea.towersdk.weight.b$a:
     android.content.Context val$context -> a
     com.guuidea.towersdk.weight.EmailSuffixPopUtils this$0 -> b
     1:1:void <init>(com.guuidea.towersdk.weight.EmailSuffixPopUtils,android.content.Context):41:41 -> <init>
     1:1:void onScrolled(androidx.recyclerview.widget.RecyclerView,int,int):44:44 -> onScrolled
-com.guuidea.towersdk.weight.EmailSuffixPopUtils$SuffixAdapter -> com.guuidea.towersdk.weight.c$b:
+com.guuidea.towersdk.weight.EmailSuffixPopUtils$SuffixAdapter -> com.guuidea.towersdk.weight.b$b:
     android.content.Context context -> b
     java.lang.String[] data -> d
     java.lang.String email -> c
@@ -714,14 +773,14 @@ com.guuidea.towersdk.weight.EmailSuffixPopUtils$SuffixAdapter -> com.guuidea.tow
     1:1:void onBindViewHolder(androidx.recyclerview.widget.RecyclerView$ViewHolder,int):110:110 -> onBindViewHolder
     1:1:androidx.recyclerview.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int):110:110 -> onCreateViewHolder
     2:2:com.guuidea.towersdk.weight.EmailSuffixPopUtils$SuffixAdapter$ViewHolder onCreateViewHolder(android.view.ViewGroup,int):140:140 -> onCreateViewHolder
-com.guuidea.towersdk.weight.EmailSuffixPopUtils$SuffixAdapter$OnSuffixClick -> com.guuidea.towersdk.weight.c$b$a:
+com.guuidea.towersdk.weight.EmailSuffixPopUtils$SuffixAdapter$OnSuffixClick -> com.guuidea.towersdk.weight.b$b$a:
     void onClick(java.lang.String) -> a
-com.guuidea.towersdk.weight.EmailSuffixPopUtils$SuffixAdapter$ViewHolder -> com.guuidea.towersdk.weight.c$b$b:
+com.guuidea.towersdk.weight.EmailSuffixPopUtils$SuffixAdapter$ViewHolder -> com.guuidea.towersdk.weight.b$b$b:
     android.widget.TextView suffix -> a
     com.guuidea.towersdk.weight.EmailSuffixPopUtils$SuffixAdapter this$0 -> b
     1:4:void <init>(com.guuidea.towersdk.weight.EmailSuffixPopUtils$SuffixAdapter,android.view.View):161:164 -> <init>
     1:1:android.widget.TextView access$100(com.guuidea.towersdk.weight.EmailSuffixPopUtils$SuffixAdapter$ViewHolder):157:157 -> a
-com.guuidea.towersdk.weight.EmailSuffixPopUtils$SuffixAdapter$ViewHolder$1 -> com.guuidea.towersdk.weight.c$b$b$a:
+com.guuidea.towersdk.weight.EmailSuffixPopUtils$SuffixAdapter$ViewHolder$1 -> com.guuidea.towersdk.weight.b$b$b$a:
     com.guuidea.towersdk.weight.EmailSuffixPopUtils$SuffixAdapter$ViewHolder this$1 -> a
     1:1:void <init>(com.guuidea.towersdk.weight.EmailSuffixPopUtils$SuffixAdapter$ViewHolder,com.guuidea.towersdk.weight.EmailSuffixPopUtils$SuffixAdapter):164:164 -> <init>
     1:1:void onClick(android.view.View):167:167 -> onClick
@@ -764,7 +823,7 @@ com.guuidea.towersdk.weight.LoginCodeView -> com.guuidea.towersdk.weight.LoginCo
     1:1:android.widget.EditText access$600(com.guuidea.towersdk.weight.LoginCodeView):25:25 -> g
     1:1:com.guuidea.towersdk.weight.AccountEtView getAccountView():177:177 -> getAccountView
     1:1:java.lang.String getCode():181:181 -> getCode
-    1:5:void setCodeType(com.guuidea.towersdk.weight.AccountType):75:79 -> setCodeType
+    1:5:void setCodeType(com.guuidea.towersdk.bean.AccountType):75:79 -> setCodeType
     1:1:void setDefaultAccount(java.lang.String):204:204 -> setDefaultAccount
     1:1:void setOnCodeGetListener(com.guuidea.towersdk.weight.LoginCodeView$OnCodeGetListener):200:200 -> setOnCodeGetListener
     1:1:void setOnTextWatcher(com.guuidea.towersdk.weight.LoginCodeView$OnTextWatcher):196:196 -> setOnTextWatcher
@@ -799,38 +858,38 @@ com.guuidea.towersdk.weight.LoginPwdView -> com.guuidea.towersdk.weight.LoginPwd
     int pwdType -> f
     android.view.View view -> b
     android.view.View pwdLine -> g
-    1:1:void <init>(android.content.Context):35:35 -> <init>
-    2:2:void <init>(android.content.Context,android.util.AttributeSet):39:39 -> <init>
-    3:6:void <init>(android.content.Context,android.util.AttributeSet,int):43:46 -> <init>
-    1:1:android.content.Context access$000(com.guuidea.towersdk.weight.LoginPwdView):24:24 -> a
-    2:10:void getAttrs(android.util.AttributeSet,int):52:60 -> a
-    11:85:void iniView():65:139 -> a
-    1:1:android.view.View access$100(com.guuidea.towersdk.weight.LoginPwdView):24:24 -> b
-    1:1:int access$200(com.guuidea.towersdk.weight.LoginPwdView):24:24 -> c
-    1:1:com.guuidea.towersdk.weight.AccountEtView access$300(com.guuidea.towersdk.weight.LoginPwdView):24:24 -> d
-    1:1:com.guuidea.towersdk.weight.LoginPwdView$OnTextWatcher access$400(com.guuidea.towersdk.weight.LoginPwdView):24:24 -> e
-    1:1:android.widget.EditText access$500(com.guuidea.towersdk.weight.LoginPwdView):24:24 -> f
-    1:1:java.lang.String getAccount():147:147 -> getAccount
-    1:1:com.guuidea.towersdk.weight.AccountEtView getAccountView():143:143 -> getAccountView
-    1:1:java.lang.String getPwd():151:151 -> getPwd
-    1:1:void setOnTextWatcher(com.guuidea.towersdk.weight.LoginPwdView$OnTextWatcher):155:155 -> setOnTextWatcher
+    1:1:void <init>(android.content.Context):36:36 -> <init>
+    2:2:void <init>(android.content.Context,android.util.AttributeSet):40:40 -> <init>
+    3:6:void <init>(android.content.Context,android.util.AttributeSet,int):44:47 -> <init>
+    1:1:android.content.Context access$000(com.guuidea.towersdk.weight.LoginPwdView):25:25 -> a
+    2:10:void getAttrs(android.util.AttributeSet,int):53:61 -> a
+    11:85:void iniView():66:140 -> a
+    1:1:android.view.View access$100(com.guuidea.towersdk.weight.LoginPwdView):25:25 -> b
+    1:1:int access$200(com.guuidea.towersdk.weight.LoginPwdView):25:25 -> c
+    1:1:com.guuidea.towersdk.weight.AccountEtView access$300(com.guuidea.towersdk.weight.LoginPwdView):25:25 -> d
+    1:1:com.guuidea.towersdk.weight.LoginPwdView$OnTextWatcher access$400(com.guuidea.towersdk.weight.LoginPwdView):25:25 -> e
+    1:1:android.widget.EditText access$500(com.guuidea.towersdk.weight.LoginPwdView):25:25 -> f
+    1:1:java.lang.String getAccount():148:148 -> getAccount
+    1:1:com.guuidea.towersdk.weight.AccountEtView getAccountView():144:144 -> getAccountView
+    1:1:java.lang.String getPwd():152:152 -> getPwd
+    1:1:void setOnTextWatcher(com.guuidea.towersdk.weight.LoginPwdView$OnTextWatcher):156:156 -> setOnTextWatcher
 com.guuidea.towersdk.weight.LoginPwdView$1 -> com.guuidea.towersdk.weight.LoginPwdView$a:
     com.guuidea.towersdk.weight.LoginPwdView this$0 -> a
-    1:1:void <init>(com.guuidea.towersdk.weight.LoginPwdView):80:80 -> <init>
-    1:3:void onFocusChange(android.view.View,boolean):83:85 -> onFocusChange
-    4:4:void onFocusChange(android.view.View,boolean):83:83 -> onFocusChange
+    1:1:void <init>(com.guuidea.towersdk.weight.LoginPwdView):81:81 -> <init>
+    1:3:void onFocusChange(android.view.View,boolean):84:86 -> onFocusChange
+    4:4:void onFocusChange(android.view.View,boolean):84:84 -> onFocusChange
 com.guuidea.towersdk.weight.LoginPwdView$2 -> com.guuidea.towersdk.weight.LoginPwdView$b:
     com.guuidea.towersdk.weight.LoginPwdView this$0 -> a
-    1:1:void <init>(com.guuidea.towersdk.weight.LoginPwdView):90:90 -> <init>
-    1:4:void onClick(android.view.View):93:96 -> onClick
+    1:1:void <init>(com.guuidea.towersdk.weight.LoginPwdView):91:91 -> <init>
+    1:4:void onClick(android.view.View):94:97 -> onClick
 com.guuidea.towersdk.weight.LoginPwdView$3 -> com.guuidea.towersdk.weight.LoginPwdView$c:
     com.guuidea.towersdk.weight.LoginPwdView this$0 -> a
-    1:1:void <init>(com.guuidea.towersdk.weight.LoginPwdView):101:101 -> <init>
-    1:2:void afterTextChanged(android.text.Editable):114:115 -> afterTextChanged
+    1:1:void <init>(com.guuidea.towersdk.weight.LoginPwdView):102:102 -> <init>
+    1:2:void afterTextChanged(android.text.Editable):115:116 -> afterTextChanged
 com.guuidea.towersdk.weight.LoginPwdView$4 -> com.guuidea.towersdk.weight.LoginPwdView$d:
     com.guuidea.towersdk.weight.LoginPwdView this$0 -> a
-    1:1:void <init>(com.guuidea.towersdk.weight.LoginPwdView):120:120 -> <init>
-    1:2:void afterTextChanged(android.text.Editable):133:134 -> afterTextChanged
+    1:1:void <init>(com.guuidea.towersdk.weight.LoginPwdView):121:121 -> <init>
+    1:2:void afterTextChanged(android.text.Editable):134:135 -> afterTextChanged
 com.guuidea.towersdk.weight.LoginPwdView$OnTextWatcher -> com.guuidea.towersdk.weight.LoginPwdView$e:
     void onTextWatcher(java.lang.String,java.lang.String) -> a
 com.guuidea.towersdk.weight.NavigaView -> com.guuidea.towersdk.weight.NavigaView:
@@ -858,21 +917,25 @@ com.guuidea.towersdk.weight.NavigaView -> com.guuidea.towersdk.weight.NavigaView
     java.lang.String titleTxt -> e
     android.widget.TextView navBackText -> m
     android.widget.TextView title -> l
-    1:1:void <init>(android.content.Context):51:51 -> <init>
-    2:2:void <init>(android.content.Context,android.util.AttributeSet):55:55 -> <init>
-    3:3:void <init>(android.content.Context,android.util.AttributeSet,int):59:59 -> <init>
-    4:37:void <init>(android.content.Context,android.util.AttributeSet,int):31:64 -> <init>
-    1:89:void initView(android.util.AttributeSet,int):69:157 -> a
-    1:1:android.widget.TextView getTitle():162:162 -> getTitle
-    1:1:void setOnBackClickListener(com.guuidea.towersdk.weight.NavigaView$OnApplyNaviListener):170:170 -> setOnBackClickListener
+    1:1:void <init>(android.content.Context):52:52 -> <init>
+    2:2:void <init>(android.content.Context,android.util.AttributeSet):56:56 -> <init>
+    3:3:void <init>(android.content.Context,android.util.AttributeSet,int):60:60 -> <init>
+    4:37:void <init>(android.content.Context,android.util.AttributeSet,int):32:65 -> <init>
+    1:101:void initView(android.util.AttributeSet,int):70:170 -> a
+    1:1:android.widget.TextView getTitle():175:175 -> getTitle
+    1:1:void setOnBackClickListener(com.guuidea.towersdk.weight.NavigaView$OnApplyNaviListener):183:183 -> setOnBackClickListener
 com.guuidea.towersdk.weight.NavigaView$1 -> com.guuidea.towersdk.weight.NavigaView$a:
     com.guuidea.towersdk.weight.NavigaView this$0 -> a
-    1:1:void <init>(com.guuidea.towersdk.weight.NavigaView):137:137 -> <init>
-    1:2:void onClick(android.view.View):140:141 -> onClick
-com.guuidea.towersdk.weight.NavigaView$OnApplyNaviListener -> com.guuidea.towersdk.weight.NavigaView$b:
+    1:1:void <init>(com.guuidea.towersdk.weight.NavigaView):98:98 -> <init>
+    1:2:void onClick(android.view.View):101:102 -> onClick
+com.guuidea.towersdk.weight.NavigaView$2 -> com.guuidea.towersdk.weight.NavigaView$b:
+    com.guuidea.towersdk.weight.NavigaView this$0 -> a
+    1:1:void <init>(com.guuidea.towersdk.weight.NavigaView):150:150 -> <init>
+    1:2:void onClick(android.view.View):153:154 -> onClick
+com.guuidea.towersdk.weight.NavigaView$OnApplyNaviListener -> com.guuidea.towersdk.weight.NavigaView$c:
     void onBackImgClick() -> a
-com.guuidea.towersdk.weight.NavigaView$OnMenuClickListener -> com.guuidea.towersdk.weight.NavigaView$c:
-com.guuidea.towersdk.weight.NavigaView$OnSearchClickListener -> com.guuidea.towersdk.weight.NavigaView$d:
+com.guuidea.towersdk.weight.NavigaView$OnMenuClickListener -> com.guuidea.towersdk.weight.NavigaView$d:
+com.guuidea.towersdk.weight.NavigaView$OnSearchClickListener -> com.guuidea.towersdk.weight.NavigaView$e:
 com.guuidea.towersdk.weight.PwdEtView -> com.guuidea.towersdk.weight.PwdEtView:
     java.lang.String hint -> f
     android.widget.EditText pwdEt -> d

@@ -2,7 +2,6 @@ package com.guuidea.towersdk.net;
 
 import android.os.Handler;
 import android.os.Looper;
-import android.util.Log;
 
 import com.google.gson.JsonObject;
 import com.guuidea.towersdk.TowerLogin;
@@ -16,7 +15,9 @@ public abstract class CallBackUtil {
         mMainHandler.post(new Runnable() {
             @Override
             public void run() {
-                TowerLogin.getInstance().getLoginResult().onError(response);
+                if (TowerLogin.getInstance().getLoginResult() != null) {
+                    TowerLogin.getInstance().getLoginResult().onError(response);
+                }
                 onFailure(response);
             }
         });

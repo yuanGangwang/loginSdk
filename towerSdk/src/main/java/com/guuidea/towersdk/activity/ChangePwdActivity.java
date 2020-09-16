@@ -11,16 +11,16 @@ import androidx.core.content.ContextCompat;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.guuidea.towersdk.R;
+import com.guuidea.towersdk.TowerLogin;
+import com.guuidea.towersdk.bean.AccountType;
 import com.guuidea.towersdk.bean.TokenBean;
 import com.guuidea.towersdk.net.CallBackUtil;
 import com.guuidea.towersdk.net.Constants;
 import com.guuidea.towersdk.net.HeaderManager;
 import com.guuidea.towersdk.net.UrlHttpUtil;
 import com.guuidea.towersdk.utils.CheckUtils;
-import com.guuidea.towersdk.utils.Sha;
 import com.guuidea.towersdk.utils.ToastUtil;
 import com.guuidea.towersdk.weight.AccountEtView;
-import com.guuidea.towersdk.weight.AccountType;
 import com.guuidea.towersdk.weight.LoginCodeView;
 import com.guuidea.towersdk.weight.NavigaView;
 import com.guuidea.towersdk.weight.PwdEtView;
@@ -71,7 +71,7 @@ public class ChangePwdActivity extends BaseActivity {
         ((NavigaView) findViewById(R.id.title)).setOnBackClickListener(new NavigaView.OnApplyNaviListener() {
             @Override
             public void onBackImgClick() {
-               destroy();
+                destroy();
             }
         });
 
@@ -177,6 +177,12 @@ public class ChangePwdActivity extends BaseActivity {
                 setStep(1);
             }
         });
+
+        if (!TowerLogin.getInstance().getLoginType().equals(AccountType.ALL)) {
+            changeTv.setVisibility(View.GONE);
+        }else {
+            changeTv.setVisibility(View.VISIBLE);
+        }
     }
 
     private void destroy() {
@@ -322,8 +328,9 @@ public class ChangePwdActivity extends BaseActivity {
     private void resetPwd(String pwd) {
         nextBtn.startLoading();
         JsonObject jsonObject = new JsonObject();
-        jsonObject.addProperty("token", token);
-        jsonObject.addProperty("password", Sha.getSHA256(pwd));
+        jsonObject.addProperty("resetPasswordToken", token);
+//        jsonObject.addProperty("password", Sha.getSHA256(pwd));
+        jsonObject.addProperty("password", (pwd));
         UrlHttpUtil.postJson(Constants.resetPwd, jsonObject.toString()
                 , HeaderManager.makeHeader(), new CallBackUtil() {
                     @Override

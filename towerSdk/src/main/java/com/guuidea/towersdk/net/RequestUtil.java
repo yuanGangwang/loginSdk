@@ -1,7 +1,6 @@
 package com.guuidea.towersdk.net;
 
 import android.text.TextUtils;
-import android.util.Log;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -43,12 +42,12 @@ class RequestUtil {
                 RealResponse response = new RealRequest().getData(getUrl(url, paramsMap), headerMap);
                 if (response.getCode() == 200) {
                     callBack.onSuccess(response.getResponse());
-                }
-                if (response.getCode() == -1) {
+                } else if (response.getCode() == -1) {
                     callBack.onError(response.getThrowable());
-                }
-                if (response.getCode() == 400) {
+                } else if (response.getCode() == 400) {
                     callBack.onError(response.getThrowable());
+                } else {
+                    callBack.onError(new Throwable("check your info please"));
                 }
             }
 
@@ -65,18 +64,19 @@ class RequestUtil {
                 RealResponse response = new RealRequest().postData(url, getPostBodyType(paramsMap, jsonStr), getPostBody(paramsMap, jsonStr)
                         , headerMap);
                 if (response.getCode() == 200) {
-                    if (response.getResponse().get("code").getAsInt() == 200) {
+                    if (response.getResponse().get("code").getAsInt() == 0) {
                         callBack.onSuccess(response.getResponse());
                     } else {
                         callBack.onError(new Throwable(response.getResponse().get("msg").getAsString()));
                     }
-                }
-                if (response.getCode() == -1) {
+                } else if (response.getCode() == -1) {
                     callBack.onError(response.getThrowable());
-                }
-                if (response.getCode() == 400) {
+                } else if (response.getCode() == 400) {
                     callBack.onError(response.getThrowable());
+                } else {
+                    callBack.onError(new Throwable("check your info please"));
                 }
+
 
             }
 

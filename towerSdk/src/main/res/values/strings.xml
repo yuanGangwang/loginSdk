@@ -34,10 +34,12 @@
     <string name="codeSendTips">Verification code has been sent</string>
     <string name="pwdCodeVerifySuccess">Verification successful.</string>
     <string name="reset_pwd_success">Reset successful</string>
+    <string name="set_pwd_success">set successful</string>
     <string name="pwd_not_match">Passwords do not match.</string>
     <string name="confirm">Confirm</string>
     <string name="enterNewPwd">Enter new password</string>
     <string name="enterNewPwdAgain">Enter new password again</string>
+    <string name="set_pwd">Set Password</string>
 
 
     <string-array name="email">

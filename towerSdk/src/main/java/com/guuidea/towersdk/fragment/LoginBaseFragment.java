@@ -8,9 +8,13 @@ import com.google.gson.JsonObject;
 import com.guuidea.towersdk.LoginActivity;
 import com.guuidea.towersdk.utils.ToastUtil;
 
-abstract class LoginBaseFragment extends Fragment {
+public abstract class LoginBaseFragment extends Fragment {
 
     int selectPosition = 1;
+
+   public enum LoginType{
+       code,pwd
+    }
 
     void  startLogin(){
         if (getActivity() != null) {
@@ -18,9 +22,9 @@ abstract class LoginBaseFragment extends Fragment {
         }
     }
 
-    void loginSuccess(JsonObject jsonObject) {
+    void loginSuccess(JsonObject jsonObject,LoginType loginType) {
         if (getActivity() != null) {
-            ((LoginActivity) getActivity()).loginFinish(jsonObject);
+            ((LoginActivity) getActivity()).loginFinish(jsonObject,loginType);
         }
     }
 

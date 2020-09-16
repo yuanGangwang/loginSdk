@@ -40,6 +40,8 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.1.0'
 
     implementation project(path: ':towerSdk')
+//    implementation 'com.guuidea.tower:test:1.0.5'
+
 //    implementation 'com.my.test:myaar:1.0.6'
 
 //    implementation(name: 'myaar1', ext: 'aar')
@@ -47,6 +49,7 @@ dependencies {
 //    implementation 'androidx.recyclerview:recyclerview:1.1.0'
 //    implementation 'com.googlecode.libphonenumber:libphonenumber:8.2.0'
     implementation 'com.google.code.gson:gson:2.8.6'
+
 
 
 }

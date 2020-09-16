@@ -17,6 +17,7 @@
 }
 
 -keep class com.guuidea.towersdk.net.**{*; }
+-keep class com.guuidea.towersdk.thirdapi.**{*; }
 -keep class com.guuidea.towersdk.bean.**{*; }
 #-------------------------------------------基本不用动区域--------------------------------------------
 #---------------------------------基本指令区----------------------------------

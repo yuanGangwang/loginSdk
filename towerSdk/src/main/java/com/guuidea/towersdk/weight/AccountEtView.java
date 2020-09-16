@@ -9,7 +9,6 @@ import android.text.InputType;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +23,7 @@ import androidx.core.graphics.drawable.DrawableCompat;
 
 import com.guuidea.towersdk.R;
 import com.guuidea.towersdk.activity.AreaSearchActivity;
+import com.guuidea.towersdk.bean.AccountType;
 import com.guuidea.towersdk.bean.PhoneArea;
 import com.guuidea.towersdk.bus.AreaListener;
 import com.guuidea.towersdk.utils.HideKeyBroadUtils;
@@ -169,7 +169,7 @@ public class AccountEtView extends FrameLayout {
             @Override
             public void onChoose(PhoneArea phoneArea) {
                 mPhoneArea = phoneArea;
-                areaTv.setText(String.format("+%s", phoneArea.getAreaCode()));
+                areaTv.setText(String.format("+%s", phoneArea.getCode()));
             }
         });
 
@@ -202,7 +202,7 @@ public class AccountEtView extends FrameLayout {
 
     public String getAreaCode() {
         if (areaTv != null)
-            return mPhoneArea.getAreaCode();
+            return mPhoneArea.getCode();
 
         return "";
     }

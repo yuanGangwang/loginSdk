@@ -6,13 +6,13 @@ public class TokenBean {
      * token : xxxx
      */
 
-    private String token;
+    private String resetPasswordToken;
 
     public String getToken() {
-        return token;
+        return resetPasswordToken;
     }
 
     public void setToken(String token) {
-        this.token = token;
+        this.resetPasswordToken = token;
     }
 }

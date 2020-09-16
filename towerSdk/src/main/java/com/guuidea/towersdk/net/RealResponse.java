@@ -12,6 +12,8 @@ public class RealResponse {
 
     public int code;
 
+    public long requestTime;
+
     public JsonObject response;
 
     public Throwable throwable;

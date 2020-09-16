@@ -4,9 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 
-import com.guuidea.towersdk.bean.PhoneArea;
-import com.guuidea.towersdk.bus.AreaListener;
-import com.guuidea.towersdk.utils.LanguageUtils;
+import com.guuidea.towersdk.bean.AccountType;
 
 public class TowerLogin {
 
@@ -14,6 +12,7 @@ public class TowerLogin {
     Context mContext;
     private String appKey;
     private LoginResult loginResult;
+    private AccountType loginType;
 
     public static TowerLogin getInstance() {
         if (towerLogin == null) {
@@ -34,7 +33,11 @@ public class TowerLogin {
         return loginResult;
     }
 
-    public void startLoginAuth(Context context, String appkey, LoginResult loginResult) {
+    public AccountType getLoginType() {
+        return loginType;
+    }
+
+    public void startLoginAuth(Context context, String appkey, AccountType accountType, LoginResult loginResult) {
         if (loginResult == null) {
             new Exception("LoginResult is null").printStackTrace();
             return;
@@ -47,6 +50,11 @@ public class TowerLogin {
         if (TextUtils.isEmpty(appkey)) {
             errorReturn("AppKey is null");
             return;
+        }
+        if (accountType == null) {
+            this.loginType = AccountType.ALL;
+        } else {
+            this.loginType = accountType;
         }
 
         this.loginResult = loginResult;
@@ -63,6 +71,7 @@ public class TowerLogin {
         loginResult.onError(exception);
         exception.printStackTrace();
     }
+
 
 
 }

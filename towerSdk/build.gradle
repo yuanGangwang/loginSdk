@@ -38,24 +38,26 @@ dependencies {
 
     implementation 'com.googlecode.libphonenumber:libphonenumber:8.2.0'
     implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 }
 
 def publishedGroupId = 'com.guuidea.tower'
-def artifact_Id = 'babel'
-def artifact_version = '1.0.0'
+//def artifact_Id = 'babel'
+def artifact_Id = 'test'
+def artifact_version = '1.0.11'
 
 
 uploadArchives{
     repositories.mavenDeployer{
 
-        repository(url: "http://nexus.tttinner.com:8888/nexus/content/repositories/releases/") {
-            authentication(
-                    userName: "yuangang.wang",
-                    password: "Abu0ln9vrD91e0m"
-            )
-        }
+//        repository(url: "http://nexus.tttinner.com:8888/nexus/content/repositories/releases/") {
+//            authentication(
+//                    userName: "yuangang.wang",
+//                    password: "Abu0ln9vrD91e0m"
+//            )
+//        }
 
-//        repository(url:"file://C://repository/")
+        repository(url:"file://C://repository/")
         // 唯一标识
         pom.groupId = publishedGroupId
         // 项目名称

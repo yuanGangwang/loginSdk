@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.google.gson.JsonParser;
+import com.guuidea.towersdk.TowerLogin;
 
 import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
@@ -36,9 +37,11 @@ class RealRequest {
             if (headerMap != null) {
                 setHeader(conn, headerMap);
             }
+            conn.setRequestProperty("appkey", TowerLogin.getInstance().getAppKey());
             conn.connect();
             if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
                 String response = getString(conn.getInputStream());
+                Log.i(TAG, "postData: "+response);
                 return new RealResponse(200, JsonParser.parseString(response).getAsJsonObject());
             } else {
                 return new RealResponse(conn.getResponseCode(), new Throwable(conn.getResponseMessage()));
@@ -58,6 +61,8 @@ class RealRequest {
             conn.setDoOutput(true);//可写出
             conn.setDoInput(true);//可读入
             conn.setUseCaches(false);
+            conn.setRequestProperty("appkey", TowerLogin.getInstance().getAppKey());
+            conn.setRequestProperty("authToken", "123");
             if (headerMap != null) {
                 setHeader(conn, headerMap);
             }
@@ -72,8 +77,10 @@ class RealRequest {
             }
             if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
                 String response = getString(conn.getInputStream());
+                Log.i(TAG, "postData: "+response);
                 return new RealResponse(200, JsonParser.parseString(response).getAsJsonObject());
             } else {
+                Log.i(TAG, "postData: "+conn.getResponseCode());
                 return new RealResponse(conn.getResponseCode(), new Throwable(getString(conn.getErrorStream())));
             }
         } catch (Exception e) {

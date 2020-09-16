@@ -5,9 +5,6 @@ import com.guuidea.towersdk.net.CallBackUtil;
 import com.guuidea.towersdk.net.Constants;
 import com.guuidea.towersdk.net.HeaderManager;
 import com.guuidea.towersdk.net.UrlHttpUtil;
-import com.guuidea.towersdk.utils.Sha;
-
-import java.util.HashMap;
 
 public class LoginViewModel {
 
@@ -31,36 +28,41 @@ public class LoginViewModel {
     }
 
     public void loginWithEmailCode(String email, String code, CallBackUtil backUtil) {
-        HashMap<String, String> params = new HashMap<>();
-        params.put("email", email);
-        params.put("code", code);
-        UrlHttpUtil.post(Constants.loginWithEmailCode, params
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("email", email);
+        jsonObject.addProperty("code", code);
+        UrlHttpUtil.postJson(Constants.loginWithEmailCode, jsonObject.toString()
                 , HeaderManager.makeHeader(), backUtil);
     }
 
     public void loginWithPhoneCode(String areaCode, String phone, String code, CallBackUtil backUtil) {
-        HashMap<String, String> params = new HashMap<>();
-        params.put("areaCode", areaCode);
-        params.put("phone", phone);
-        params.put("code", code);
-        UrlHttpUtil.post(Constants.loginWithPhoneCode, params
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("areaCode", areaCode);
+        jsonObject.addProperty("phone", phone);
+        jsonObject.addProperty("code", code);
+
+        UrlHttpUtil.postJson(Constants.loginWithPhoneCode, jsonObject.toString()
                 , HeaderManager.makeHeader(), backUtil);
     }
 
     public void loginWithEmailPwd(String email, String password, CallBackUtil backUtil) {
-        HashMap<String, String> params = new HashMap<>();
-        params.put("email", email);
-        params.put("password", Sha.getSHA256(password));
-        UrlHttpUtil.post(Constants.loginWithEmailPwd, params
+
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("email", email);
+//        jsonObject.addProperty("password", Sha.getSHA256(password));
+        jsonObject.addProperty("password", (password));
+
+        UrlHttpUtil.postJson(Constants.loginWithEmailPwd, jsonObject.toString()
                 , HeaderManager.makeHeader(), backUtil);
     }
 
     public void loginWithPhonePwd(String areaCode, String phone, String password, CallBackUtil backUtil) {
-        HashMap<String, String> params = new HashMap<>();
-        params.put("areaCode", areaCode);
-        params.put("phone", phone);
-        params.put("password", Sha.getSHA256(password));
-        UrlHttpUtil.post(Constants.loginWithEmailPwd, params
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("areaCode", areaCode);
+        jsonObject.addProperty("phone", phone);
+//        jsonObject.addProperty("password", Sha.getSHA256(password));
+        jsonObject.addProperty("password", (password));
+        UrlHttpUtil.postJson(Constants.loginWithPhonePwd, jsonObject.toString()
                 , HeaderManager.makeHeader(), backUtil);
     }
 

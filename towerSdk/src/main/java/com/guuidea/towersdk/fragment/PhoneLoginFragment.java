@@ -181,7 +181,7 @@ public class PhoneLoginFragment extends LoginBaseFragment {
 
                     @Override
                     public void onResponse(JsonObject response) {
-                        loginSuccess(response);
+                        loginSuccess(response,LoginType.pwd);
                     }
                 }
         );
@@ -199,7 +199,7 @@ public class PhoneLoginFragment extends LoginBaseFragment {
 
                     @Override
                     public void onResponse(JsonObject response) {
-                        loginSuccess(response);
+                        loginSuccess(response,LoginType.code);
                     }
                 }
         );

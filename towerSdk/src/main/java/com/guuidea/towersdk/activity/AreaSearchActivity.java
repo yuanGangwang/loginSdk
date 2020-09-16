@@ -1,6 +1,5 @@
 package com.guuidea.towersdk.activity;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
@@ -102,7 +101,7 @@ public class AreaSearchActivity extends BaseActivity {
     private void matchSearch(String key) {
         ArrayList<PhoneArea> searchAreas = new ArrayList<>();
         for (PhoneArea phoneArea : areaResponse.getData()) {
-            if (phoneArea.getAreaCode().toLowerCase().contains(key) || phoneArea.getAreaName().toLowerCase().contains(key)) {
+            if (phoneArea.getCode().toLowerCase().contains(key) || phoneArea.getName().toLowerCase().contains(key)) {
                 searchAreas.add(phoneArea);
             }
         }
@@ -208,18 +207,23 @@ public class AreaSearchActivity extends BaseActivity {
     }
 
     private void generateTag(List<PhoneArea> data) {
+
+        if (data==null){
+            return;
+        }
+
         phoneAreas = new ArrayList<>();
         chooseData = new LinkedHashMap<>();
         int position = 0;
 
         if (data.size() > 0) {
 
-            char tag = data.get(position).getAreaCode().charAt(0);
+            char tag = data.get(position).getCode().charAt(0);
             addTagData(String.valueOf(tag), phoneAreas);
 
             for (PhoneArea area : data) {
                 if (!area.isShowTag()) {
-                    char tagNow = area.getAreaCode().charAt(0);
+                    char tagNow = area.getCode().charAt(0);
                     area.setTag(String.valueOf(tagNow));
                     if (tagNow != tag) {
                         addTagData(String.valueOf(tagNow), phoneAreas);
@@ -348,8 +352,8 @@ public class AreaSearchActivity extends BaseActivity {
                 holder.root.setBackgroundColor(ContextCompat.getColor(mContext, R.color.white));
                 holder.name.setVisibility(View.VISIBLE);
                 holder.line.setVisibility(View.VISIBLE);
-                holder.code.setText("+" + data.get(position).getAreaCode());
-                holder.name.setText(data.get(position).getAreaName());
+                holder.code.setText("+" + data.get(position).getCode());
+                holder.name.setText(data.get(position).getName());
             }
 
             if (position+1<data.size()&&data.get(position+1).isShowTag()){

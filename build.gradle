@@ -23,6 +23,13 @@ allprojects {
         maven{
             url 'file://C://repository/'
         }
+        maven {
+            url uri("http://nexus.tttinner.com:8888/nexus/content/repositories/releases/")
+            credentials {
+                username = "yuangang.wang"
+                password = "Abu0ln9vrD91e0m"
+            }
+        }
 
     }
 }

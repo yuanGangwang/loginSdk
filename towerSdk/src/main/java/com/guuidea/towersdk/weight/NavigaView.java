@@ -1,5 +1,6 @@
 package com.guuidea.towersdk.weight;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.text.TextUtils;
@@ -59,7 +60,7 @@ public class NavigaView extends FrameLayout {
         super(context, attrs, defStyleAttr);
         mContext = context;
         layoutInflater = LayoutInflater.from(context);
-        view = layoutInflater.inflate(R.layout.naviga_layout, null);
+        view = layoutInflater.inflate(R.layout.item_naviga_layout, null);
         addView(view);
         initView(attrs, defStyleAttr);
     }
@@ -85,7 +86,6 @@ public class NavigaView extends FrameLayout {
 
             searchIcon = a.getResourceId(R.styleable.naviga_searchIcon, 0);
             menuIcon = a.getResourceId(R.styleable.naviga_menuIcon, 0);
-
             divider = view.findViewById(R.id.navTitleBottomLine);
             title = (TextView) view.findViewById(R.id.navTitle);
             navBackText = (TextView) view.findViewById(R.id.backTxt);
@@ -93,6 +93,19 @@ public class NavigaView extends FrameLayout {
             navSearch = (ImageView) view.findViewById(R.id.navSearch);
             navMenu = (ImageView) view.findViewById(R.id.navMenu);
 
+            if (a.getBoolean(R.styleable.naviga_isShowSkip, false)) {
+                view.findViewById(R.id.skip).setVisibility(View.VISIBLE);
+                view.findViewById(R.id.skip).setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (getContext() instanceof Activity) {
+                            ((Activity) getContext()).finish();
+                        }
+                    }
+                });
+            }else {
+                view.findViewById(R.id.skip).setVisibility(View.GONE);
+            }
 
             view.findViewById(R.id.naviLayout).setBackgroundColor(naviBackGroundColor);
 
