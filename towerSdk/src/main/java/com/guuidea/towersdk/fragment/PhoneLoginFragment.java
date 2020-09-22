@@ -1,15 +1,12 @@
 package com.guuidea.towersdk.fragment;
 
-import android.annotation.SuppressLint;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,9 +14,9 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 
 import com.google.gson.JsonObject;
-import com.guuidea.towersdk.LoginActivity;
+import com.guuidea.net.CallBackUtil;
+import com.guuidea.net.NetClient;
 import com.guuidea.towersdk.R;
-import com.guuidea.towersdk.net.CallBackUtil;
 import com.guuidea.towersdk.weight.LoginCodeView;
 import com.guuidea.towersdk.weight.LoginPwdView;
 
@@ -38,8 +35,9 @@ public class PhoneLoginFragment extends LoginBaseFragment {
     private View tabPwdLayout;
     private View tabSmsLayout;
 
-    public static PhoneLoginFragment newInstance() {
-        return new PhoneLoginFragment();
+    public static PhoneLoginFragment newInstance(String appKey) {
+        PhoneLoginFragment phoneLoginFragment = new PhoneLoginFragment();
+        return phoneLoginFragment;
     }
 
     @Override
@@ -181,7 +179,7 @@ public class PhoneLoginFragment extends LoginBaseFragment {
 
                     @Override
                     public void onResponse(JsonObject response) {
-                        loginSuccess(response,LoginType.pwd);
+                        loginSuccess(response, LoginType.pwd);
                     }
                 }
         );
@@ -199,7 +197,7 @@ public class PhoneLoginFragment extends LoginBaseFragment {
 
                     @Override
                     public void onResponse(JsonObject response) {
-                        loginSuccess(response,LoginType.code);
+                        loginSuccess(response, LoginType.code);
                     }
                 }
         );

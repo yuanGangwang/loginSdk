@@ -10,14 +10,14 @@ import androidx.core.content.ContextCompat;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import com.guuidea.net.CallBackUtil;
+import com.guuidea.net.HeaderManager;
+import com.guuidea.net.NetClient;
 import com.guuidea.towersdk.R;
 import com.guuidea.towersdk.TowerLogin;
 import com.guuidea.towersdk.bean.AccountType;
 import com.guuidea.towersdk.bean.TokenBean;
-import com.guuidea.towersdk.net.CallBackUtil;
 import com.guuidea.towersdk.net.Constants;
-import com.guuidea.towersdk.net.HeaderManager;
-import com.guuidea.towersdk.net.UrlHttpUtil;
 import com.guuidea.towersdk.utils.CheckUtils;
 import com.guuidea.towersdk.utils.ToastUtil;
 import com.guuidea.towersdk.weight.AccountEtView;
@@ -180,7 +180,7 @@ public class ChangePwdActivity extends BaseActivity {
 
         if (!TowerLogin.getInstance().getLoginType().equals(AccountType.ALL)) {
             changeTv.setVisibility(View.GONE);
-        }else {
+        } else {
             changeTv.setVisibility(View.VISIBLE);
         }
     }
@@ -241,8 +241,12 @@ public class ChangePwdActivity extends BaseActivity {
     public void getEmailChangePwdCode(String email) {
         JsonObject jsonObject = new JsonObject();
         jsonObject.addProperty("email", email);
-        UrlHttpUtil.postJson(Constants.getChangeEmailPwdCode, jsonObject.toString()
-                , HeaderManager.makeHeader(), new CallBackUtil() {
+//        UrlHttpUtil.postJson(Constants.getChangeEmailPwdCode, jsonObject.toString()
+//                , HeaderManager.makeHeader(),);
+        NetClient.getInstance().url(Constants.getChangeEmailPwdCode)
+                .jsonParams(jsonObject.toString())
+                .headerMap(HeaderManager.makeHeader())
+                .callback(new CallBackUtil() {
                     @Override
                     public void onFailure(Throwable throwable) {
                         showCommonToast(throwable.getMessage());
@@ -253,7 +257,8 @@ public class ChangePwdActivity extends BaseActivity {
                         codeVerView.startCountDown();
                         showCommonToast(getString(R.string.codeSendTips));
                     }
-                });
+                })
+                .post();
     }
 
     private void getPhoneChangePwdCode(String areaCode, String account) {
@@ -261,8 +266,24 @@ public class ChangePwdActivity extends BaseActivity {
         JsonObject jsonObject = new JsonObject();
         jsonObject.addProperty("areaCode", areaCode);
         jsonObject.addProperty("phone", account);
-        UrlHttpUtil.postJson(Constants.getChangePhonePwdCode, jsonObject.toString()
-                , HeaderManager.makeHeader(), new CallBackUtil() {
+//        UrlHttpUtil.postJson(Constants.getChangePhonePwdCode, jsonObject.toString()
+//                , HeaderManager.makeHeader(), new CallBackUtil() {
+//                    @Override
+//                    public void onFailure(Throwable throwable) {
+//                        showCommonToast(throwable.getMessage());
+//                    }
+//
+//                    @Override
+//                    public void onResponse(JsonObject response) {
+//                        codeVerView.startCountDown();
+//                        showCommonToast(getString(R.string.codeSendTips));
+//                    }
+//                });
+
+        NetClient.getInstance().url(Constants.getChangePhonePwdCode)
+                .jsonParams(jsonObject.toString())
+                .headerMap(HeaderManager.makeHeader())
+                .callback(new CallBackUtil() {
                     @Override
                     public void onFailure(Throwable throwable) {
                         showCommonToast(throwable.getMessage());
@@ -273,7 +294,8 @@ public class ChangePwdActivity extends BaseActivity {
                         codeVerView.startCountDown();
                         showCommonToast(getString(R.string.codeSendTips));
                     }
-                });
+                })
+                .post();
     }
 
     private void checkPhoneCode(String areaCode, String phone, String code) {
@@ -282,8 +304,24 @@ public class ChangePwdActivity extends BaseActivity {
         jsonObject.addProperty("areaCode", areaCode);
         jsonObject.addProperty("phone", phone);
         jsonObject.addProperty("code", code);
-        UrlHttpUtil.postJson(Constants.checkChangePhonePwdCode, jsonObject.toString()
-                , HeaderManager.makeHeader(), new CallBackUtil() {
+//        UrlHttpUtil.postJson(Constants.checkChangePhonePwdCode, jsonObject.toString()
+//                , HeaderManager.makeHeader(), new CallBackUtil() {
+//                    @Override
+//                    public void onFailure(Throwable throwable) {
+//                        nextBtn.endLoading();
+//                        showCommonToast(throwable.getMessage());
+//                    }
+//
+//                    @Override
+//                    public void onResponse(JsonObject response) {
+//                        verifySuccess(response);
+//                    }
+//                });
+
+        NetClient.getInstance().url(Constants.checkChangePhonePwdCode)
+                .jsonParams(jsonObject.toString())
+                .headerMap(HeaderManager.makeHeader())
+                .callback(new CallBackUtil() {
                     @Override
                     public void onFailure(Throwable throwable) {
                         nextBtn.endLoading();
@@ -294,7 +332,8 @@ public class ChangePwdActivity extends BaseActivity {
                     public void onResponse(JsonObject response) {
                         verifySuccess(response);
                     }
-                });
+                })
+                .post();
     }
 
     private void checkEmailCode(String email, String code) {
@@ -302,8 +341,24 @@ public class ChangePwdActivity extends BaseActivity {
         JsonObject jsonObject = new JsonObject();
         jsonObject.addProperty("email", email);
         jsonObject.addProperty("code", code);
-        UrlHttpUtil.postJson(Constants.checkChangeEmailPwdCode, jsonObject.toString()
-                , HeaderManager.makeHeader(), new CallBackUtil() {
+//        UrlHttpUtil.postJson(Constants.checkChangeEmailPwdCode, jsonObject.toString()
+//                , HeaderManager.makeHeader(), new CallBackUtil() {
+//                    @Override
+//                    public void onFailure(Throwable throwable) {
+//                        nextBtn.endLoading();
+//                        showCommonToast(throwable.getMessage());
+//                    }
+//
+//                    @Override
+//                    public void onResponse(JsonObject response) {
+//                        verifySuccess(response);
+//                    }
+//                });
+
+        NetClient.getInstance().url(Constants.checkChangeEmailPwdCode)
+                .jsonParams(jsonObject.toString())
+                .headerMap(HeaderManager.makeHeader())
+                .callback(new CallBackUtil() {
                     @Override
                     public void onFailure(Throwable throwable) {
                         nextBtn.endLoading();
@@ -314,7 +369,8 @@ public class ChangePwdActivity extends BaseActivity {
                     public void onResponse(JsonObject response) {
                         verifySuccess(response);
                     }
-                });
+                })
+                .post();
     }
 
     private void verifySuccess(JsonObject response) {
@@ -331,8 +387,26 @@ public class ChangePwdActivity extends BaseActivity {
         jsonObject.addProperty("resetPasswordToken", token);
 //        jsonObject.addProperty("password", Sha.getSHA256(pwd));
         jsonObject.addProperty("password", (pwd));
-        UrlHttpUtil.postJson(Constants.resetPwd, jsonObject.toString()
-                , HeaderManager.makeHeader(), new CallBackUtil() {
+//        UrlHttpUtil.postJson(Constants.resetPwd, jsonObject.toString()
+//                , HeaderManager.makeHeader(), new CallBackUtil() {
+//                    @Override
+//                    public void onFailure(Throwable throwable) {
+//                        showCommonToast(throwable.getMessage());
+//                        nextBtn.endLoading();
+//                    }
+//
+//                    @Override
+//                    public void onResponse(JsonObject response) {
+//                        nextBtn.endLoading();
+//                        ToastUtil.getInstance(ChangePwdActivity.this).showCustomer(ChangePwdActivity.this, R.string.reset_pwd_success);
+//                        finishDelay();
+//                    }
+//                });
+
+        NetClient.getInstance().url(Constants.resetPwd)
+                .jsonParams(jsonObject.toString())
+                .headerMap(HeaderManager.makeHeader())
+                .callback(new CallBackUtil() {
                     @Override
                     public void onFailure(Throwable throwable) {
                         showCommonToast(throwable.getMessage());
@@ -345,7 +419,8 @@ public class ChangePwdActivity extends BaseActivity {
                         ToastUtil.getInstance(ChangePwdActivity.this).showCustomer(ChangePwdActivity.this, R.string.reset_pwd_success);
                         finishDelay();
                     }
-                });
+                })
+                .post();
     }
 
     private void finishDelay() {

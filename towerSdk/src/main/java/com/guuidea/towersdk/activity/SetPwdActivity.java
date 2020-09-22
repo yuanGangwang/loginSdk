@@ -1,19 +1,16 @@
 package com.guuidea.towersdk.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 
 import com.google.gson.JsonObject;
+import com.guuidea.net.CallBackUtil;
+import com.guuidea.net.HeaderManager;
+import com.guuidea.net.NetClient;
 import com.guuidea.towersdk.R;
 import com.guuidea.towersdk.TowerLogin;
-import com.guuidea.towersdk.net.CallBackUtil;
 import com.guuidea.towersdk.net.Constants;
-import com.guuidea.towersdk.net.HeaderManager;
-import com.guuidea.towersdk.net.UrlHttpUtil;
 import com.guuidea.towersdk.utils.CheckUtils;
-import com.guuidea.towersdk.utils.Sha;
 import com.guuidea.towersdk.utils.ToastUtil;
 import com.guuidea.towersdk.weight.PwdEtView;
 
@@ -57,8 +54,24 @@ public class SetPwdActivity extends BaseActivity {
         jsonObject.addProperty("password", pwd);
         Map<String, String> header = HeaderManager.makeHeader();
         header.put("authToken",authToken);
-        UrlHttpUtil.postJson(Constants.setPwd, jsonObject.toString()
-                , header, new CallBackUtil() {
+//        UrlHttpUtil.postJson(Constants.setPwd, jsonObject.toString()
+//                , header, new CallBackUtil() {
+//                    @Override
+//                    public void onFailure(Throwable throwable) {
+//                        showCommonToast(throwable.getMessage());
+//                    }
+//
+//                    @Override
+//                    public void onResponse(JsonObject response) {
+//                        ToastUtil.getInstance(SetPwdActivity.this).showCustomer(SetPwdActivity.this, R.string.set_pwd_success);
+//                        finish();
+//                    }
+//                });
+
+        NetClient.getInstance().url(Constants.setPwd)
+                .jsonParams(jsonObject.toString())
+                .headerMap(header)
+                .callback(new CallBackUtil() {
                     @Override
                     public void onFailure(Throwable throwable) {
                         showCommonToast(throwable.getMessage());
@@ -69,7 +82,8 @@ public class SetPwdActivity extends BaseActivity {
                         ToastUtil.getInstance(SetPwdActivity.this).showCustomer(SetPwdActivity.this, R.string.set_pwd_success);
                         finish();
                     }
-                });
+                })
+                .post();
     }
 
     @Override

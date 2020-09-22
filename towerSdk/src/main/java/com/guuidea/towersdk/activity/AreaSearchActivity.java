@@ -18,14 +18,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import com.guuidea.net.CallBackUtil;
+import com.guuidea.net.HeaderManager;
+import com.guuidea.net.NetClient;
 import com.guuidea.towersdk.R;
 import com.guuidea.towersdk.bean.AreaResponse;
 import com.guuidea.towersdk.bean.PhoneArea;
 import com.guuidea.towersdk.bus.AreaListener;
-import com.guuidea.towersdk.net.CallBackUtil;
 import com.guuidea.towersdk.net.Constants;
-import com.guuidea.towersdk.net.HeaderManager;
-import com.guuidea.towersdk.net.UrlHttpUtil;
 import com.guuidea.towersdk.utils.ToastUtil;
 import com.guuidea.towersdk.weight.NavigaView;
 
@@ -189,8 +189,9 @@ public class AreaSearchActivity extends BaseActivity {
     }
 
     private void getData() {
-        UrlHttpUtil.get(Constants.getSPhoneArea, null, HeaderManager.makeHeader(),
-                new CallBackUtil() {
+        NetClient.getInstance().url(Constants.getSPhoneArea)
+                .headerMap(HeaderManager.makeHeader())
+                .callback(new CallBackUtil() {
                     @Override
                     public void onFailure(Throwable throwable) {
                         ToastUtil.getInstance(AreaSearchActivity.this).showCommon(throwable.getMessage());
@@ -202,8 +203,8 @@ public class AreaSearchActivity extends BaseActivity {
                         generateTag(areaResponse.getData());
                     }
 
-                }
-        );
+                })
+                .get();
     }
 
     private void generateTag(List<PhoneArea> data) {

@@ -7,13 +7,13 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
+import com.guuidea.net.CallBackUtil
+import com.guuidea.net.HeaderManager
+import com.guuidea.net.NetClient
 import com.guuidea.towersdk.LoginResult
 import com.guuidea.towersdk.TowerLogin
 import com.guuidea.towersdk.activity.ChangePwdActivity
 import com.guuidea.towersdk.bean.AccountType
-import com.guuidea.towersdk.net.CallBackUtil
-import com.guuidea.towersdk.net.HeaderManager
-import com.guuidea.towersdk.net.UrlHttpUtil
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONObject
 import java.util.*
@@ -84,26 +84,42 @@ class MainActivity : AppCompatActivity() {
         params["appKey"] = appkey
         params["authToken"] = authToken
 
-        UrlHttpUtil.postJson(url, jsonObject.toString(), params, object : CallBackUtil() {
-            override fun onFailure(throwable: Throwable?) {
-                addMsg("获取凭证失败" + throwable?.message)
-            }
+//        UrlHttpUtil.postJson(url, jsonObject.toString(), params,)
 
-            override fun onResponse(response: com.google.gson.JsonObject?) {
-                addMsg("获取凭证成功" + response?.get("data")?.asString)
-                getToken(response?.get("data")?.asString)
-            }
-        })
+        NetClient.getInstance()
+            .url(url)
+            .jsonParams(jsonObject.toString())
+            .headerMap(params)
+            .callback(object : CallBackUtil() {
+                override fun onFailure(throwable: Throwable?) {
+                    addMsg("获取凭证失败" + throwable?.message)
+                }
+
+                override fun onResponse(response: com.google.gson.JsonObject?) {
+                    addMsg("获取凭证成功" + response?.get("data")?.asString)
+                    getToken(response?.get("data")?.asString)
+                }
+            })
+            .post()
+
     }
+
     @Deprecated("Api update")
     private fun getToken(code: String?) {
         val params = HashMap<String, String>()
         params["appKey"] = appkey
         params["appSecret"] = appSecret
         params["code"] = code!!
-        UrlHttpUtil.post(
-            url2, params
-            , HeaderManager.makeHeader(), object : CallBackUtil() {
+//        UrlHttpUtil.post(
+//            url2, params
+//            , HeaderManager.makeHeader(),
+//        )
+
+        NetClient.getInstance()
+            .url(url2)
+            .paramsMap(params)
+            .headerMap(HeaderManager.makeHeader())
+            .callback(object : CallBackUtil() {
                 override fun onFailure(throwable: Throwable?) {
                     addMsg("获取用户授权码失败" + throwable?.message)
                 }
@@ -112,10 +128,9 @@ class MainActivity : AppCompatActivity() {
                     addMsg("获取用户授权码成功")
                     getUserInfo(Gson().fromJson(response, Token::class.java))
                 }
-            }
-        )
+            })
+            .post()
     }
-
 
 
     private fun getUserInfo(token: Token) {
@@ -127,9 +142,16 @@ class MainActivity : AppCompatActivity() {
         params["appKey"] = appkey
         params["accessToken"] = token.data.accessToken
 
-        UrlHttpUtil.postJson(
-            url3, jsonObject.toString()
-            , params, object : CallBackUtil() {
+//        UrlHttpUtil.postJson(
+//            url3, jsonObject.toString()
+//            , params,
+//        )
+
+        NetClient.getInstance()
+            .url(url3)
+            .jsonParams(jsonObject.toString())
+            .headerMap(params)
+            .callback(object : CallBackUtil() {
                 override fun onFailure(throwable: Throwable?) {
                     addMsg("获取用户信息失败" + throwable?.message)
                 }
@@ -137,8 +159,8 @@ class MainActivity : AppCompatActivity() {
                 override fun onResponse(response: com.google.gson.JsonObject?) {
                     addMsg("获取用户信息成功" + Gson().fromJson(response, UserInfo::class.java))
                 }
-            }
-        )
+            })
+            .post()
     }
 
 
@@ -169,9 +191,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        Log.i(TAG, "onResume: "+getBuildConfigValue(this))
+        Log.i(TAG, "onResume: " + getBuildConfigValue(this))
     }
-    private  val TAG = "MainActivity"
+
+    private val TAG = "MainActivity"
+
     //用户临时授权凭证
     val url = "http://190.1.1.241:5002/api/oauth/code"
 

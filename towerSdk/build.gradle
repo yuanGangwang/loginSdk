@@ -17,10 +17,12 @@ android {
     buildTypes {
         release {
             minifyEnabled true
+            buildConfigField("String","SERVER_PATH","\"${BASE_URL}\"")
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
             minifyEnabled false
+            buildConfigField("String","SERVER_PATH","\"${DEBUG_BASE_URL}\"")
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -39,6 +41,7 @@ dependencies {
     implementation 'com.googlecode.libphonenumber:libphonenumber:8.2.0'
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation project(path: ':net')
 }
 
 def publishedGroupId = 'com.guuidea.tower'

@@ -3,6 +3,7 @@ package com.guuidea.towersdk;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
@@ -29,12 +30,16 @@ public class LoginActivity extends BaseActivity {
     boolean isLoginSuccess = false;
     private TextView switchLoginTv;
     private StateButton loginBtn;
+    private String appKey;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.login);
+        if (getIntent() != null && !TextUtils.isEmpty(getIntent().getStringExtra("appKey"))) {
+            appKey = getIntent().getStringExtra("appKey");
+        }
         initView();
         chooseAccountViewShow();
     }
@@ -85,8 +90,8 @@ public class LoginActivity extends BaseActivity {
             }
         });
 
-        emailFragment = EmailLoginFragment.newInstance();
-        phoneEmail = PhoneLoginFragment.newInstance();
+        emailFragment = EmailLoginFragment.newInstance(appKey);
+        phoneEmail = PhoneLoginFragment.newInstance(appKey);
 
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = manager.beginTransaction();
@@ -144,7 +149,7 @@ public class LoginActivity extends BaseActivity {
         boolean passwordSet = response.get("data").getAsJsonObject().get("passwordSet").getAsBoolean();
         ToastUtil.getInstance(this).showCustomer(this, R.string.log_in_successful);
 
-        if (passwordSet){
+        if (passwordSet) {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -152,7 +157,7 @@ public class LoginActivity extends BaseActivity {
                     finish();
                 }
             }, 500);
-        }else {
+        } else {
             Intent intent = new Intent(this, SetPwdActivity.class);
             intent.putExtra("authToken", authToken);
             startActivity(intent);

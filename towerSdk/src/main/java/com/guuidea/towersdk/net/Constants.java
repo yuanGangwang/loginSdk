@@ -1,10 +1,13 @@
 package com.guuidea.towersdk.net;
 
+import com.guuidea.towersdk.BuildConfig;
+
 public class Constants {
 
 //    private final static String serverPath = "http://47.110.12.104:9000";
-    private final static String serverPath = "http://api-gateway.globalneutron.com";
+//    private final static String serverPath = "http://api-gateway.globalneutron.com";
 
+    private final static String serverPath= BuildConfig.SERVER_PATH;
     //发送手机登录验证码
     public final static String getPhoneCodeUrl = serverPath + "/login/sms-verify-code/send";
 

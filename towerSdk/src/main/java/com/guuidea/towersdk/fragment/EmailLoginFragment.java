@@ -1,6 +1,5 @@
 package com.guuidea.towersdk.fragment;
 
-import android.annotation.SuppressLint;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -15,8 +14,9 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 
 import com.google.gson.JsonObject;
+import com.guuidea.net.CallBackUtil;
+import com.guuidea.net.NetClient;
 import com.guuidea.towersdk.R;
-import com.guuidea.towersdk.net.CallBackUtil;
 import com.guuidea.towersdk.weight.LoginCodeView;
 import com.guuidea.towersdk.weight.LoginPwdView;
 
@@ -35,7 +35,8 @@ public class EmailLoginFragment extends LoginBaseFragment {
     private View tabPwdLayout;
     private View tabSmsLayout;
 
-    public static EmailLoginFragment newInstance() {
+    public static EmailLoginFragment newInstance(String appKey) {
+        EmailLoginFragment emailLoginFragment = new EmailLoginFragment();
         return new EmailLoginFragment();
     }
 
@@ -143,7 +144,7 @@ public class EmailLoginFragment extends LoginBaseFragment {
 
                     @Override
                     public void onResponse(JsonObject response) {
-                        loginSuccess(response,LoginType.pwd);
+                        loginSuccess(response, LoginType.pwd);
                     }
                 }
         );
@@ -160,7 +161,7 @@ public class EmailLoginFragment extends LoginBaseFragment {
 
                     @Override
                     public void onResponse(JsonObject response) {
-                        loginSuccess(response,LoginType.code);
+                        loginSuccess(response, LoginType.code);
                     }
                 }
         );

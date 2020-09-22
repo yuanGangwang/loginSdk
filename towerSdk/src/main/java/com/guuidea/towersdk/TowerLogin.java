@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 
+import com.guuidea.net.NetClient;
 import com.guuidea.towersdk.bean.AccountType;
 
 public class TowerLogin {
@@ -62,8 +63,10 @@ public class TowerLogin {
         this.mContext = context;
 
 //        LanguageUtils.getInstance().setContext(context);
-
-        mContext.startActivity(new Intent(mContext, LoginActivity.class));
+        //初始化，设置appkey，供后续调用
+        NetClient.getInstance().appKey(appkey);
+        Intent loginIntent=new Intent(mContext,LoginActivity.class);
+        mContext.startActivity(loginIntent);
     }
 
     private void errorReturn(String errorMessage) {

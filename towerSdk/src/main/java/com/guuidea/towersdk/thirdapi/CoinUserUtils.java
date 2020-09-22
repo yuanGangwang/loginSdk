@@ -2,8 +2,8 @@ package com.guuidea.towersdk.thirdapi;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.guuidea.towersdk.net.CallBackUtil;
-import com.guuidea.towersdk.net.UrlHttpUtil;
+import com.guuidea.net.CallBackUtil;
+import com.guuidea.net.NetClient;
 import com.guuidea.towersdk.thirdapi.bean.UserCoinsInfo;
 import com.guuidea.towersdk.thirdapi.bean.UserInfoBean;
 
@@ -24,8 +24,12 @@ public class CoinUserUtils {
     }
 
     public static void getUserInfo(final CoinUserInfoCallBack callBack) {
-        UrlHttpUtil.postJson(ThirdApiConstant.getUserInfo, null
-                , header, new CallBackUtil() {
+//        UrlHttpUtil.postJson(ThirdApiConstant.getUserInfo, null
+//                , header, );
+        NetClient.getInstance()
+                .url(ThirdApiConstant.getUserInfo)
+                .headerMap(header)
+                .callback(new CallBackUtil() {
                     @Override
                     public void onFailure(Throwable throwable) {
                         callBack.onFail(throwable);
@@ -40,7 +44,8 @@ public class CoinUserUtils {
                             callBack.onFail(new Throwable(response.get("msg").getAsString()));
                         }
                     }
-                });
+                })
+                .post();
     }
 
     /**
@@ -51,8 +56,14 @@ public class CoinUserUtils {
      * paypal	String	能	PayPal账号
      */
     public static void updateUserInfo(JsonObject json, final CoinUserInfoCallBack callBack) {
-        UrlHttpUtil.postJson(ThirdApiConstant.updateUserInfo, json.toString()
-                , header, new CallBackUtil() {
+//        UrlHttpUtil.postJson(ThirdApiConstant.updateUserInfo, json.toString()
+//                , header, );
+
+        NetClient.getInstance()
+                .url(ThirdApiConstant.updateUserInfo)
+                .jsonParams(json.toString())
+                .headerMap(header)
+                .callback(new CallBackUtil() {
                     @Override
                     public void onFailure(Throwable throwable) {
                         callBack.onFail(throwable);
@@ -67,13 +78,18 @@ public class CoinUserUtils {
                             callBack.onFail(new Throwable(response.get("msg").getAsString()));
                         }
                     }
-                });
+                })
+                .post();
 
     }
 
     public static void getUserCoin(final CoinUserCoinCallBack callBack) {
-        UrlHttpUtil.postJson(ThirdApiConstant.getUserCoin, null
-                , header, new CallBackUtil() {
+//        UrlHttpUtil.postJson(ThirdApiConstant.getUserCoin, null
+//                , header,);
+
+        NetClient.getInstance().url(ThirdApiConstant.getUserCoin)
+                .headerMap(header)
+                .callback( new CallBackUtil() {
                     @Override
                     public void onFailure(Throwable throwable) {
                         callBack.onFail(throwable);
@@ -88,14 +104,21 @@ public class CoinUserUtils {
                             callBack.onFail(new Throwable(response.get("msg").getAsString()));
                         }
                     }
-                });
+                })
+                .post();
     }
 
     public static void inputInviteCOde(String code, final CoinUserInviteCallBack callBack) {
         JsonObject json = new JsonObject();
         json.addProperty("invitationCode", code);
-        UrlHttpUtil.postJson(ThirdApiConstant.inputInviteCOde, json.toString()
-                , header, new CallBackUtil() {
+//        UrlHttpUtil.postJson(ThirdApiConstant.inputInviteCOde, json.toString()
+//                , header, );
+
+        NetClient.getInstance()
+                .url(ThirdApiConstant.inputInviteCOde)
+                .jsonParams(json.toString())
+                .headerMap(header)
+                .callback(new CallBackUtil() {
                     @Override
                     public void onFailure(Throwable throwable) {
                         callBack.onFail(throwable);
@@ -109,7 +132,8 @@ public class CoinUserUtils {
                             callBack.onFail(new Throwable(response.get("msg").getAsString()));
                         }
                     }
-                });
+                })
+                .post();
     }
 
     public CoinUserUtils addHeader(String key, String value) {
