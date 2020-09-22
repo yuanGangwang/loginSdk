@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
                 object : LoginResult {
                     override fun onSuccess(authToken: String) {
                         addMsg("login  success   token  =  $authToken")
-                        requestUserScerte(authToken)
+//                        requestUserScerte(authToken)
                     }
 
                     override fun onCancel() {
@@ -71,6 +71,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    @Deprecated("Api update")
     private fun requestUserScerte(authToken: String) {
         addMsg("获取用户授权临时凭证")
         val jsonObject = JSONObject()
@@ -94,7 +95,7 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
-
+    @Deprecated("Api update")
     private fun getToken(code: String?) {
         val params = HashMap<String, String>()
         params["appKey"] = appkey
@@ -114,6 +115,8 @@ class MainActivity : AppCompatActivity() {
             }
         )
     }
+
+
 
     private fun getUserInfo(token: Token) {
         val jsonObject = JSONObject()

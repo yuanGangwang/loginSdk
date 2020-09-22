@@ -42,22 +42,22 @@ dependencies {
 }
 
 def publishedGroupId = 'com.guuidea.tower'
-//def artifact_Id = 'babel'
-def artifact_Id = 'test'
-def artifact_version = '1.0.11'
+def artifact_Id = 'babel'
+//def artifact_Id = 'test'
+def artifact_version = '1.0.2'
 
 
 uploadArchives{
     repositories.mavenDeployer{
 
-//        repository(url: "http://nexus.tttinner.com:8888/nexus/content/repositories/releases/") {
-//            authentication(
-//                    userName: "yuangang.wang",
-//                    password: "Abu0ln9vrD91e0m"
-//            )
-//        }
+        repository(url: "http://nexus.tttinner.com:8888/nexus/content/repositories/releases/") {
+            authentication(
+                    userName: "yuangang.wang",
+                    password: "Abu0ln9vrD91e0m"
+            )
+        }
 
-        repository(url:"file://C://repository/")
+//        repository(url:"file://C://repository/")
         // 唯一标识
         pom.groupId = publishedGroupId
         // 项目名称

@@ -1,3 +1,5 @@
+include ':IM'
+include ':net'
 rootProject.name='BabelTower'
 include ':app'
 include ':towerSdk'
