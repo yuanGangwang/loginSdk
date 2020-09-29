@@ -1,7 +1,9 @@
 package com.guuidea.net;
 
 import android.text.TextUtils;
+import android.widget.HeterogeneousExpandableList;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -22,14 +24,29 @@ public class NetClient {
     }
 
     private String url;
-    private String appkey;
     private Map<String, String> paramsMap;
     private String jsonParams;
     private Map<String, String> headerMap;
     private CallBackUtil callBack;
 
-    public void appKey(String appkey) {
-        this.appkey = appkey;
+    public NetClient customHeader(String key, String value) {
+        if (null != headerMap) {
+            headerMap.put(key, value);
+        } else {
+            headerMap = new HashMap<>();
+            headerMap.put(key, value);
+        }
+        return this;
+    }
+
+    public NetClient customParam(String key, String value) {
+        if (null != paramsMap) {
+            paramsMap.put(key, value);
+        } else {
+            paramsMap = new HashMap<>();
+            paramsMap.put(key, value);
+        }
+        return this;
     }
 
     public NetClient url(String url) {
@@ -41,12 +58,16 @@ public class NetClient {
         if (!TextUtils.isEmpty(jsonParams)) {
             throw new IllegalArgumentException("jsonParams has been called");
         }
-        this.paramsMap = paramsMap;
+        if (null == paramsMap) {
+            this.paramsMap = paramsMap;
+        } else {
+            this.paramsMap.putAll(paramsMap);
+        }
         return this;
     }
 
     public NetClient jsonParams(String jsonParams) {
-        if (paramsMap != null) {
+        if (null != paramsMap) {
             throw new IllegalArgumentException("paramsMap has been called");
         }
         this.jsonParams = jsonParams;
@@ -54,7 +75,11 @@ public class NetClient {
     }
 
     public NetClient headerMap(Map<String, String> headerMap) {
-        this.headerMap = headerMap;
+        if (null == headerMap) {
+            this.headerMap = headerMap;
+        } else {
+            this.headerMap.putAll(headerMap);
+        }
         return this;
     }
 
@@ -65,10 +90,6 @@ public class NetClient {
 
     public String getUrl() {
         return url;
-    }
-
-    public String getAppkey() {
-        return appkey;
     }
 
     public Map<String, String> getParamsMap() {
@@ -88,14 +109,10 @@ public class NetClient {
             throw new IllegalArgumentException("url can't be empty");
         }
 
-        if (TextUtils.isEmpty(appkey)) {
-            throw new IllegalArgumentException("appKey can't be empty");
-        }
-
         if (!TextUtils.isEmpty(jsonParams)) {
-            UrlHttpUtil.postJson(url, jsonParams, headerMap == null ? null : headerMap, callBack);
+            UrlHttpUtil.postJson(url, jsonParams, headerMap, callBack);
         } else {
-            UrlHttpUtil.post(url, paramsMap == null ? null : paramsMap, headerMap == null ? null : headerMap, callBack);
+            UrlHttpUtil.post(url, paramsMap, headerMap, callBack);
         }
     }
 
@@ -103,12 +120,7 @@ public class NetClient {
         if (TextUtils.isEmpty(url)) {
             throw new IllegalArgumentException("url can't be empty");
         }
-
-        if (TextUtils.isEmpty(appkey)) {
-            throw new RuntimeException("appKey can't be empty");
-        }
-
-        UrlHttpUtil.get(url, paramsMap == null ? null : paramsMap, headerMap == null ? null : headerMap, callBack);
+        UrlHttpUtil.get(url, paramsMap, headerMap, callBack);
 
     }
 }

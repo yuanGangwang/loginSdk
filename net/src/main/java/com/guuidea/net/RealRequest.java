@@ -36,11 +36,10 @@ class RealRequest {
             if (headerMap != null) {
                 setHeader(conn, headerMap);
             }
-            conn.setRequestProperty("appkey", NetClient.getInstance().getAppkey());
             conn.connect();
             if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
                 String response = getString(conn.getInputStream());
-                Log.i(TAG, "postData: "+response);
+                Log.i(TAG, "postData: " + response);
                 return new RealResponse(200, JsonParser.parseString(response).getAsJsonObject());
             } else {
                 return new RealResponse(conn.getResponseCode(), new Throwable(conn.getResponseMessage()));
@@ -60,7 +59,6 @@ class RealRequest {
             conn.setDoOutput(true);//可写出
             conn.setDoInput(true);//可读入
             conn.setUseCaches(false);
-            conn.setRequestProperty("appkey", NetClient.getInstance().getAppkey());
             conn.setRequestProperty("authToken", "123");
             if (headerMap != null) {
                 setHeader(conn, headerMap);
@@ -76,10 +74,10 @@ class RealRequest {
             }
             if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
                 String response = getString(conn.getInputStream());
-                Log.i(TAG, "postData: "+response);
+                Log.i(TAG, "postData: " + response);
                 return new RealResponse(200, JsonParser.parseString(response).getAsJsonObject());
             } else {
-                Log.i(TAG, "postData: "+conn.getResponseCode());
+                Log.i(TAG, "postData: " + conn.getResponseCode());
                 return new RealResponse(conn.getResponseCode(), new Throwable(getString(conn.getErrorStream())));
             }
         } catch (Exception e) {
@@ -93,7 +91,9 @@ class RealRequest {
         int length = 0;
         while (true) {
             try {
-                if ((length = in.read(buffer)) == -1) break;
+                if ((length = in.read(buffer)) == -1) {
+                    break;
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }

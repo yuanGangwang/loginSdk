@@ -2,10 +2,12 @@ package com.guuidea.towersdk;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
 import android.text.TextUtils;
 
 import com.guuidea.net.NetClient;
 import com.guuidea.towersdk.bean.AccountType;
+import com.guuidea.towersdk.net.Constants;
 
 public class TowerLogin {
 
@@ -64,8 +66,11 @@ public class TowerLogin {
 
 //        LanguageUtils.getInstance().setContext(context);
         //初始化，设置appkey，供后续调用
-        NetClient.getInstance().appKey(appkey);
-        Intent loginIntent=new Intent(mContext,LoginActivity.class);
+        NetClient.getInstance().customHeader("appkey", appkey);
+        Constants.getInstance().debug(isDebug(context))
+                .debugUrl("http://47.110.12.104:9000")
+                .releaseUrl("http://api-gateway.globalneutron.com");
+        Intent loginIntent = new Intent(mContext, LoginActivity.class);
         mContext.startActivity(loginIntent);
     }
 
@@ -75,6 +80,10 @@ public class TowerLogin {
         exception.printStackTrace();
     }
 
-
+    public boolean isDebug(Context context) {
+        boolean isDebug = context.getApplicationInfo() != null &&
+                (context.getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0;
+        return isDebug;
+    }
 
 }

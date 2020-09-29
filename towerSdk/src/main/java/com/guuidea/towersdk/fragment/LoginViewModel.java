@@ -14,7 +14,7 @@ public class LoginViewModel {
         JsonObject jsonObject = new JsonObject();
         jsonObject.addProperty("email", email);
         NetClient.getInstance()
-                .url(Constants.getEmailCodeUrl)
+                .url(Constants.getInstance().getEmailCodeUrl)
                 .jsonParams(jsonObject.toString())
                 .headerMap(HeaderManager.makeHeader())
                 .callback(backUtil)
@@ -32,7 +32,7 @@ public class LoginViewModel {
 //        UrlHttpUtil.postJson(Constants.getPhoneCodeUrl, jsonObject.toString()
 //                , HeaderManager.makeHeader(), backUtil);
         NetClient.getInstance()
-                .url(Constants.getPhoneCodeUrl)
+                .url(Constants.getInstance().getPhoneCodeUrl)
                 .jsonParams(jsonObject.toString())
                 .headerMap(HeaderManager.makeHeader())
                 .callback(backUtil)
@@ -46,7 +46,7 @@ public class LoginViewModel {
 //        UrlHttpUtil.postJson(Constants.loginWithEmailCode, jsonObject.toString()
 //                , HeaderManager.makeHeader(), backUtil);
         NetClient.getInstance()
-                .url(Constants.loginWithEmailCode)
+                .url(Constants.getInstance().loginWithEmailCode)
                 .jsonParams(jsonObject.toString())
                 .headerMap(HeaderManager.makeHeader())
                 .callback(backUtil)
@@ -62,7 +62,7 @@ public class LoginViewModel {
 //        UrlHttpUtil.postJson(Constants.loginWithPhoneCode, jsonObject.toString()
 //                , HeaderManager.makeHeader(), backUtil);
         NetClient.getInstance()
-                .url(Constants.loginWithPhoneCode)
+                .url(Constants.getInstance().loginWithPhoneCode)
                 .jsonParams(jsonObject.toString())
                 .headerMap(HeaderManager.makeHeader())
                 .callback(backUtil)
@@ -80,7 +80,7 @@ public class LoginViewModel {
 //                , HeaderManager.makeHeader(), backUtil);
 
         NetClient.getInstance()
-                .url(Constants.loginWithEmailPwd)
+                .url(Constants.getInstance().loginWithEmailPwd)
                 .jsonParams(jsonObject.toString())
                 .headerMap(HeaderManager.makeHeader())
                 .callback(backUtil)
@@ -97,7 +97,7 @@ public class LoginViewModel {
 //                , HeaderManager.makeHeader(), backUtil);
 
         NetClient.getInstance()
-                .url(Constants.loginWithPhonePwd)
+                .url(Constants.getInstance().loginWithPhonePwd)
                 .jsonParams(jsonObject.toString())
                 .headerMap(HeaderManager.makeHeader())
                 .callback(backUtil)

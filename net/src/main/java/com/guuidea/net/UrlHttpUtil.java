@@ -1,12 +1,6 @@
 package com.guuidea.net;
 
-import android.print.PrinterId;
-
 import java.util.Map;
-
-/**
- *
- */
 
 public class UrlHttpUtil {
     private static final String METHOD_GET = "GET";

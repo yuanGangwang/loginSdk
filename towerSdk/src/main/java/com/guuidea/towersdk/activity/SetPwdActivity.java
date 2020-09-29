@@ -68,7 +68,7 @@ public class SetPwdActivity extends BaseActivity {
 //                    }
 //                });
 
-        NetClient.getInstance().url(Constants.setPwd)
+        NetClient.getInstance().url(Constants.getInstance().setPwd)
                 .jsonParams(jsonObject.toString())
                 .headerMap(header)
                 .callback(new CallBackUtil() {

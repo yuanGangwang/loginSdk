@@ -189,7 +189,7 @@ public class AreaSearchActivity extends BaseActivity {
     }
 
     private void getData() {
-        NetClient.getInstance().url(Constants.getSPhoneArea)
+        NetClient.getInstance().url(Constants.getInstance().getSPhoneArea)
                 .headerMap(HeaderManager.makeHeader())
                 .callback(new CallBackUtil() {
                     @Override
