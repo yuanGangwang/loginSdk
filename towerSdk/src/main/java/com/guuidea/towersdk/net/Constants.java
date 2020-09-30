@@ -1,5 +1,7 @@
 package com.guuidea.towersdk.net;
 
+import android.text.TextUtils;
+
 public class Constants {
 
     private static final Constants INSTANCE = new Constants();
@@ -9,6 +11,10 @@ public class Constants {
     private boolean debug = false;
     private String debugUrl;
     private String releaseUrl;
+    private String serverPath;
+
+    private Constants() {
+    }
 
     public static Constants getInstance() {
         return INSTANCE;
@@ -29,7 +35,16 @@ public class Constants {
         return this;
     }
 
-    private final String serverPath = debug ? debugUrl : releaseUrl;
+    public void init() {
+        if (TextUtils.isEmpty(debugUrl)) {
+            throw new RuntimeException("debugUrl can't be empty!");
+        }
+        if (TextUtils.isEmpty(releaseUrl)) {
+            throw new RuntimeException("releaseUrl can't be empty!");
+        }
+        serverPath = debug ? debugUrl : releaseUrl;
+    }
+
     //发送手机登录验证码
     public final String getPhoneCodeUrl = serverPath + "/login/sms-verify-code/send";
 

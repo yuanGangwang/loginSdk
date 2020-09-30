@@ -69,7 +69,8 @@ public class TowerLogin {
         NetClient.getInstance().customHeader("appkey", appkey);
         Constants.getInstance().debug(isDebug(context))
                 .debugUrl("http://47.110.12.104:9000")
-                .releaseUrl("http://api-gateway.globalneutron.com");
+                .releaseUrl("http://api-gateway.globalneutron.com")
+                .init();
         Intent loginIntent = new Intent(mContext, LoginActivity.class);
         mContext.startActivity(loginIntent);
     }
