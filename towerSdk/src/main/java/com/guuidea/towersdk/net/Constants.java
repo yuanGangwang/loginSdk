@@ -46,42 +46,68 @@ public class Constants {
     }
 
     //发送手机登录验证码
-    public final String getPhoneCodeUrl = serverPath + "/login/sms-verify-code/send";
+    public String getPhoneCodeUrl() {
+        return serverPath + "/login/sms-verify-code/send";
+    }
 
     //发送重置手机手机密码验证码
-    public final String getChangePhonePwdCode = serverPath + "/user/password/reset/sms-verify-code/send";
+    public String getChangePhonePwdCode() {
+        return serverPath + "/user/password/reset/sms-verify-code/send";
+    }
 
     //发送邮箱登录验证码
-    public final String getEmailCodeUrl = serverPath + "/login/email-verify-code/send";
+    public String getEmailCodeUrl() {
+        return serverPath + "/login/email-verify-code/send";
+    }
 
     //发送重置邮箱登录密码验证码
-    public final String getChangeEmailPwdCode = serverPath + "/user/password/reset/email-verify-code/send";
+    public String getChangeEmailPwdCode() {
+        return serverPath + "/user/password/reset/email-verify-code/send";
+    }
 
     //获取展示地区
-    public final String getSPhoneArea = serverPath + "/common/country/info";
+    public String getSPhoneArea() {
+        return serverPath + "/common/country/info";
+    }
 
     //手机密码登录
-    public final String loginWithPhonePwd = serverPath + "/login/login-by-phone-password";
+    public String loginWithPhonePwd() {
+        return serverPath + "/login/login-by-phone-password";
+    }
 
     //Email密码登录
-    public final String loginWithEmailPwd = serverPath + "/login/login-by-email-password";
+    public String loginWithEmailPwd() {
+        return serverPath + "/login/login-by-email-password";
+    }
 
     //手机验证码登录
-    public final String loginWithPhoneCode = serverPath + "/login/login-by-sms-code ";
+    public String loginWithPhoneCode() {
+        return serverPath + "/login/login-by-sms-code ";
+    }
 
     //Email验证码登录
-    public final String loginWithEmailCode = serverPath + "/login/login-by-email-code";
+    public String loginWithEmailCode(){
+        return serverPath + "/login/login-by-email-code";
+    }
 
     //校验修改密码手机验证码
-    public String checkChangePhonePwdCode = serverPath + "/user/password/reset/sms-verify-code/check";
+    public String checkChangePhonePwdCode(){
+        return serverPath + "/user/password/reset/sms-verify-code/check";
+    }
 
     //校验修改密码邮箱验证码
-    public String checkChangeEmailPwdCode = serverPath + "/user/password/reset/email-verify-code/check";
+    public String checkChangeEmailPwdCode(){
+        return serverPath + "/user/password/reset/email-verify-code/check";
+    }
 
     //重置密码
-    public String resetPwd = serverPath + "/user/password/reset/confirm";
+    public String resetPwd(){
+        return serverPath + "/user/password/reset/confirm";
+    }
 
     //登录状态下设置密码
-    public String setPwd = serverPath + "/login/set-password";
+    public String setPwd(){
+        return serverPath + "/login/set-password";
+    }
 
 }

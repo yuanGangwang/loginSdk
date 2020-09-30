@@ -243,7 +243,7 @@ public class ChangePwdActivity extends BaseActivity {
         jsonObject.addProperty("email", email);
 //        UrlHttpUtil.postJson(Constants.getChangeEmailPwdCode, jsonObject.toString()
 //                , HeaderManager.makeHeader(),);
-        NetClient.getInstance().url(Constants.getInstance().getChangeEmailPwdCode)
+        NetClient.getInstance().url(Constants.getInstance().getChangeEmailPwdCode())
                 .jsonParams(jsonObject.toString())
                 .headerMap(HeaderManager.makeHeader())
                 .callback(new CallBackUtil() {
@@ -280,7 +280,7 @@ public class ChangePwdActivity extends BaseActivity {
 //                    }
 //                });
 
-        NetClient.getInstance().url(Constants.getInstance().getChangePhonePwdCode)
+        NetClient.getInstance().url(Constants.getInstance().getChangePhonePwdCode())
                 .jsonParams(jsonObject.toString())
                 .headerMap(HeaderManager.makeHeader())
                 .callback(new CallBackUtil() {
@@ -318,7 +318,7 @@ public class ChangePwdActivity extends BaseActivity {
 //                    }
 //                });
 
-        NetClient.getInstance().url(Constants.getInstance().checkChangePhonePwdCode)
+        NetClient.getInstance().url(Constants.getInstance().checkChangePhonePwdCode())
                 .jsonParams(jsonObject.toString())
                 .headerMap(HeaderManager.makeHeader())
                 .callback(new CallBackUtil() {
@@ -355,7 +355,7 @@ public class ChangePwdActivity extends BaseActivity {
 //                    }
 //                });
 
-        NetClient.getInstance().url(Constants.getInstance().checkChangeEmailPwdCode)
+        NetClient.getInstance().url(Constants.getInstance().checkChangeEmailPwdCode())
                 .jsonParams(jsonObject.toString())
                 .headerMap(HeaderManager.makeHeader())
                 .callback(new CallBackUtil() {
@@ -403,7 +403,7 @@ public class ChangePwdActivity extends BaseActivity {
 //                    }
 //                });
 
-        NetClient.getInstance().url(Constants.getInstance().resetPwd)
+        NetClient.getInstance().url(Constants.getInstance().resetPwd())
                 .jsonParams(jsonObject.toString())
                 .headerMap(HeaderManager.makeHeader())
                 .callback(new CallBackUtil() {
